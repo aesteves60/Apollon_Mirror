@@ -1,4 +1,3 @@
-
 .modal-overlay {
   background-color: rgba(0, 0, 0, .4);
   bottom: 0;
@@ -9,31 +8,11 @@
   z-index: 1000;
 }
 
-.closed {
-    top: -50%;
-}  
-.modal-overlay{
-    display: none;
+.close .modal{
+  top: -50%;
 }
-.right-align {
-      position: absolute;
-      right: 5px;
-}
-
-.title {
-    background-color: red;
-    text-align: center;
-    color: white;
-    line-height: 40px;
-}
-title:hover{
-  cursor: pointer;
-  transform: scale(1.1);
-}
-
-
-.body{
-  padding: 1.2em;
+.close .modal-overlay{
+  display: none;
 }
 
 .modal {
@@ -48,5 +27,28 @@ title:hover{
   width: 600px;
   z-index: 1100;
   transition: all .5s ease;
-
 }
+
+.modal .title {
+    background-color: red;
+    text-align: center;
+    color: white;
+    line-height: 40px;
+}
+
+.modal .title .right-align {
+  position: absolute;
+  right: 5px;
+}
+.modal .title i{
+  line-height: 40px;
+}
+
+.modal .title:hover{
+  cursor: pointer;
+}
+
+
+.modal .body{
+    padding: 1.2em;
+  }
