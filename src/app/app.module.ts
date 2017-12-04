@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
 
-import { Ng2DragDropModule } from 'ng2-drag-drop';
+import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -29,7 +29,7 @@ import { AccountComponent } from './account/account.component';
     FormsModule,
     AppRoutingModule,
     ModalModule,
-    Ng2DragDropModule.forRoot()
+    DragulaModule
   ],
   providers: [  ],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DragulaService } from 'ng2-dragula/ng2-dragula';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
 
-  constructor() { }
-
+  constructor(private dragula: DragulaService) {
+    this.dragula.setOptions('bag-items', {
+      revertOnSpill: true
+    });
+  }
 }

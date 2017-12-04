@@ -1,10 +1,5 @@
-<ul>
-  <li draggable>Coffee</li>
-  <li draggable>Tea</li>
-  <li draggable>Milk</li>
-</ul>    
+test drag and drop
 
-
-<div droppable>
-  <p>Drop items here</p>
-</div>  
+<ul [dragula]='"bag-items"' [dragulaModel]='items'>
+    <li *ngFor="let item of items">{{item}}</li>
+</ul>
