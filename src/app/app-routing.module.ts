@@ -5,6 +5,7 @@ import { LoginComponent }   from './login/login.component';
 import { ForgetPswComponent }   from './forgetpsw/forgetpsw.component';
 
 const routes: Routes = [
+	{ path: '', redirectTo: '/login', pathMatch: 'full' },
   	{ path: 'login', component: LoginComponent },
 	{ path: 'forgetpsw', component: ForgetPswComponent },
 	{ path: 'mirror', component: LoginComponent }

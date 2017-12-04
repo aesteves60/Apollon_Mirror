@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPswComponent } from './forgetpsw/forgetpsw.component';
 import { ModalModule } from './modal/modal.module';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { PersonalizeComponent } from './personalize/personalize.component';
+import { AccountComponent } from './account/account.component';
 
 
 
@@ -14,7 +17,10 @@ import { ModalModule } from './modal/modal.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    ForgetPswComponent
+    ForgetPswComponent,
+    InscriptionComponent,
+    PersonalizeComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
