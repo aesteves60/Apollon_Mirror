@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
 
+import { Ng2DragDropModule } from 'ng2-drag-drop';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPswComponent } from './forgetpsw/forgetpsw.component';
@@ -26,7 +28,8 @@ import { AccountComponent } from './account/account.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ModalModule
+    ModalModule,
+    Ng2DragDropModule.forRoot()
   ],
   providers: [  ],
   bootstrap: [AppComponent]
