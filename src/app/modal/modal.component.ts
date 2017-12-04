@@ -25,7 +25,6 @@ export class ModalComponent implements OnInit {
 
   close(checkBlocking = false): void {
     this.modalService.close(this.modalId, checkBlocking);
-    Console.log("")
   }
 
   private keyup(event: KeyboardEvent): void {

@@ -10,30 +10,12 @@
 }
 
 .closed {
+  .modal{
     top: -50%;
-}  
-.modal-overlay{
+  }
+  .modal-overlay{
     display: none;
-}
-.right-align {
-      position: absolute;
-      right: 5px;
-}
-
-.title {
-    background-color: red;
-    text-align: center;
-    color: white;
-    line-height: 40px;
-}
-title:hover{
-  cursor: pointer;
-  transform: scale(1.1);
-}
-
-
-.body{
-  padding: 1.2em;
+  }
 }
 
 .modal {
@@ -49,4 +31,27 @@ title:hover{
   z-index: 1100;
   transition: all .5s ease;
 
+  .title {
+    background-color: red;
+    text-align: center;
+    color: white;
+    line-height: 40px;
+
+    .right-align {
+      position: absolute;
+      right: 5px;
+      &, i{
+        line-height: 40px;
+      }
+
+      &:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .body{
+    padding: 1.2em;
+  }
 }
