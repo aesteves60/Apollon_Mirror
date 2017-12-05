@@ -1,10 +1,63 @@
-<ul>
-  <li draggable>Coffee</li>
-  <li draggable>Tea</li>
-  <li draggable>Milk</li>
-</ul>    
+test drag and drop
+
+<div class="parent">
+    <label for="hy">There are plenty of events along the lifetime of a drag event.</label>
+    <div class="wrapper">
+        <ul class="container" [dragula]="'another-bag2'">
+            <li *ngFor="let item of items">{{item}}</li> 
+        </ul>	
+    </div>
+    <hr/>
+	<!-- mirror-->
+	<table>
+	   <tr>
+	       <td colspan="2">
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div *ngIf="!ItemMirrorUpLeft.length">Vide</div>
+        		</div>
+        	</td>
+	       <td colspan="2">
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div *ngIf="!ItemMirrorUpRight.length">Vide</div>
+        		</div>
+        	</td>
+	   </tr>
+	   <tr>
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div *ngIf="!ItemMirrorLeft.length">Vide</div>
+        		</div>
+        	</td>	       
+        	<td colspan="2"></td>
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div *ngIf="!ItemMirrorRight.length">Vide</div>
+        		</div>
+        	</td>	
+	   </tr>
+	   <tr>
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div *ngIf="!ItemMirrorDownLeft.length">Vide</div>
+        		</div>
+        	</td>	
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div *ngIf="!ItemMirrorDown1.length">Vide</div>
+        		</div>
+        	</td>	
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div *ngIf="!ItemMirrorDown2.length">Vide</div>
+        		</div>
+        	</td>	
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div *ngIf="!ItemMirrorDownRight.length">Vide</div>
+        		</div>
+        	</td>	
+	   </tr>
+	</table>
 
 
-<div droppable>
-  <p>Drop items here</p>
-</div>  
+</div>

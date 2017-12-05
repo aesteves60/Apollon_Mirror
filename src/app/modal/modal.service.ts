@@ -30,13 +30,14 @@ export class ModalService {
 
   close(modalId: string, checkBlocking = false): void {
     const modal = this.findModal(modalId);
+    console.log("Hello2");
 
     if (modal) {
       if (checkBlocking && modal.blocking) {
         return;
       }
-
       modal.isOpen = false;
+      console.log(modal);
     }
   }
 
