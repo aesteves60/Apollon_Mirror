@@ -38,7 +38,7 @@
 
 .modal .title .right-align {
   position: absolute;
-  right: 5px;
+  right: 1em;
 }
 .modal .title i{
   line-height: 40px;
