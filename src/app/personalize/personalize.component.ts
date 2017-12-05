@@ -25,26 +25,42 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirrorLeft       = [];
   public ItemMirrorRight      = [];
   public ItemMirrorDownRight  = [];
-  public ItemMirrorDown       = [];
+  public ItemMirrorDown1       = [];
+  public ItemMirrorDown2       = [];
   public ItemMirrorDownLeft   = [];
       
-  	constructor(private dragula: DragulaService) { }
+  constructor(private dragula: DragulaService) { }
 
-  	ngOnInit() {
-	    this.dragula
-	      .drag
-	      .subscribe(value => {
-	        this.msg = `Dragging the ${ value[1].innerText }!`;
-    	});
+	ngOnInit() {
+    this.dragula
+      .drag
+      .subscribe(value => {
+        this.msg = `Dragging the ${ value[1].innerText }!`;
+  	});
 
-    	this.dragula
-      	.drop
-      	.subscribe(value => {
-        	this.msg = `Dropped the ${ value[1].innerText }!`;
+  	this.dragula
+    	.drop
+    	.subscribe(value => {
+      	this.msg = `Dropped the ${ value[1].innerText }!`;
 
-        setTimeout(() => {
-          this.msg = '';
-        }, 1000);
-      });
+      setTimeout(() => {
+        this.msg = '';
+      }, 1000);
+    });
+  }
+
+
+  private onDrop(args: any): void {
+    let [e] = args;
+    console.log(args);
+    console.log(e);
+    console.log(e.innerText);
+
+    let s: any = [];
+    s = e.innerText.split(",");
+    console.log(s[1]);
+    // console.log([e].childer);
+    
+    //this.addClass(e, 'ex-moved');
   }
 }

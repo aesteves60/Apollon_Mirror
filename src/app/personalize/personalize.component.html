@@ -5,64 +5,55 @@ test drag and drop
     <div class="wrapper">
         <ul class="container" [dragula]="'another-bag2'">
             <li *ngFor="let item of items">{{item}}</li> 
-        </ul>
-        test
-        <div class="container" [dragula]="'another-bag2'">
-            <div>empty1</div>
-        </div>
-		<hr/>
-        <div class="container" [dragula]="'another-bag2'">
-        	<article *ngIf="!items.length">Empty</article>
-            <li *ngFor="let item of items">{{item}}</li> 
-        </div>
-
+        </ul>	
     </div>
+    <hr/>
 	<!-- mirror-->
 	<table>
 	   <tr>
 	       <td colspan="2">
 	       		<div class="container" [dragula]="'another-bag2'">
-            		<div>empty1</div>
+            		<div *ngIf="!ItemMirrorUpLeft.length">Vide</div>
         		</div>
         	</td>
 	       <td colspan="2">
 	       		<div class="container" [dragula]="'another-bag2'">
-            		<div>empty1</div>
+            		<div *ngIf="!ItemMirrorUpRight.length">Vide</div>
         		</div>
         	</td>
 	   </tr>
 	   <tr>
 	       <td>
 	       		<div class="container" [dragula]="'another-bag2'">
-            		<div>empty1</div>
+            		<div *ngIf="!ItemMirrorLeft.length">Vide</div>
         		</div>
         	</td>	       
         	<td colspan="2"></td>
 	       <td>
 	       		<div class="container" [dragula]="'another-bag2'">
-            		<div>empty1</div>
+            		<div *ngIf="!ItemMirrorRight.length">Vide</div>
         		</div>
         	</td>	
 	   </tr>
 	   <tr>
 	       <td>
 	       		<div class="container" [dragula]="'another-bag2'">
-            		<div>empty1</div>
+            		<div *ngIf="!ItemMirrorDownLeft.length">Vide</div>
         		</div>
         	</td>	
 	       <td>
 	       		<div class="container" [dragula]="'another-bag2'">
-            		<div>empty1</div>
+            		<div *ngIf="!ItemMirrorDown1.length">Vide</div>
         		</div>
         	</td>	
 	       <td>
 	       		<div class="container" [dragula]="'another-bag2'">
-            		<div>empty1</div>
+            		<div *ngIf="!ItemMirrorDown2.length">Vide</div>
         		</div>
         	</td>	
 	       <td>
 	       		<div class="container" [dragula]="'another-bag2'">
-            		<div>empty1</div>
+            		<div *ngIf="!ItemMirrorDownRight.length">Vide</div>
         		</div>
         	</td>	
 	   </tr>
