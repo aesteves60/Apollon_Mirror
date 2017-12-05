@@ -10,7 +10,7 @@ export class AppComponent {
 
 
   constructor(private dragula: DragulaService) {
-    this.dragula.setOptions('bag-items', {
+    this.dragula.setOptions('first-bag', {
       revertOnSpill: true
     });
   }

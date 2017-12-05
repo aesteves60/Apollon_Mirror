@@ -1,5 +1,19 @@
 test drag and drop
 
-<ul [dragula]='"bag-items"' [dragulaModel]='items'>
-    <li *ngFor="let item of items">{{item}}</li>
-</ul>
+<div class="parent">
+    <label for="hy">There are plenty of events along the lifetime of a drag event.</label>
+    <div class="wrapper">
+        <ul class="container" [dragula]="'first-bag'">
+            <li *ngFor="let item of items">{{item}}</li>
+        </ul>
+        test
+        <div class="container" [dragula]="'first-bag'">
+            <div>empty1</div>
+        </div>
+		<hr/>
+        <div class="container" [dragula]="'first-bag'">
+            <div>empty</div>
+        </div>
+
+    </div>
+</div>
