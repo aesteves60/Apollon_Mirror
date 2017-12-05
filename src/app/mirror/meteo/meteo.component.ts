@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-meteo',
@@ -8,11 +8,11 @@ import { Http, Response } from '@angular/http';
 })
 export class MeteoComponent implements OnInit {
 
-  constructor(private http: Http) { }
+  constructor( private http: HttpClient) { }
   getMeteo() {
     this.http.get('https://www.prevision-meteo.ch/services/json/lat=46.259lng=5.235')
       .subscribe((res: Response) => {
-        const meteo = res.json();
+        const meteo = res;
         console.log(meteo);
       })
   }
