@@ -6,12 +6,6 @@ import { Http, Response } from '@angular/http';
   templateUrl: './meteo.component.html',
   styleUrls: ['./meteo.component.css']
 })
-class MeteoObject {
-
-  constructor() {
-
-  }
-}
 export class MeteoComponent implements OnInit {
 
   constructor(private http: Http) { }
