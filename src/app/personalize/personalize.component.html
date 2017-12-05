@@ -3,17 +3,70 @@ test drag and drop
 <div class="parent">
     <label for="hy">There are plenty of events along the lifetime of a drag event.</label>
     <div class="wrapper">
-        <ul class="container" [dragula]="'first-bag'">
-            <li *ngFor="let item of items">{{item}}</li>
+        <ul class="container" [dragula]="'another-bag2'">
+            <li *ngFor="let item of items">{{item}}</li> 
         </ul>
         test
-        <div class="container" [dragula]="'first-bag'">
+        <div class="container" [dragula]="'another-bag2'">
             <div>empty1</div>
         </div>
 		<hr/>
-        <div class="container" [dragula]="'first-bag'">
-            <div>empty</div>
+        <div class="container" [dragula]="'another-bag2'">
+        	<article *ngIf="!items.length">Empty</article>
+            <li *ngFor="let item of items">{{item}}</li> 
         </div>
 
     </div>
+	<!-- mirror-->
+	<table>
+	   <tr>
+	       <td colspan="2">
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div>empty1</div>
+        		</div>
+        	</td>
+	       <td colspan="2">
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div>empty1</div>
+        		</div>
+        	</td>
+	   </tr>
+	   <tr>
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div>empty1</div>
+        		</div>
+        	</td>	       
+        	<td colspan="2"></td>
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div>empty1</div>
+        		</div>
+        	</td>	
+	   </tr>
+	   <tr>
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div>empty1</div>
+        		</div>
+        	</td>	
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div>empty1</div>
+        		</div>
+        	</td>	
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div>empty1</div>
+        		</div>
+        	</td>	
+	       <td>
+	       		<div class="container" [dragula]="'another-bag2'">
+            		<div>empty1</div>
+        		</div>
+        	</td>	
+	   </tr>
+	</table>
+
+
 </div>

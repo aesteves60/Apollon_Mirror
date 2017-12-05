@@ -19,6 +19,14 @@ export class PersonalizeComponent implements OnInit {
 	'Pipe',
 	'Wrench'
 	];
+
+  public ItemMirrorUpLeft     = [];
+  public ItemMirrorUpRight    = [];
+  public ItemMirrorLeft       = [];
+  public ItemMirrorRight      = [];
+  public ItemMirrorDownRight  = [];
+  public ItemMirrorDown       = [];
+  public ItemMirrorDownLeft   = [];
       
   	constructor(private dragula: DragulaService) { }
 
