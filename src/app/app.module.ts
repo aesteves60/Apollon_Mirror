@@ -24,15 +24,15 @@ import { MeteoComponent } from './mirror/meteo/meteo.component';
     ForgetPswComponent,
     InscriptionComponent,
     PersonalizeComponent,
-    AccountComponent,
-    MeteoComponent,
-    HttpClientModule,
+    AccountComponent, 
+    MeteoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     ModalModule,
+    HttpClientModule,
     DragulaModule
   ],
   providers: [  ],
