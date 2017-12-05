@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 
@@ -12,6 +13,7 @@ import { ModalModule } from './modal/modal.module';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PersonalizeComponent } from './personalize/personalize.component';
 import { AccountComponent } from './account/account.component';
+import { MeteoComponent } from './mirror/meteo/meteo.component';
 
 
 
@@ -22,7 +24,9 @@ import { AccountComponent } from './account/account.component';
     ForgetPswComponent,
     InscriptionComponent,
     PersonalizeComponent,
-    AccountComponent
+    AccountComponent,
+    MeteoComponent,
+    HttpClientModule,
   ],
   imports: [
     BrowserModule,
