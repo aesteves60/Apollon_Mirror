@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DragulaService } from 'ng2-dragula/ng2-dragula';
 
 @Component({
   selector: 'app-root',

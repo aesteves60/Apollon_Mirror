@@ -1,6 +1,4 @@
- import { Component, OnInit } from '@angular/core';
-
-import { DragulaService } from 'ng2-dragula/ng2-dragula';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-personalize',
