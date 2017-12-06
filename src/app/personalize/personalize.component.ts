@@ -9,8 +9,6 @@ import { DragulaService } from 'ng2-dragula/ng2-dragula';
 })
 export class PersonalizeComponent implements OnInit {
 
-	msg = '';
-
 	items = [
 	'Candlestick',
 	'Dagger',
@@ -25,42 +23,43 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirrorLeft       = [];
   public ItemMirrorRight      = [];
   public ItemMirrorDownRight  = [];
-  public ItemMirrorDown1       = [];
-  public ItemMirrorDown2       = [];
+  public ItemMirrorDown1      = [];
+  public ItemMirrorDown2      = [];
   public ItemMirrorDownLeft   = [];
       
-  constructor(private dragula: DragulaService) { }
+  constructor(private dragula: DragulaService) { 
+    var i = 0;
+    dragula.drop.subscribe((value) => {
 
-	ngOnInit() {
-    this.dragula
-      .drag
-      .subscribe(value => {
-        this.msg = `Dragging the ${ value[1].innerText }!`;
-  	});
+      //id de la div qui a receptionné le drop
+      console.log(value[2].children[1].classList[0]);
+      for (i = 0 ; i<value[2].childNodes.length ; i++) {
 
-  	this.dragula
-    	.drop
-    	.subscribe(value => {
-      	this.msg = `Dropped the ${ value[1].innerText }!`;
+        //console.log(value[2].childNodes[i]);
+        if(value[2].childNodes[i].innerText == 'Vide') 
+        {
+          //console.log(value[2].childNodes[i].innerText);
+          value[2].childNodes[i].value = '';
+        }
+      }
 
-      setTimeout(() => {
-        this.msg = '';
-      }, 1000);
+      switch(value[2].id) { 
+        case 'MirrorUpLeft' : {
+          this.ItemMirrorUpLeft[0] = value[1].innerText;
+        }  
+      }
     });
   }
 
+	ngOnInit() {
 
+  }
+  private onDrag(args) {
+    let [e, el] = args;
+    // do something
+  }
   private onDrop(args: any): void {
-    let [e] = args;
-    console.log(args);
-    console.log(e);
-    console.log(e.innerText);
-
-    let s: any = [];
-    s = e.innerText.split(",");
-    console.log(s[1]);
-    // console.log([e].childer);
-    
-    //this.addClass(e, 'ex-moved');
+      //on regarde le tableau et on le vide et le rempli
+      
   }
 }

@@ -10,8 +10,11 @@ export class AppComponent {
 
 
   constructor(private dragula: DragulaService) {
-    this.dragula.setOptions('another-bag2', {
-      revertOnSpill: true
+    this.dragula.setOptions('fifth-bag', {
+      copy : true,
+      invalid: (el, handle) => el.classList.contains('donotdrag'),
+      removeOnSpill : false,
+      ignoreInputTextSelection : true
     });
   }
 }
