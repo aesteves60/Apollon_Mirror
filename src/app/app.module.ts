@@ -15,7 +15,9 @@ import { PersonalizeComponent } from './personalize/personalize.component';
 import { AccountComponent } from './account/account.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
 
-
+//Angular Material
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatFormFieldModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,14 @@ import { MeteoComponent } from './mirror/meteo/meteo.component';
     AppRoutingModule,
     ModalModule,
     HttpClientModule,
-    DragulaModule
+    DragulaModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatFormFieldModule
   ],
   providers: [  ],
   bootstrap: [AppComponent]
