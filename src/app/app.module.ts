@@ -17,6 +17,7 @@ import { MeteoComponent } from './mirror/meteo/meteo.component';
 
 //Angular Material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatFormFieldModule } from '@angular/material';
 
 @NgModule({
@@ -37,6 +38,7 @@ import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatTo
     HttpClientModule,
     DragulaModule,
     BrowserAnimationsModule,
+    MatIconModule,
     MatButtonModule,
     MatDialogModule,
     MatMenuModule,
