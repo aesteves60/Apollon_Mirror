@@ -1,67 +1,72 @@
-test drag and drop
-
-<div class="parent">
-    <label for="hy">There are plenty of events along the lifetime of a drag event.</label>
-    <div class="wrapper">
-        <ul class="container" [dragula]="'fifth-bag'">
-            <div *ngFor="let item of items">{{item}}</div> 
-        </ul>	
+<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" opened="true">
+    <ul  class="container" [dragula]="'fifth-bag'"
+    *ngFor="let element of elements">
+        <div>{{element.name}}</div>
+        <img src="https://i2.cdscdn.com/pdt2/9/3/4/2/300x300/auc4635059095934/rw/drapeau-france-francais-football-flag-150-x-90-cm.jpg" width="50px" height="20px">
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+        <div>
+            <ul>
+                <div *ngFor="let item of items">{{item}}</div> 
+            </ul>	
+        </div>    	<!-- mirror-->
+    	<table>
+    	   <tr>
+    	       <td colspan="2">
+    	       		<div id="MirrorUpLeft" [dragula]="'fifth-bag'">
+                		<div class="donotdrag" *ngIf="!ItemMirrorUpLeft.length">Vide</div>
+                        <div class="donotdrag" *ngFor="let item of ItemMirrorUpLeft ; let i = index" >
+                            {{item}}
+                        </div>
+            		</div>
+            	</td>
+    	       <td colspan="2">
+    	       		<div id="MirrorUpRight" class="container" [dragula]="'fifth-bag'">
+                		<div class="donotdrag" *ngIf="!ItemMirrorUpRight.length">Vide</div>                    
+                        
+            		</div>
+            	</td>
+    	   </tr>
+    	   <tr>
+    	       <td>
+    	       		<div id="MirrorLeft" class="container" [dragula]="'fifth-bag'">
+                		<div *ngIf="!ItemMirrorLeft.length">Vide</div>
+            		</div>
+            	</td>	       
+            	<td colspan="2"></td>
+    	       <td>
+    	       		<div id="MirrorRight" class="container" [dragula]="'fifth-bag'">
+                		<div *ngIf="!ItemMirrorRight.length">Vide</div>
+            		</div>
+            	</td>	
+    	   </tr>
+    	   <tr>
+    	       <td>
+    	       		<div id="MirrorDownLeft" class="container" [dragula]="'fifth-bag'">
+                		<div *ngIf="!ItemMirrorDownLeft.length">Vide</div>
+            		</div>
+            	</td>	
+    	       <td>
+    	       		<div id="MirrorDown1" class="container" [dragula]="'fifth-bag'">
+                		<div *ngIf="!ItemMirrorDown1.length">Vide</div>
+            		</div>
+            	</td>	
+    	       <td>
+    	       		<div id="MirrorDown2" class="container" [dragula]="'fifth-bag'">
+                		<div *ngIf="!ItemMirrorDown2.length">Vide</div>
+            		</div>
+            	</td>	
+    	       <td>
+    	       		<div id="MirrorDownRight" class="container" [dragula]="'fifth-bag'">
+                		<div *ngIf="!ItemMirrorDownRight.length">Vide</div>
+            		</div>
+            	</td>	
+    	   </tr>
+    	</table>
     </div>
-    <hr/>
-	<!-- mirror-->
-	<table>
-	   <tr>
-	       <td colspan="2">
-	       		<div id="MirrorUpLeft" [dragula]="'fifth-bag'">
-            		<div class="donotdrag" *ngIf="!ItemMirrorUpLeft.length">Vide</div>
-                    <div class="donotdrag" *ngFor="let item of ItemMirrorUpLeft ; let i = index" >
-                        {{item}}
-                    </div>
-        		</div>
-        	</td>
-	       <td colspan="2">
-	       		<div id="MirrorUpRight" class="container" [dragula]="'fifth-bag'">
-            		<div class="donotdrag" *ngIf="!ItemMirrorUpRight.length">Vide</div>                    
-                    
-        		</div>
-        	</td>
-	   </tr>
-	   <tr>
-	       <td>
-	       		<div id="MirrorLeft" class="container" [dragula]="'fifth-bag'">
-            		<div *ngIf="!ItemMirrorLeft.length">Vide</div>
-        		</div>
-        	</td>	       
-        	<td colspan="2"></td>
-	       <td>
-	       		<div id="MirrorRight" class="container" [dragula]="'fifth-bag'">
-            		<div *ngIf="!ItemMirrorRight.length">Vide</div>
-        		</div>
-        	</td>	
-	   </tr>
-	   <tr>
-	       <td>
-	       		<div id="MirrorDownLeft" class="container" [dragula]="'fifth-bag'">
-            		<div *ngIf="!ItemMirrorDownLeft.length">Vide</div>
-        		</div>
-        	</td>	
-	       <td>
-	       		<div id="MirrorDown1" class="container" [dragula]="'fifth-bag'">
-            		<div *ngIf="!ItemMirrorDown1.length">Vide</div>
-        		</div>
-        	</td>	
-	       <td>
-	       		<div id="MirrorDown2" class="container" [dragula]="'fifth-bag'">
-            		<div *ngIf="!ItemMirrorDown2.length">Vide</div>
-        		</div>
-        	</td>	
-	       <td>
-	       		<div id="MirrorDownRight" class="container" [dragula]="'fifth-bag'">
-            		<div *ngIf="!ItemMirrorDownRight.length">Vide</div>
-        		</div>
-        	</td>	
-	   </tr>
-	</table>
 
-
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

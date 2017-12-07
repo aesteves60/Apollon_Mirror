@@ -1,3 +1,4 @@
+
 table
 {
     border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
@@ -5,4 +6,17 @@ table
 td /* Toutes les cellules des tableaux... */
 {
     border: 1px solid black; /* auront une bordure de 1px */
+}
+
+.example-container {
+  position: absolute;
+}
+
+mat-sidenav {
+  	width: 15%;
+}
+
+mat-sidenav-container {
+	height: 100vh
+	; 
 }

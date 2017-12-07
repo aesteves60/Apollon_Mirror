@@ -4,6 +4,7 @@ import { FormsModule }    from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
+//drag n drop
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { PersonalizeComponent } from './personalize/personalize.component';
 import { AccountComponent } from './account/account.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
+import { MirrorComponent } from './mirror/mirror.component';
 
 //Angular Material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -28,7 +30,8 @@ import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatTo
     InscriptionComponent,
     PersonalizeComponent,
     AccountComponent, 
-    MeteoComponent
+    MeteoComponent, 
+    MirrorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,17 @@
-<mat-toolbar color="primary">
+<div *ngIf="[routerLinkActive] === '/mirror'">
+	
+	<mat-toolbar color="primary">
 
-	<div class="button-row mg-left-20">
-		<a routerLink="/" mat-button ><mat-icon>home</mat-icon> Mirror</a>
-		<a routerLink="/account" mat-button >Account</a>
-		<a routerLink="/personalize" mat-button >Personalization</a>
-	</div>
+		<div  class="button-row mg-left-20">
+			<a routerLink="/" mat-button ><mat-icon>home</mat-icon> Mirror</a>
+			<a routerLink="/account" mat-button >Account</a>
+			<a routerLink="/personalize" mat-button >Personalization</a>
+		</div>
 
 
-</mat-toolbar>
+	</mat-toolbar>
+</div>
+
 <!--The content below is only a placeholder and can be replaced.-->
 <router-outlet></router-outlet>
 

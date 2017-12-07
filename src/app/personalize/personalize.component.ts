@@ -1,4 +1,7 @@
- import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 import { DragulaService } from 'ng2-dragula/ng2-dragula';
 
@@ -8,15 +11,7 @@ import { DragulaService } from 'ng2-dragula/ng2-dragula';
   styleUrls: ['./personalize.component.css']
 })
 export class PersonalizeComponent implements OnInit {
-
-	items = [
-	'Candlestick',
-	'Dagger',
-	'Revolver',
-	'Rope',
-	'Pipe',
-	'Wrench'
-	];
+  private elements;
 
   public ItemMirrorUpLeft     = [];
   public ItemMirrorUpRight    = [];
@@ -27,7 +22,9 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirrorDown2      = [];
   public ItemMirrorDownLeft   = [];
       
-  constructor(private dragula: DragulaService) { 
+  constructor(private dragula: DragulaService, private http: HttpClient) { 
+    this.getElements(http);
+
     var i = 0;
     dragula.drop.subscribe((value) => {
 
@@ -61,5 +58,17 @@ export class PersonalizeComponent implements OnInit {
   private onDrop(args: any): void {
       //on regarde le tableau et on le vide et le rempli
       
+  }
+
+  public getElements(http : HttpClient){
+    this.http.get('https://restcountries.eu/rest/v2/region/europe')
+            .subscribe(data => {
+                this.elements = data;
+                console.log(this.elements);
+            }, 
+            err => {
+                console.log('Something went wrong!')
+            });
+
   }
 }

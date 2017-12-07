@@ -6,6 +6,7 @@ import { ForgetPswComponent }   from './forgetpsw/forgetpsw.component';
 import { InscriptionComponent }   from './inscription/inscription.component';
 import { PersonalizeComponent }   from './personalize/personalize.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
+import { MirrorComponent } from './mirror/mirror.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -13,7 +14,10 @@ const routes: Routes = [
 	{ path: 'forgetpsw', component: ForgetPswComponent },
 	{ path: 'inscription', component: InscriptionComponent },
 	{ path: 'meteo', component: MeteoComponent },
-	{ path: 'personalize', component: PersonalizeComponent }
+	{ path: 'personalize', component: PersonalizeComponent },
+	{ path: 'mirror', component: MirrorComponent },
+	{ path: 'account', redirectTo: '/mirror'  }
+
 ];
 
 @NgModule({
