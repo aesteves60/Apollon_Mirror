@@ -1,0 +1,57 @@
+.day_meteo_0{
+	width: 65%;
+	float: left;
+	background-color: black;
+	color:white;
+}
+.day_meteo_img_0{
+	min-width: 30%;
+	float: left;
+	margin-top: 5%;
+}
+.day_meteo_glob_0{
+	width: 70%;
+	float: left;
+	text-align: center;
+	font-size: 30px;
+	margin-top: 10%;
+	font-family: 'Arial Black', sans-serif;
+
+}
+.day_meteo_1{
+	width: 35%;
+	float: left;
+	background-color: black;
+	color:white;
+
+}
+.day_meteo_img_1{
+	width: 35%;
+	margin: auto;
+	display: block;
+	margin-top: 10%;
+}
+.day_meteo_glob_1{
+	width: 100%;
+	text-align: center;
+	font-size: 15px;
+	font-family: 'Arial Black', sans-serif;
+
+}
+.day_meteo_2,.day_meteo_3,.day_meteo_4,.day_meteo_5{
+	background-color: black;
+	color:white;
+	width: 100%;
+	float: left;
+}
+.day_meteo_img_2,.day_meteo_img_3,.day_meteo_img_4,.day_meteo_img_5{
+	width: 50px;
+	float: left;
+}
+.day_meteo_txt_2,.day_meteo_txt_3,.day_meteo_txt_4,.day_meteo_txt_5{
+	width: 175px;
+	margin-top: 10px;
+	float: left;
+	margin-left: 10px;
+	font-family: 'Arial Black', sans-serif;
+}
