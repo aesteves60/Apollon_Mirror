@@ -1,39 +1,35 @@
-<p>
-  <li style="list-style-type:none;background-color: black;color:white" *ngFor="let item of tabMeteo;let i = index">
-  	<div id="day_meteo_{{i}}">
-  	{{item.date}}
-	{{item.conditionLabel}}
-	<div>
-		<img src= {{item.imgUrl}} >
-	</div>
-	<div>
-		<div>
-			<span>
-				{{item.condition}}
-			</span>
-		</div>
-		<div>
+<p >
+  <li style="list-style-type:none" *ngFor="let item of tabMeteo;let i = index">
+  	<div class="day_meteo_{{i}}">
+
+	
+		<img class="day_meteo_img_{{i}}" src= {{item.imgUrl}} >
+	
+		<div class="day_meteo_glob_{{i}}">
+
+		<div  *ngIf="item.tmp !== null;" class="day_meteo_txt_{{i}}"> 
 			<span>
 				{{item.tmp}}
 			</span>
 		</div>
-		<div>
+		<div class="day_meteo_txt_{{i}}">
+			<span>
+				{{item.day}}
+			</span>
+		</div>
+		<div class="day_meteo_txt_{{i}}">
 			<span>
 				{{item.tmin}}
 			</span>
 		</div>
-		<div>
+		<div class="day_meteo_txt_{{i}}">
 			<span>
 				{{item.tmax}}
 			</span>
 		</div>
-		<div>
-			<span>
-				{{item.date}}
-			</span>
-		</div>
 	</div>
-  	</div>
+	</div>
+  	
      
   </li>
 </p>
