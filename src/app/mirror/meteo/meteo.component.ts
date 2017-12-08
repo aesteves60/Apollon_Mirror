@@ -20,9 +20,9 @@ export class MeteoComponent implements OnInit {
   ngOnInit() {
     this.currentUrl = this.router.url;
     var obj:any ;
-       this.http.get('https://www.prevision-meteo.ch/services/json/lat=46.259lng=5.235')
+      this.http.get('https://www.prevision-meteo.ch/services/json/lat=46.259lng=5.235')
      .subscribe(res => 
-       this.traiteData(res)
+        this.traiteData(res)
       );
   }
   traiteData(res){

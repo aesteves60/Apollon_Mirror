@@ -16,6 +16,8 @@ const routes: Routes = [
 	{ path: 'meteo', component: MeteoComponent },
 	{ path: 'personalize', component: PersonalizeComponent },
 	{ path: 'mirror', component: MirrorComponent },
+	{ path: 'contacter', component: PersonalizeComponent },
+	{ path: 'apropos', component: MirrorComponent },
 	{ path: 'account', redirectTo: '/mirror'  }
 
 ];

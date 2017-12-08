@@ -2,28 +2,25 @@
 <div class="container">
   <label><b>Username</b></label>
   
-  <input type="text" placeholder="Enter Username" name="uname" required>
+  <input matInput  type="text" placeholder="Enter Username" name="uname" required>
 
   <label><b>Password</b></label>
-  <input type="password" placeholder="Enter Password" name="psw" required>
+  <input matInput  type="password" placeholder="Enter Password" name="psw" required>
 
-  <button type="submit" routerLink="/mirror" >Login</button>
+  <button mat-raised-button type="submit" routerLink="/mirror" >Login</button>
 
-  <button type="submit">Connect with Google</button>
-
-  <button type="submit">Connect with FaceBook</button>
 </div>
 
 <div class="container" style="background-color:#f1f1f1">
-  <span class="psw"> 
-    <nav>
-      <a routerLink="/forgetpsw">Forget Password ?</a>
-    </nav>
-  </span>
-
-<button (click)='modalService.open(modalId)'>Open Modal</button>
-  <app-modal [modalTitle]="'Inscription'" [blocking]='false' [modalId]='modalId'>
-      <div>Text inside the modal</div>
-    </app-modal>
-
+  <button mat-raised-button class="button-row" (click)='modalService.open(modalId)'>Inscription</button>
+  <button mat-raised-button type="submit">Connect with Google</button>
+  <button mat-raised-button type="submit">Connect with FaceBook</button>
+  <div class="psw"> 
+    <a routerLink="/forgetpsw">Forget Password ?</a>
+  </div>
+  
 </div>
+
+<app-modal [modalTitle]="'Inscription'" [blocking]='false' [modalId]='modalId'>
+  <div></div>
+</app-modal>

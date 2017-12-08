@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 //drag n drop
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 
+//composent de l'application
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPswComponent } from './forgetpsw/forgetpsw.component';
@@ -20,7 +21,8 @@ import { MirrorComponent } from './mirror/mirror.component';
 //Angular Material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatFormFieldModule } from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatFormFieldModule, MatSnackBarModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatTo
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     ModalModule,
     HttpClientModule,
@@ -47,9 +50,10 @@ import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatTo
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule
   ],
-  providers: [  ],
+  providers: [ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
