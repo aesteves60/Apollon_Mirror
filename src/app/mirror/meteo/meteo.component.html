@@ -1,3 +1,39 @@
 <p>
-  meteo works!
+  <li style="list-style-type:none;background-color: black;color:white" *ngFor="let item of tabMeteo;let i = index">
+  	<div id="day_meteo_{{i}}">
+  	{{item.date}}
+	{{item.conditionLabel}}
+	<div>
+		<img src= {{item.imgUrl}} >
+	</div>
+	<div>
+		<div>
+			<span>
+				{{item.condition}}
+			</span>
+		</div>
+		<div>
+			<span>
+				{{item.tmp}}
+			</span>
+		</div>
+		<div>
+			<span>
+				{{item.tmin}}
+			</span>
+		</div>
+		<div>
+			<span>
+				{{item.tmax}}
+			</span>
+		</div>
+		<div>
+			<span>
+				{{item.date}}
+			</span>
+		</div>
+	</div>
+  	</div>
+     
+  </li>
 </p>
