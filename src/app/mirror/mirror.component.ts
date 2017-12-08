@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mirror.component.css']
 })
 export class MirrorComponent implements OnInit {
+	app1 = "<app-meteo>"
+	app2 = "</app-meteo>"
 
   constructor() { }
 
