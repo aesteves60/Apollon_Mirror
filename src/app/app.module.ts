@@ -53,7 +53,7 @@ import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatTo
     MatFormFieldModule,
     MatSnackBarModule
   ],
-  providers: [ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
