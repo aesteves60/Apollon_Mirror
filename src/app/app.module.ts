@@ -20,19 +20,20 @@ import { MirrorComponent } from './mirror/mirror.component';
 import { ItemsPersonalizeComponent } from './items_personalize/items_personalize.component';
 
 //Angular Material
-import {CdkTableModule} from '@angular/cdk/table';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
+import { CdkTableModule } from '@angular/cdk/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 import {
   MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatPaginatorModule,
   MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
-  MatDialogModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, 
-  MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule, 
-  MatSidenavModule, MatSliderModule, MatSortModule, MatSlideToggleModule, 
+  MatDialogModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule,
+  MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule,
+  MatSidenavModule, MatSliderModule, MatSortModule, MatSlideToggleModule,
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
-import {CdkTableModule} from '@angular/cdk/table';
+import { AproposComponent } from './apropos/apropos.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -43,9 +44,9 @@ import {CdkTableModule} from '@angular/cdk/table';
     ForgetPswComponent,
     InscriptionComponent,
     PersonalizeComponent,
-    AccountComponent, 
-    MeteoComponent, 
-    MirrorComponent, ItemsPersonalizeComponent
+    AccountComponent,
+    MeteoComponent,
+    MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent
   ],
   imports: [
     BrowserModule,
