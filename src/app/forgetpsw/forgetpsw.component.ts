@@ -5,14 +5,6 @@ import { MatSnackBar } from '@angular/material';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
-
 
 @Component({
   selector: 'app-forgetpsw',
@@ -35,25 +27,30 @@ export class ForgetPswComponent implements OnInit {
   constructor( private http: HttpClient, public snackBar: MatSnackBar) { }
 
   openSnackBar(_message: string, action: string) {
-    if(this.emailFormControl.value != '' && this.emailFormControl.errors == null )
-    {
-      this.snackBar.open(_message, action, {
-      duration: 4000,
+    if(this.emailFormControl){
+        this.snackBar.open(_message, action, {
+        duration: 4000,
       });
-      this.EnvoiEmail(this.emailFormControl.value);
-      console.log(this.emailFormControl)
+      this.EnvoiEmail();
     }
   }
 
-  EnvoiEmail(e: String){
-  	this.http.get(this.URL_API+"/"+e)
-    		 .subscribe(data => 
-    		   this.reponse = data
-    		 );
+  EnvoiEmail(){
+  	this.http.get(this.URL_API)
+    		.subscribe(data => 
+    		  this.reponse = data
+    		);
   }
-
 
   ngOnInit() {
   }
 
+}
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
 }

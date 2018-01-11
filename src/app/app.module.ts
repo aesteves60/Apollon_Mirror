@@ -23,11 +23,16 @@ import { ItemsPersonalizeComponent } from './items_personalize/items_personalize
 import {CdkTableModule} from '@angular/cdk/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
-import {MatAutocompleteModule,
-  MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, 
-  MatExpansionModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule,
-  MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule,
-  MatSnackBarModule, MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatStepperModule } from '@angular/material';
+import {
+  MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatPaginatorModule,
+  MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
+  MatDialogModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, 
+  MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule, 
+  MatSidenavModule, MatSliderModule, MatSortModule, MatSlideToggleModule, 
+  MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
+  MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
+} from '@angular/material';
+import {CdkTableModule} from '@angular/cdk/table';
 
 
 
@@ -52,39 +57,38 @@ import {MatAutocompleteModule,
     DragulaModule,
     CdkTableModule,
     BrowserAnimationsModule,
-    MatAutocompleteModule,
+     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatStepperModule,
     MatDatepickerModule,
     MatDialogModule,
     MatExpansionModule,
+    MatFormFieldModule,
     MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
-    MatRippleModule,
     MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
     MatSlideToggleModule,
+    MatSliderModule,
+    MatSidenavModule,
     MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
+    MatStepperModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule
   ],
-  providers: [],
+  providers: [  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
