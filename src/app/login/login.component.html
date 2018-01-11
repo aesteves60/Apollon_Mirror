@@ -1,7 +1,7 @@
 
 <div class="container">
   <label><b>Username</b></label>
-  
+
   <input matInput  type="text" placeholder="Enter Username" name="uname" required>
 
   <label><b>Password</b></label>
@@ -10,19 +10,3 @@
   <button mat-raised-button type="submit" routerLink="/mirror" >Login</button>
 
 </div>
-
-<div class="container" style="background-color:#f1f1f1">
-  <button mat-raised-button class="button-row" (click)='modalService.open(modalId)'>Inscription</button>
-  <button mat-raised-button type="submit">Connect with Google</button>
-  <button mat-raised-button type="submit">Connect with FaceBook</button>
-  <div class="psw"> 
-    <a routerLink="/forgetpsw">Forget Password ?</a>
-  </div>
-  
-</div>
-
-<app-modal [modalTitle]="'Inscription'" [blocking]='false' [modalId]='modalId'>
-  <div>
-    <app-inscription (onClose)='modalService.close(modalId, $event)'></app-inscription>
-  </div>
-</app-modal>

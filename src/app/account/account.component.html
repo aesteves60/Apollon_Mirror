@@ -7,5 +7,18 @@
     <input type="password" matInput value={{password}}>
   </mat-form-field>
 
+  <div class="background-color:#f1f1f1">
+    <button mat-raised-button class="button-row" (click)='modalService.open(modalId)'>Inscription</button>
+
+    <div class="psw">
+      <a routerLink="/forgetpsw">Forget Password ?</a>
+    </div>
+  </div>
 
 </form>
+
+<app-modal [modalTitle]="'Inscription'" [blocking]='false' [modalId]='modalId'>
+  <div>
+    <app-inscription (onClose)='modalService.close(modalId, $event)'></app-inscription>
+  </div>
+</app-modal>

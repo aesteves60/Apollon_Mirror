@@ -8,17 +8,21 @@ import { PersonalizeComponent }   from './personalize/personalize.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
 import { AccountComponent } from './account/account.component';
+import { ContactComponent } from './contact/contact.component';
+import { AproposComponent } from './apropos/apropos.component';
+import { CineComponent } from "./mirror/cine/cine.component";
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
-  	{ path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
 	{ path: 'forgetpsw', component: ForgetPswComponent },
-	{ path: 'inscription', component: InscriptionComponent },
+  { path: 'inscription', component: InscriptionComponent },
 	{ path: 'meteo', component: MeteoComponent },
 	{ path: 'personalize', component: PersonalizeComponent },
 	{ path: 'mirror', component: MirrorComponent },
-	{ path: 'contacter', component: PersonalizeComponent },
-	{ path: 'apropos', component: MirrorComponent },
+	{ path: 'contacter', component: ContactComponent },
+	{ path: 'apropos', component: AproposComponent },
+  { path: 'cine', component: CineComponent },
 	{ path: 'account', component: AccountComponent  }
 
 ];
