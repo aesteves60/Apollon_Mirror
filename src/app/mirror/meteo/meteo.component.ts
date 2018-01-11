@@ -13,12 +13,15 @@ import 'rxjs/add/operator/map';
 export class MeteoComponent implements OnInit {
   tabMeteo: jourMeteo[] = [] ;
   currentUrl: string;
+  heure:string;
   constructor( private http: HttpClient,private router:Router) { }
 
 
   
   ngOnInit() {
     this.currentUrl = this.router.url;
+    var date = new Date();
+    this.heure = date.getHours()+" : "+date.getMinutes();
     var obj:any ;
        this.http.get('https://www.prevision-meteo.ch/services/json/lat=51.032lng=2.377')
      .subscribe(res => 

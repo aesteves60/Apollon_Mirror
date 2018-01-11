@@ -9,6 +9,9 @@
 	float: left;
 	margin-top: 5%;
 }
+.day_meteo_heure_0{
+
+}
 .day_meteo_glob_0{
 	width: 70%;
 	float: left;
@@ -54,4 +57,7 @@
 	float: left;
 	margin-left: 10px;
 	font-family: 'Arial Black', sans-serif;
+}
+.day_meteo_heure_1,.day_meteo_heure_2,.day_meteo_heure_3,.day_meteo_heure_4,.day_meteo_heure_5{
+	display:none;
 }

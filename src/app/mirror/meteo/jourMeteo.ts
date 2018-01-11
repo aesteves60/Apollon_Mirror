@@ -9,6 +9,7 @@ private tmp: string;
 private imgUrl: string;
 private day: string;
 
+
 constructor(date:string,condition:string,condtionLabel:string,tmax:string,tmin:string,tmp:string) { 
   this.date = date;
   this.condition = condition;
