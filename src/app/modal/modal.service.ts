@@ -30,7 +30,6 @@ export class ModalService {
 
   close(modalId: string, checkBlocking = false): void {
     const modal = this.findModal(modalId);
-
     if (modal) {
       if (checkBlocking && modal.blocking) {
         return;

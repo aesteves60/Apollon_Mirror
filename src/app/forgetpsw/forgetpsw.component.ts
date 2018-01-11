@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
 
@@ -30,22 +30,26 @@ export class ForgetPswComponent implements OnInit {
 	message = "Un email vous a été envoyé pour modifier votre mot de passe";
 	URL_API = "http://localhost/get/forgetpsw";
 	reponse ;
+  @Input() email: String;
 
   constructor( private http: HttpClient, public snackBar: MatSnackBar) { }
 
   openSnackBar(_message: string, action: string) {
-    this.snackBar.open(_message, action, {
+    if(this.emailFormControl.value != '' && this.emailFormControl.errors == null )
+    {
+      this.snackBar.open(_message, action, {
       duration: 4000,
-    });
-    this.EnvoiEmail();
+      });
+      this.EnvoiEmail(this.emailFormControl.value);
+      console.log(this.emailFormControl)
+    }
   }
 
-  EnvoiEmail(){
-  	this.http.get(this.URL_API)
+  EnvoiEmail(e: String){
+  	this.http.get(this.URL_API+"/"+e)
     		 .subscribe(data => 
-    		 this.reponse = data
+    		   this.reponse = data
     		 );
-    console.log('ok');
   }
 
 

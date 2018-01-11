@@ -22,5 +22,7 @@
 </div>
 
 <app-modal [modalTitle]="'Inscription'" [blocking]='false' [modalId]='modalId'>
-  <div></div>
+  <div>
+    <app-inscription (onClose)='modalService.close(modalId, $event)'></app-inscription>
+  </div>
 </app-modal>

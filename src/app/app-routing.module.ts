@@ -7,6 +7,7 @@ import { InscriptionComponent }   from './inscription/inscription.component';
 import { PersonalizeComponent }   from './personalize/personalize.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,7 +19,7 @@ const routes: Routes = [
 	{ path: 'mirror', component: MirrorComponent },
 	{ path: 'contacter', component: PersonalizeComponent },
 	{ path: 'apropos', component: MirrorComponent },
-	{ path: 'account', redirectTo: '/mirror'  }
+	{ path: 'account', component: AccountComponent  }
 
 ];
 

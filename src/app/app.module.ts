@@ -17,11 +17,18 @@ import { PersonalizeComponent } from './personalize/personalize.component';
 import { AccountComponent } from './account/account.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
+import { ItemsPersonalizeComponent } from './items_personalize/items_personalize.component';
 
 //Angular Material
+import {CdkTableModule} from '@angular/cdk/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatFormFieldModule, MatSnackBarModule } from '@angular/material';
+import {MatAutocompleteModule,
+  MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, 
+  MatExpansionModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule,
+  MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule,
+  MatSnackBarModule, MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatStepperModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -33,7 +40,7 @@ import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatTo
     PersonalizeComponent,
     AccountComponent, 
     MeteoComponent, 
-    MirrorComponent
+    MirrorComponent, ItemsPersonalizeComponent
   ],
   imports: [
     BrowserModule,
@@ -43,15 +50,39 @@ import {MatButtonModule, MatDialogModule, MatMenuModule, MatSidenavModule, MatTo
     ModalModule,
     HttpClientModule,
     DragulaModule,
+    CdkTableModule,
     BrowserAnimationsModule,
-    MatIconModule,
+    MatAutocompleteModule,
     MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
     MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
     MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
     MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
     MatToolbarModule,
-    MatFormFieldModule,
-    MatSnackBarModule
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

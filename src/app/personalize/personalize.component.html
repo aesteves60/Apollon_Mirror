@@ -1,10 +1,6 @@
 <mat-sidenav-container class="container">
   <mat-sidenav mode="side" opened="true">
-    <ul  class="container" [dragula]="'fifth-bag'"
-    *ngFor="let element of elements">
-        <div>{{element.name}}</div>
-        <img src="https://i2.cdscdn.com/pdt2/9/3/4/2/300x300/auc4635059095934/rw/drapeau-france-francais-football-flag-150-x-90-cm.jpg" width="50px" height="20px">
-    </ul>
+    <app-items_personalize></app-items_personalize>
   </mat-sidenav>
   <mat-sidenav-content>
     <div>

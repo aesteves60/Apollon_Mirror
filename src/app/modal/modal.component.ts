@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, HostListener } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalService } from './modal.service';
 
 @Component({
@@ -12,10 +12,6 @@ export class ModalComponent implements OnInit {
   @Input() blocking = false;
   isOpen = false;
 
-  @HostListener('keyup') onMouseEnter(event) {
-    this.keyup(event);
-  }
-
   constructor(private modalService: ModalService) {
   }
 
@@ -23,7 +19,7 @@ export class ModalComponent implements OnInit {
     this.modalService.registerModal(this);
   }
 
-  close(checkBlocking = false): void {
+  closed(checkBlocking = false) {
     this.modalService.close(this.modalId, checkBlocking);
   }
 
