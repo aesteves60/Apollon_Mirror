@@ -7,11 +7,20 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./cine.component.css']
 })
 export class CineComponent implements OnInit {
+  URL_API="https://api.themoviedb.org/3/movie/now_playing?api_key=6afd703d3cc394780cd541b624503a78&language=fr&page=1";
   films;
 
   constructor( private http: HttpClient ) { }
 
   ngOnInit() {
+    this.GetFilmsNowPlaying();
+  }
+
+  GetFilmsNowPlaying(){
+    this.http.get(this.URL_API)
+      .subscribe(data => {
+        return this.films = data.results;
+      } );
   }
 
 }

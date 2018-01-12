@@ -10,7 +10,6 @@ import { MirrorComponent } from './mirror/mirror.component';
 import { AccountComponent } from './account/account.component';
 import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
-import { CineComponent } from "./mirror/cine/cine.component";
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -22,7 +21,6 @@ const routes: Routes = [
 	{ path: 'mirror', component: MirrorComponent },
 	{ path: 'contacter', component: ContactComponent },
 	{ path: 'apropos', component: AproposComponent },
-  { path: 'cine', component: CineComponent },
 	{ path: 'account', component: AccountComponent  }
 
 ];

@@ -1,5 +1,8 @@
-<div>
+<div class="cine">
   <ul>
-    <li>    </li>
+    <li *ngFor="let film of films"
+        [value]="film.id">
+      {{film.title}}
+    </li>
   </ul>
 </div>
