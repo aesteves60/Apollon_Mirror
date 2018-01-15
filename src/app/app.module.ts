@@ -35,6 +35,7 @@ import {
 import { AproposComponent } from './apropos/apropos.component';
 import { ContactComponent } from './contact/contact.component';
 import { CineComponent } from './mirror/cine/cine.component';
+import { ApimanagerComponent } from './apimanager/apimanager.component';
 
 
 
@@ -47,7 +48,7 @@ import { CineComponent } from './mirror/cine/cine.component';
     PersonalizeComponent,
     AccountComponent,
     MeteoComponent,
-    MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent
+    MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent, ApimanagerComponent
   ],
   imports: [
     BrowserModule,
