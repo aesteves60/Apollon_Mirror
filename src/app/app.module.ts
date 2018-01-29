@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from "./_auth/auth.guard";
+import { LoginService } from "./login/login.service";
 
 //drag n drop
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
@@ -40,13 +42,8 @@ import { CineComponent } from './mirror/cine/cine.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    ForgetPswComponent,
-    InscriptionComponent,
-    PersonalizeComponent,
-    AccountComponent,
-    MeteoComponent,
+    AppComponent, LoginComponent,
+    ForgetPswComponent, InscriptionComponent, PersonalizeComponent, AccountComponent, MeteoComponent,
     MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent
   ],
   imports: [
@@ -90,7 +87,7 @@ import { CineComponent } from './mirror/cine/cine.component';
     MatSortModule,
     MatTableModule
   ],
-  providers: [  ],
+  providers: [ LoginService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
