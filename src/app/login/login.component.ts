@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from "./login.service";
-import { MatSnackBar } from '@angular/material';
+import { AlertService } from "../_tools/alert.service";
 
 @Component({
   selector: 'app-login',
@@ -17,13 +17,13 @@ export class LoginComponent implements OnInit {
   public cercle4_Class = 'cercle';
 
   constructor( private router: Router, private loginS: LoginService,
-               public snackBar: MatSnackBar ) { }
+               private alertService: AlertService) { }
 
   ngOnInit() {
     this.loginS.logout();
   }
 
-  RemoveNumber(){
+  RemoveCmpt(){
     if((this.cmpt <=4)&&(this.cmpt >0)) {
       this.code = this.code.substr(0, this.code.length - 1);
       switch (this.cmpt) {
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  AddNumber(event) {
+  AddCmpt(event) {
     if((this.cmpt <4)&&(this.cmpt >=0)) {
       this.cmpt++;
       switch (this.cmpt) {
@@ -53,18 +53,19 @@ export class LoginComponent implements OnInit {
   }
 
   CheckPassword( c : string){
-    if(this.loginS.login(c, 'token')){
-      this.router.navigateByUrl('/personalize');
-    }else {
-      this.openSnackBar('test','tst');
+    if(! this.loginS.login(c, 'token')){
+      this.WrongPassword();
     }
   }
 
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      extraClasses : ['icons'],
-      duration: 2000,
-    });
+  WrongPassword() {
+    this.alertService.error('Wrong password');
+    this.cmpt = 0 ;
+    this.code = '';
+    this.cercle1_Class = 'cercle';
+    this.cercle2_Class = 'cercle';
+    this.cercle3_Class = 'cercle';
+    this.cercle4_Class = 'cercle';
   }
 
 }

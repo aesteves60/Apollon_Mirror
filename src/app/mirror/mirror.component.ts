@@ -1,17 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ComponentFactoryResolver, AfterContentInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {MyMirrorDirective} from "./mirror.directive";
+import {MirrorService} from "./mirror.service";
+import {MeteoComponent} from "./meteo/meteo.component";
+import {MirrorItem} from "./mirror-item";
 
 @Component({
   selector: 'app-mirror',
   templateUrl: './mirror.component.html',
   styleUrls: ['./mirror.component.css']
 })
-export class MirrorComponent implements OnInit {
-	app1 = "<app-meteo>"
-	app2 = "</app-meteo>"
+export class MirrorComponent implements AfterContentInit {
 
-  constructor() { }
+  @ViewChild(MyMirrorDirective)
+  private mirrorDirective: MyMirrorDirective;
 
-  ngOnInit() {
+  mirrorItems: MirrorItem[];
+
+  constructor(private mirrorService: MirrorService) { }
+
+  ngAfterContentInit() {
+    this.mirrorItems = this.mirrorService.getAllPosts();
+    this.mirrorService.loadComponent(this.mirrorDirective.viewContainerRef, this.mirrorItems[0])
   }
 
 }

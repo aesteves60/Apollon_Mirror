@@ -4,7 +4,11 @@ import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from "./_auth/auth.guard";
+
+//service
 import { LoginService } from "./login/login.service";
+import {MirrorService} from "./mirror/mirror.service";
+import {AlertService} from "./_tools/alert.service";
 
 //drag n drop
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
@@ -13,13 +17,17 @@ import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPswComponent } from './forgetpsw/forgetpsw.component';
-import { ModalModule } from './modal/modal.module';
+import { ModalModule } from './_tools/modal/modal.module';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PersonalizeComponent } from './personalize/personalize.component';
 import { AccountComponent } from './account/account.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
 import { ItemsPersonalizeComponent } from './items_personalize/items_personalize.component';
+import { AproposComponent } from './apropos/apropos.component';
+import { ContactComponent } from './contact/contact.component';
+import { CineComponent } from './mirror/cine/cine.component';
+import {MyMirrorDirective} from "./mirror/mirror.directive";
 
 //Angular Material
 import { CdkTableModule } from '@angular/cdk/table';
@@ -34,17 +42,15 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
-import { AproposComponent } from './apropos/apropos.component';
-import { ContactComponent } from './contact/contact.component';
-import { CineComponent } from './mirror/cine/cine.component';
-
-
+import { AlertComponent } from './_tools/alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent, LoginComponent,
     ForgetPswComponent, InscriptionComponent, PersonalizeComponent, AccountComponent, MeteoComponent,
-    MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent
+    MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent,
+    MyMirrorDirective,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +93,8 @@ import { CineComponent } from './mirror/cine/cine.component';
     MatSortModule,
     MatTableModule
   ],
-  providers: [ LoginService, AuthGuard ],
-  bootstrap: [AppComponent]
+  providers: [ LoginService, MirrorService, AlertService,  AuthGuard ],
+  entryComponents: [ MeteoComponent, CineComponent ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
