@@ -1,20 +1,59 @@
 
-/* Full-width inputs */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
 /* Add padding to containers */
 .container {
-    padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* The "Forgot password" text */
-.psw {
-    float: right;
+.element
+{
+  margin: auto;
+}
+
+.nombre {
+  white-space:nowrap;
+  border-radius:6px;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transition:0.1s all ease;
+  font-size : 20px;
+}
+
+.nombre:hover {
+  top:-2px;
+  border-bottom: 4px solid #1A4164;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
+}
+
+.cercle{
+  background-color: #FFFFFF;
+  border: 2px solid #3f51b5;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.cercle_rempli{
+  background-color: #3f51b5;
+  border: solid #3f51b5;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.icons {
+  color: #3f51b5;
+  font-size: 36px;
+}
+
+.icons:hover {
+  color: #3f51b5;
 }

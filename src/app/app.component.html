@@ -1,9 +1,9 @@
-<div *ngIf="router.url !== '/mirror'">
-	
+<div *ngIf="router.url !== '/mirror' && router.url !== '/login'">
+
 	<mat-toolbar color="primary">
 
 		<div  class="button-row mg-left-20">
-			<a routerLink="/" mat-button ><mat-icon>home</mat-icon> Mirror</a>
+			<a routerLink="/personalize" mat-button ><mat-icon>home</mat-icon> Mirror</a>
 			<a routerLink="/account" mat-button >Account</a>
 			<a routerLink="/personalize" mat-button >Personalization</a>
 		</div>
@@ -11,11 +11,13 @@
 		<div  class="button-row mg-left-20">
 			<a routerLink="/apropos" mat-button>A propos</a>
 			<a routerLink="/contacter" mat-button>Nous contacter</a>
-			<a routerLink="/logout" mat-button><mat-icon>exit_to_app</mat-icon> Logout</a>
-		</div>		
+			<a (click)="logout()" mat-button><mat-icon>exit_to_app</mat-icon> Logout</a>
+		</div>
 
 	</mat-toolbar>
 </div>
+
+<app-alert></app-alert>
 
 <!--The content below is only a placeholder and can be replaced.-->
 <router-outlet></router-outlet>

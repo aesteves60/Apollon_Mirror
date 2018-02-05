@@ -19,7 +19,8 @@ export class CineComponent implements OnInit {
   GetFilmsNowPlaying(){
     this.http.get(this.URL_API)
       .subscribe(data => {
-        return this.films = data.results;
+         this.films = data;
+         return this.films.results;
       } );
   }
 

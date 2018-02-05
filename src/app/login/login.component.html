@@ -1,48 +1,54 @@
-
 <div class="container">
-  <table>
+  <div class="element">
+    <div id="cercle_1" [className]="cercle1_Class"></div>
+    <div id="cercle_2" [className]="cercle2_Class"></div>
+    <div id="cercle_3" [className]="cercle3_Class"></div>
+    <div id="cercle_4" [className]="cercle4_Class"></div>
+  </div>
+  <br/>
+
+  <table class="element">
     <tr>
-      <td>
-        1
+      <td (click)="AddCmpt($event)">
+        <button class="nombre" mat-raised-button color="primary">1</button>
       </td>
-      <td>
-        2
+      <td (click)="AddCmpt($event)">
+        <button class="nombre" mat-raised-button color="primary">2</button>
       </td>
-      <td>
-        3
+      <td (click)="AddCmpt($event)">
+        <button class="nombre" mat-raised-button color="primary">3</button>
+      </td>
+    </tr>
+    <tr >
+      <td (click)="AddCmpt($event)">
+        <button  class="nombre" mat-raised-button color="primary">4</button>
+      </td>
+      <td (click)="AddCmpt($event)">
+        <button  class="nombre" mat-raised-button color="primary">5</button>
+      </td>
+      <td (click)="AddCmpt($event)">
+        <button class="nombre" mat-raised-button color="primary">6</button>
       </td>
     </tr>
     <tr>
-      <td>
-        4
+      <td (click)="AddCmpt($event)">
+        <button class="nombre" mat-raised-button color="primary">7</button>
       </td>
-      <td>
-        5
+      <td (click)="AddCmpt($event)">
+        <button class="nombre" mat-raised-button color="primary">8</button>
       </td>
-      <td>
-        6
-      </td>
-    </tr>
-    <tr>
-      <td>
-        7
-      </td>
-      <td>
-        8
-      </td>
-      <td>
-        9
+      <td (click)="AddCmpt($event)">
+        <button class="nombre" mat-raised-button color="primary">9</button>
       </td>
     </tr>
     <tr>
-      <td>
-        <mat-icon>keyboard_backspace</mat-icon>
+      <td (click)="RemoveCmpt()">
+        <mat-icon class="icons container">keyboard_backspace</mat-icon>
+      </td>
+      <td (click)="AddCmpt($event)">
+        <button class="nombre" mat-raised-button color="primary">0</button>
       </td>
       <td>
-        0
-      </td>
-      <td>
-        <mat-icon>send</mat-icon>
       </td>
     </tr>
   </table>

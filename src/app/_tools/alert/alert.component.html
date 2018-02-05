@@ -1,0 +1,7 @@
+<div *ngIf="alerts.message !== ''">
+  <div *ngFor="let a of alerts" class="alert {{a.type}}">
+    {{a.message}}
+  </div>
+</div>
+
+
