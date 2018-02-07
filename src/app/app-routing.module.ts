@@ -22,8 +22,6 @@ const routes: Routes = [
 	{ path: 'personalize', canActivate: [ AuthGuard ], component: PersonalizeComponent },
 	{ path: 'contacter' , canActivate: [ AuthGuard ], component: ContactComponent },
 	{ path: 'apropos' , canActivate: [ AuthGuard ], component: AproposComponent }
-
-
 ];
 
 @NgModule({

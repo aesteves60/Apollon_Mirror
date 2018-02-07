@@ -25,6 +25,8 @@ import { ItemsPersonalizeComponent } from './items_personalize/items_personalize
 import { AproposComponent } from './apropos/apropos.component';
 import { ContactComponent } from './contact/contact.component';
 import { CineComponent } from './mirror/cine/cine.component';
+import { ApimanagerComponent } from './apimanager/apimanager.component';
+import { AlertComponent } from './_tools/alert/alert.component';
 import {MyMirrorDirective} from "./mirror/mirror.directive";
 
 //Angular Material
@@ -40,27 +42,22 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
-import { AlertComponent } from './_tools/alert/alert.component';
-import { AproposComponent } from './apropos/apropos.component';
-import { ContactComponent } from './contact/contact.component';
-import { CineComponent } from './mirror/cine/cine.component';
-import { ApimanagerComponent } from './apimanager/apimanager.component';
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent,
-    ForgetPswComponent, PersonalizeComponent, MeteoComponent,
-    MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent,
     MyMirrorDirective,
-    AlertComponent
+    AlertComponent,
     AppComponent,
     LoginComponent,
     ForgetPswComponent,
-    InscriptionComponent,
     PersonalizeComponent,
-    AccountComponent,
     MeteoComponent,
-    MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent, ApimanagerComponent
+    MirrorComponent,
+    ItemsPersonalizeComponent,
+    AproposComponent,
+    ContactComponent,
+    CineComponent,
+    ApimanagerComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +69,7 @@ import { ApimanagerComponent } from './apimanager/apimanager.component';
     DragulaModule,
     CdkTableModule,
     BrowserAnimationsModule,
-     MatAutocompleteModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
