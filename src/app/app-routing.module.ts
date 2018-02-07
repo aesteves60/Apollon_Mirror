@@ -10,7 +10,9 @@ import { MirrorComponent } from './mirror/mirror.component';
 import { AccountComponent } from './account/account.component';
 import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
+import { ApimanagerComponent } from './apimanager/apimanager.component';
 import { AuthGuard } from "./_auth/auth.guard";
+
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,7 +22,17 @@ const routes: Routes = [
 	{ path: 'forgetpsw' , canActivate: [ AuthGuard ], component: ForgetPswComponent },
 	{ path: 'personalize', canActivate: [ AuthGuard ], component: PersonalizeComponent },
 	{ path: 'contacter' , canActivate: [ AuthGuard ], component: ContactComponent },
-	{ path: 'apropos' , canActivate: [ AuthGuard ], component: AproposComponent }
+	{ path: 'apropos' , canActivate: [ AuthGuard ], component: AproposComponent },
+	{ path: 'account' , canActivate: [ AuthGuard ], component: AccountComponent  }
+	{ path: 'forgetpsw', component: ForgetPswComponent },
+  { path: 'inscription', component: InscriptionComponent },
+	{ path: 'meteo', component: MeteoComponent },
+	{ path: 'personalize', component: PersonalizeComponent },
+	{ path: 'mirror', component: MirrorComponent },
+	{ path: 'contacter', component: ContactComponent },
+	{ path: 'apropos', component: AproposComponent },
+	{ path: 'account', component: AccountComponent  },
+	{ path: 'apimanager', component: ApimanagerComponent  }
 
 ];
 

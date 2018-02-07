@@ -41,6 +41,10 @@ import {
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
 import { AlertComponent } from './_tools/alert/alert.component';
+import { AproposComponent } from './apropos/apropos.component';
+import { ContactComponent } from './contact/contact.component';
+import { CineComponent } from './mirror/cine/cine.component';
+import { ApimanagerComponent } from './apimanager/apimanager.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,14 @@ import { AlertComponent } from './_tools/alert/alert.component';
     MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent,
     MyMirrorDirective,
     AlertComponent
+    AppComponent,
+    LoginComponent,
+    ForgetPswComponent,
+    InscriptionComponent,
+    PersonalizeComponent,
+    AccountComponent,
+    MeteoComponent,
+    MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent, ApimanagerComponent
   ],
   imports: [
     BrowserModule,
