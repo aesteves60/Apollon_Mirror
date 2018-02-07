@@ -18,11 +18,9 @@ const routes: Routes = [
   { path: 'mirror', component: MirrorComponent },
   { path: 'meteo', component: MeteoComponent },
 	{ path: 'forgetpsw' , canActivate: [ AuthGuard ], component: ForgetPswComponent },
-  { path: 'inscription' , canActivate: [ AuthGuard ], component: InscriptionComponent },
 	{ path: 'personalize', canActivate: [ AuthGuard ], component: PersonalizeComponent },
 	{ path: 'contacter' , canActivate: [ AuthGuard ], component: ContactComponent },
-	{ path: 'apropos' , canActivate: [ AuthGuard ], component: AproposComponent },
-	{ path: 'account' , canActivate: [ AuthGuard ], component: AccountComponent  }
+	{ path: 'apropos' , canActivate: [ AuthGuard ], component: AproposComponent }
 
 ];
 

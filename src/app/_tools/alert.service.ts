@@ -8,11 +8,11 @@ export class AlertService {
   private subject: Subject<Alert> = new Subject<Alert>();
 
   success(message: string) {
-    this.alert('alert-success',message);
+    this.alert('alert alert-success',message);
   }
 
   error(message: string) {
-    this.alert('alert-error',message);
+    this.alert('alert alert-error',message);
   }
 
   alert( type: string,  message: string){

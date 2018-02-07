@@ -18,9 +18,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPswComponent } from './forgetpsw/forgetpsw.component';
 import { ModalModule } from './_tools/modal/modal.module';
-import { InscriptionComponent } from './inscription/inscription.component';
 import { PersonalizeComponent } from './personalize/personalize.component';
-import { AccountComponent } from './account/account.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
 import { ItemsPersonalizeComponent } from './items_personalize/items_personalize.component';
@@ -47,7 +45,7 @@ import { AlertComponent } from './_tools/alert/alert.component';
 @NgModule({
   declarations: [
     AppComponent, LoginComponent,
-    ForgetPswComponent, InscriptionComponent, PersonalizeComponent, AccountComponent, MeteoComponent,
+    ForgetPswComponent, PersonalizeComponent, MeteoComponent,
     MirrorComponent, ItemsPersonalizeComponent, AproposComponent, ContactComponent, CineComponent,
     MyMirrorDirective,
     AlertComponent
