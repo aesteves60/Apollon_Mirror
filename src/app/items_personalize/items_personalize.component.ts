@@ -21,12 +21,10 @@ export class ItemsPersonalizeComponent implements OnInit {
     this.http.get('https://restcountries.eu/rest/v2/region/europe')
             .subscribe(data => {
                 this.items_personalize = data;
-                console.log(this.items_personalize);
-            }, 
+            },
             err => {
-                console.log('Something went wrong!')
+                console.log('Something went wrong!');
             });
-
   }
 
 }

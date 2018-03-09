@@ -1,17 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
-import { AppRoutingModule } from './/app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from "./_auth/auth.guard";
 
 //service
 import { LoginService } from "./login/login.service";
-import {MirrorService} from "./mirror/mirror.service";
-import {AlertService} from "./_tools/alert.service";
+import { MirrorService } from "./mirror/mirror.service";
+import { AlertService } from "./_tools/alert.service";
 
 //drag n drop
-import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+import { NgDragDropModule } from 'ng-drag-drop';
+//sha256
+import { sha256 } from 'crypto-js/sha256';
 
 //composent de l'application
 import { AppComponent } from './app.component';
@@ -27,7 +29,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CineComponent } from './mirror/cine/cine.component';
 import { ApimanagerComponent } from './apimanager/apimanager.component';
 import { AlertComponent } from './_tools/alert/alert.component';
-import {MyMirrorDirective} from "./mirror/mirror.directive";
+import { MyMirrorDirective } from "./mirror/mirror.directive";
 
 //Angular Material
 import { CdkTableModule } from '@angular/cdk/table';
@@ -60,13 +62,13 @@ import {
     ApimanagerComponent
   ],
   imports: [
+    NgDragDropModule.forRoot(),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     ModalModule,
     HttpClientModule,
-    DragulaModule,
     CdkTableModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,

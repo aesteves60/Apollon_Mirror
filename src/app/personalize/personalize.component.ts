@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { DragulaService } from 'ng2-dragula/ng2-dragula';
-
 @Component({
   selector: 'app-personalize',
   templateUrl: './personalize.component.html',
@@ -20,42 +18,14 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirrorDown1      = [];
   public ItemMirrorDown2      = [];
   public ItemMirrorDownLeft   = [];
-      
-  constructor(private dragula: DragulaService, private http: HttpClient) { 
+
+  constructor(private http: HttpClient) {
 
     var i = 0;
-    dragula.drop.subscribe((value) => {
-
-      //id de la div qui a receptionné le drop
-      console.log(value[2].children[1].classList[0]);
-      for (i = 0 ; i<value[2].childNodes.length ; i++) {
-
-        //console.log(value[2].childNodes[i]);
-        if(value[2].childNodes[i].innerText == 'Vide') 
-        {
-          //console.log(value[2].childNodes[i].innerText);
-          value[2].childNodes[i].value = '';
-        }
-      }
-
-      switch(value[2].id) { 
-        case 'MirrorUpLeft' : {
-          this.ItemMirrorUpLeft[0] = value[1].innerText;
-        }  
-      }
-    });
   }
 
 	ngOnInit() {
 
-  }
-  private onDrag(args) {
-    let [e, el] = args;
-    // do something
-  }
-  private onDrop(args: any): void {
-      //on regarde le tableau et on le vide et le rempli
-      
   }
 
 }

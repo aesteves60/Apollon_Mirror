@@ -11,15 +11,8 @@ import { LoginService }from './login/login.service';
 })
 export class AppComponent {
 
-  constructor(private dragula: DragulaService,
-              private router: Router,
+  constructor(private router: Router,
               private loginS: LoginService) {
-    this.dragula.setOptions('fifth-bag', {
-      copy : true,
-      invalid: (el, handle) => el.classList.contains('donotdrag'),
-      removeOnSpill : false,
-      ignoreInputTextSelection : true
-    });
   }
 
   logout(){

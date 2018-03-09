@@ -17,7 +17,9 @@ export class LoginComponent implements OnInit {
   public cercle4_Class = 'cercle';
 
   constructor( private router: Router, private loginS: LoginService,
-               private alertService: AlertService) { }
+               private alertService: AlertService) {
+
+  }
 
   ngOnInit() {
     this.loginS.logout();
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
         case 2 : this.cercle2_Class = 'cercle';break;
         case 3 : this.cercle3_Class = 'cercle';break;
         case 4 : this.cercle4_Class = 'cercle'; break;
-      };
+      }
       this.cmpt--;
     }
   }
@@ -53,9 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   CheckPassword( c : string){
-    if(! this.loginS.login(c, 'token')){
-      this.WrongPassword();
-    }
+    this.loginS.login(c, 'token')? this.alertService.success('Connexion reussi') : this.WrongPassword();
   }
 
   WrongPassword() {
