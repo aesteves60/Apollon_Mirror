@@ -2,13 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { AuthGuard } from "./_auth/auth.guard";
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 //service
 import { LoginService } from "./login/login.service";
 import { MirrorService } from "./mirror/mirror.service";
 import { AlertService } from "./_tools/alert.service";
+import { HttpAPIInterceptor } from "./_tools/HttpInterceptor";
+import { AuthGuard } from "./_auth/auth.guard";
+
 
 //drag n drop
 import { NgDragDropModule } from 'ng-drag-drop';
@@ -102,7 +104,18 @@ import {
     MatSortModule,
     MatTableModule
   ],
-  providers: [ LoginService, MirrorService, AlertService,  AuthGuard ],
+  providers: [
+    LoginService,
+    MirrorService,
+    AlertService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpAPIInterceptor,
+      multi: true
+    },
+
+    AuthGuard
+  ],
   entryComponents: [ MeteoComponent, CineComponent ],
   bootstrap: [ AppComponent ]
 })

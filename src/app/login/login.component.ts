@@ -55,7 +55,13 @@ export class LoginComponent implements OnInit {
   }
 
   CheckPassword( c : string){
-    this.loginS.login(c, 'token')? this.alertService.success('Connexion reussi') : this.WrongPassword();
+    this.loginS.login(c, 'token').subscribe(result => {
+      if (result === true) {
+        this.alertService.success('Connexion reussi')
+      } else {
+        this.WrongPassword();
+      }
+    });
   }
 
   WrongPassword() {

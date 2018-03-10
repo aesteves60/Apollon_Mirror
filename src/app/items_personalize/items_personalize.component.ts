@@ -18,13 +18,7 @@ export class ItemsPersonalizeComponent implements OnInit {
   }
 
   public getItems_Personalize(){
-    this.http.get('https://restcountries.eu/rest/v2/region/europe')
-            .subscribe(data => {
-                this.items_personalize = data;
-            },
-            err => {
-                console.log('Something went wrong!');
-            });
+
   }
 
 }

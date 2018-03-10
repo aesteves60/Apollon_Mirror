@@ -10,7 +10,7 @@ private imgUrl: string;
 private day: string;
 
 
-constructor(date:string,condition:string,condtionLabel:string,tmax:string,tmin:string,tmp:string) { 
+constructor(date:string,condition:string,condtionLabel:string,tmax:string,tmin:string,tmp:string) {
   this.date = date;
   this.condition = condition;
   this.conditionLabel = condtionLabel;
@@ -43,11 +43,11 @@ constructor(date:string,condition:string,condtionLabel:string,tmax:string,tmin:s
     this.imgUrl = 'assets/img/'+this.conditionLabel+'.png';
   }
   convertToDay(){
-    var dateString = this.date.split(".");
-    var date = new Date(Number(dateString[0]),Number(dateString[1]),Number(dateString[2]));
-    var day = date.getDay();
-    var weekday = new Array(7);
-  weekday[0] =  "Dimanche";
+    let dateString = this.date.split(".");
+    let date = new Date(Number(dateString[0]),Number(dateString[1]),Number(dateString[2]));
+    let day = date.getDay();
+    let weekday = new Array(7);
+  weekday[0] = "Dimanche";
   weekday[1] = "Lundi";
   weekday[2] = "Mardi";
   weekday[3] = "Mercredi";
