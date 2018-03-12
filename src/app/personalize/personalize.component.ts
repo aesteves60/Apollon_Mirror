@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { AlertService } from "../_tools/alert.service";
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -10,17 +10,18 @@ import 'rxjs/add/operator/map';
 })
 export class PersonalizeComponent implements OnInit {
 
-  public ItemMirrorUpLeft     = [];
-  public ItemMirrorUpRight    = [];
-  public ItemMirrorLeft       = [];
-  public ItemMirrorRight      = [];
-  public ItemMirrorDownRight  = [];
-  public ItemMirrorDown1      = [];
-  public ItemMirrorDown2      = [];
-  public ItemMirrorDownLeft   = [];
+  public ItemMirrorUpLeft     = [{name: 'Vide', image : ''}];
+  public ItemMirrorUpRight    = [{name: 'Vide', image : ''}];
+  public ItemMirrorLeft       = [{name: 'Vide', image : ''}];
+  public ItemMirrorRight      = [{name: 'Vide', image : ''}];
+  public ItemMirrorDownLeft   = [{name: 'Vide', image : ''}];
+  public ItemMirrorDown1      = [{name: 'Vide', image : ''}];
+  public ItemMirrorDown2      = [{name: 'Vide', image : ''}];
+  public ItemMirrorDownRight  = [{name: 'Vide', image : ''}];
+  public center               = [{name: '', image : ''}];
   public modules = {};
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private alertService : AlertService) {
 
   }
 
@@ -30,6 +31,32 @@ export class PersonalizeComponent implements OnInit {
 
   public get_Modules(){
     this.http.get('/API/get_modules').subscribe(res => this.modules = res);
+  }
+
+  public onElemetDrop(e) {
+    let _itemMirror = this.FindZoneMirror(e.nativeEvent.target.parentElement.id);
+    _itemMirror.pop();
+    _itemMirror.push(e.dragData);
+  }
+
+  public remoteElement(e){
+    let _itemMirror = this.FindZoneMirror(e.target.parentElement.parentElement.id);
+    _itemMirror.pop();
+    _itemMirror.push({name :'Vide', image : ''});
+  }
+
+  private FindZoneMirror(mirrorZone){
+    switch (mirrorZone){
+      case 'MirrorUpLeft': return this.ItemMirrorUpLeft;
+      case 'MirrorUpRight': return this.ItemMirrorUpRight;
+      case 'MirrorRight': return this.ItemMirrorRight;
+      case 'center' : this.alertService.error('Vous ne pouvez pas mettre un module ici'); return this.center;
+      case 'MirrorLeft': return this.ItemMirrorLeft;
+      case 'MirrorDown1': return this.ItemMirrorDown1;
+      case 'MirrorDown2': return this.ItemMirrorDown2;
+      case 'MirrorDownRight': return this.ItemMirrorDownRight;
+      case 'MirrorDownLeft': return this.ItemMirrorDownLeft;
+    }
   }
 
 }

@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened="true">
-    <ul *ngFor="let module of modules.result_object">
+    <ul draggable [dragData]="module" *ngFor="let module of modules.result_object">
       <li>
         <div>{{module.name}}</div>
         <img [src]='module.image' height="50px" width="50px"/>
@@ -9,61 +9,88 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <div>
-        <div>
-            <ul>
-                <div *ngFor="let item of items">{{item}}</div>
-            </ul>
-        </div>    	<!-- mirror-->
+    <div class="container">
+      <!-- mirror-->
     	<table>
     	   <tr>
     	       <td colspan="2">
-    	       		<div id="MirrorUpLeft">
-                		<div class="donotdrag" *ngIf="!ItemMirrorUpLeft.length">Vide</div>
-                        <div class="donotdrag" *ngFor="let item of ItemMirrorUpLeft ; let i = index" >
-                            {{item}}
-                        </div>
+    	       		<div id="MirrorUpLeft" droppable (onDrop)="onElemetDrop($event)">
+                		<div *ngFor="let item of ItemMirrorUpLeft">
+                      {{item.name}}
+                      <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                      <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                    </div>
             		</div>
             	</td>
     	       <td colspan="2">
-    	       		<div id="MirrorUpRight" class="container">
-                		<div class="donotdrag" *ngIf="!ItemMirrorUpRight.length">Vide</div>
-
+    	       		<div id="MirrorUpRight" droppable (onDrop)="onElemetDrop($event)">
+                  <div *ngFor="let item of ItemMirrorUpRight">
+                    {{item.name}}
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                  </div>
             		</div>
             	</td>
     	   </tr>
     	   <tr>
-    	       <td>
-    	       		<div id="MirrorLeft" class="container">
-                		<div *ngIf="!ItemMirrorLeft.length">Vide</div>
-            		</div>
-            	</td>
-            	<td colspan="2"></td>
-    	       <td>
-    	       		<div id="MirrorRight" class="container">
-                		<div *ngIf="!ItemMirrorRight.length">Vide</div>
-            		</div>
-            	</td>
+           <td>
+              <div id="MirrorLeft" droppable (onDrop)="onElemetDrop($event)">
+                <div *ngFor="let item of ItemMirrorLeft">
+                  {{item.name}}
+                  <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                  <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                </div>
+              </div>
+           </td>
+           <td colspan="2">
+              <div id="center" droppable (onDrop)="onElemetDrop($event)">
+              </div>
+           </td>
+           <td>
+              <div id="MirrorRight" droppable (onDrop)="onElemetDrop($event)">
+                <div *ngFor="let item of ItemMirrorRight">
+                  {{item.name}}
+                  <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                  <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                </div>
+              </div>
+            </td>
     	   </tr>
     	   <tr>
     	       <td>
-    	       		<div id="MirrorDownLeft" class="container">
-                		<div *ngIf="!ItemMirrorDownLeft.length">Vide</div>
+    	       		<div id="MirrorDownLeft" droppable (onDrop)="onElemetDrop($event)">
+                  <div *ngFor="let item of ItemMirrorDownLeft">
+                    {{item.name}}
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                  </div>
             		</div>
             	</td>
     	       <td>
-    	       		<div id="MirrorDown1" class="container">
-                		<div *ngIf="!ItemMirrorDown1.length">Vide</div>
+    	       		<div id="MirrorDown1" droppable (onDrop)="onElemetDrop($event)">
+                  <div *ngFor="let item of ItemMirrorDown1">
+                    {{item.name}}
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                  </div>
             		</div>
             	</td>
     	       <td>
-    	       		<div id="MirrorDown2" class="container">
-                		<div *ngIf="!ItemMirrorDown2.length">Vide</div>
+    	       		<div id="MirrorDown2" droppable (onDrop)="onElemetDrop($event)">
+                  <div *ngFor="let item of ItemMirrorDown2">
+                    {{item.name}}
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                  </div>
             		</div>
             	</td>
     	       <td>
-    	       		<div id="MirrorDownRight" class="container">
-                		<div *ngIf="!ItemMirrorDownRight.length">Vide</div>
+    	       		<div id="MirrorDownRight" droppable (onDrop)="onElemetDrop($event)">
+                  <div *ngFor="let item of ItemMirrorDownRight">
+                    {{item.name}}
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                  </div>
             		</div>
             	</td>
     	   </tr>

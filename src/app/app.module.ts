@@ -13,7 +13,7 @@ import { AuthGuard } from "./_auth/auth.guard";
 
 
 //drag n drop
-import { NgDragDropModule } from 'ng-drag-drop';
+import { Ng2DragDropModule } from 'ng2-drag-drop';
 //sha256
 import { sha256 } from 'crypto-js/sha256';
 
@@ -62,7 +62,7 @@ import {
     ApimanagerComponent
   ],
   imports: [
-    NgDragDropModule.forRoot(),
+    Ng2DragDropModule.forRoot(),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

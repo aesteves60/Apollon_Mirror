@@ -6,10 +6,15 @@ table
 td /* Toutes les cellules des tableaux... */
 {
     border: 1px solid black; /* auront une bordure de 1px */
+    padding: 10px;
 }
 
 .example-container {
   position: absolute;
+}
+
+.icons_close{
+  float: right;
 }
 
 mat-sidenav {
@@ -18,5 +23,5 @@ mat-sidenav {
 
 mat-sidenav-container {
 	height: 100vh
-	; 
+	;
 }
