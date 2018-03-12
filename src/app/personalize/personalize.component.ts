@@ -18,14 +18,18 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirrorDown1      = [];
   public ItemMirrorDown2      = [];
   public ItemMirrorDownLeft   = [];
+  public modules = {};
 
   constructor(private http: HttpClient) {
 
-    var i = 0;
   }
 
-	ngOnInit() {
+  ngOnInit() {
+    this.get_Modules();
+  }
 
+  public get_Modules(){
+    this.http.get('/API/get_modules').subscribe(res => this.modules = res);
   }
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
 
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
@@ -24,25 +23,17 @@ export class ForgetPswComponent implements OnInit {
 	reponse ;
   @Input() email: String;
 
-  constructor( private http: HttpClient, public snackBar: MatSnackBar) { }
+  constructor( private http: HttpClient) { }
 
-  openSnackBar(_message: string, action: string) {
-    if(this.emailFormControl){
-        this.snackBar.open(_message, action, {
-        duration: 4000,
-      });
-      this.EnvoiEmail();
-    }
-  }
 
   EnvoiEmail(){
-  	this.http.get(this.URL_API)
-    		.subscribe(data => 
+  	this.http.get('/forgetpsw').subscribe(data =>
     		  this.reponse = data
     		);
   }
 
   ngOnInit() {
+
   }
 
 }

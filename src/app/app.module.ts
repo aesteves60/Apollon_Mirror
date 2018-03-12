@@ -25,7 +25,6 @@ import { ModalModule } from './_tools/modal/modal.module';
 import { PersonalizeComponent } from './personalize/personalize.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
-import { ItemsPersonalizeComponent } from './items_personalize/items_personalize.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { ContactComponent } from './contact/contact.component';
 import { CineComponent } from './mirror/cine/cine.component';
@@ -57,7 +56,6 @@ import {
     PersonalizeComponent,
     MeteoComponent,
     MirrorComponent,
-    ItemsPersonalizeComponent,
     AproposComponent,
     ContactComponent,
     CineComponent,

@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'mirror', component: MirrorComponent },
   { path: 'meteo', component: MeteoComponent },
   { path: 'apimanager', component: ApimanagerComponent  },
-	{ path: 'forgetpsw' , canActivate: [ AuthGuard ], component: ForgetPswComponent },
+	{ path: 'forgetpsw' , component: ForgetPswComponent },
 	{ path: 'personalize', canActivate: [ AuthGuard ], component: PersonalizeComponent },
 	{ path: 'contacter' , canActivate: [ AuthGuard ], component: ContactComponent },
 	{ path: 'apropos' , canActivate: [ AuthGuard ], component: AproposComponent }

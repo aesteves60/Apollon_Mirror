@@ -1,5 +1,6 @@
-
 <form class="container">
+  <label> Mot de passe oublié</label>
+  <br/>
   <mat-form-field>
     <input matInput placeholder="Email" [formControl]="emailFormControl"
            [errorStateMatcher]="matcher">
@@ -12,6 +13,6 @@
     </mat-error>
   </mat-form-field>
 
-  <button mat-raised-button (click)="openSnackBar([message],'')">Valider</button>	
+  <button mat-raised-button (click)="EnvoiEmail()">Valider</button>
 
 </form>
