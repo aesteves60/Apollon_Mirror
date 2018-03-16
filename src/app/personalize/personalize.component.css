@@ -1,12 +1,23 @@
 
 table
 {
-    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+    border-collapse: collapse; /* Les bordures du tableau seront collées */
+    color: white;
+    background: black;
+    opacity: 0.8;
 }
-td /* Toutes les cellules des tableaux... */
+td
 {
-    border: 1px solid black; /* auront une bordure de 1px */
-    padding: 10px;
+  border: 1px solid white;
+  height: 100px;
+  width: 100px;
+}
+
+td div{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  line-height: 100px;
 }
 
 .example-container {
@@ -17,11 +28,31 @@ td /* Toutes les cellules des tableaux... */
   float: right;
 }
 
+.drag-hint {
+  border: #ffc100 dashed 2px;
+}
+
+.module{
+  border: 1px solid rgba(0,0,0,.125);
+  background-color: #ddf0ef;
+  padding: 10px;
+  margin: 0px 0px 0px 5px;
+}
+.module:first-child {
+  margin-top: 10px;
+  border-top-right-radius: .5rem;
+  border-top-left-radius: .5rem;
+}
+.module:last-child {
+  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+}
+
+
 mat-sidenav {
   	width: 15%;
 }
 
 mat-sidenav-container {
-	height: 100vh
-	;
+	height: 100vh;
 }

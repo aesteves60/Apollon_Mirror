@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {HttpClient} from "@angular/common/http";
 import { LoginService } from "./login.service";
 import { AlertService } from "../_tools/alert.service";
+import {SERIAL_NUMBER} from "../../assets/config";
 
 @Component({
   selector: 'app-login',
@@ -17,13 +19,19 @@ export class LoginComponent implements OnInit {
   public cercle4_Class = 'cercle';
 
   constructor( private router: Router, private loginS: LoginService,
-               private alertService: AlertService) {
+               private alertService: AlertService, private http : HttpClient) {
 
   }
 
   ngOnInit() {
     this.loginS.logout();
   }
+
+  ForgetPassword(){
+    this.http.get('/forgetpsw', {params :{serial_number : SERIAL_NUMBER}}).subscribe( ok => {
+      this.alertService.error('Un email avec votre nouveau mot de passe vous a été envoyé');
+    }
+  )};
 
   RemoveCmpt(){
     if((this.cmpt <=4)&&(this.cmpt >0)) {

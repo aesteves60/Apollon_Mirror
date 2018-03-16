@@ -1,14 +1,6 @@
 <div [ngClass]="{'close': !isOpen}">
   <div class="modal-overlay" (click)="closed(true)"></div>
-
-  <div class="modal">
-    <div class="title" *ngIf="modalTitle">
-      <span>{{ modalTitle }}</span>
-      <a class="right-align" (click)="closed(true)"> <i class="material-icons md-24">clear</i> </a>
-    </div>
-
-    <div class="body">
-      <ng-content></ng-content>
-    </div>
+  <div class="body">
+    <ng-content></ng-content>
   </div>
 </div>

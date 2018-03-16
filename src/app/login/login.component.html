@@ -5,7 +5,6 @@
     <div id="cercle_3" [className]="cercle3_Class"></div>
     <div id="cercle_4" [className]="cercle4_Class"></div>
   </div>
-  <br/>
 
   <table class="element">
     <tr>
@@ -43,7 +42,7 @@
     </tr>
     <tr>
       <td (click)="RemoveCmpt()">
-        <mat-icon class="icons container">keyboard_backspace</mat-icon>
+        <mat-icon class="icons">keyboard_backspace</mat-icon>
       </td>
       <td (click)="AddCmpt($event)">
         <button class="nombre" mat-raised-button color="primary">0</button>
@@ -52,5 +51,5 @@
       </td>
     </tr>
   </table>
-  <a href="/forgetpsw" style="padding: 10px">Mot de passe oublié</a>
+  <a (click)="ForgetPassword" href="#" style="padding: 10px">Mot de passe oublié</a>
 </div>

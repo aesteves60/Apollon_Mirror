@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { DragulaService } from 'ng2-dragula/ng2-dragula';
 import { LoginService }from './login/login.service';
 
 @Component({

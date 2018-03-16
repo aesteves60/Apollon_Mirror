@@ -20,7 +20,6 @@ import { sha256 } from 'crypto-js/sha256';
 //composent de l'application
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ForgetPswComponent } from './forgetpsw/forgetpsw.component';
 import { ModalModule } from './_tools/modal/modal.module';
 import { PersonalizeComponent } from './personalize/personalize.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
@@ -52,7 +51,6 @@ import {
     AlertComponent,
     AppComponent,
     LoginComponent,
-    ForgetPswComponent,
     PersonalizeComponent,
     MeteoComponent,
     MirrorComponent,

@@ -8,8 +8,6 @@ import { ModalService } from './modal.service';
 })
 export class ModalComponent implements OnInit {
   @Input() modalId     : string;
-  @Input() modalTitle  : string;
-  @Input() blocking = false;
   isOpen = false;
 
   constructor(private modalService: ModalService) {

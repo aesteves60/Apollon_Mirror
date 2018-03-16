@@ -7,8 +7,7 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-
-
+  
   constructor( private http: HttpClient ) { }
 
   ngOnInit() {

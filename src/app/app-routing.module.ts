@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent }   from './login/login.component';
-import { ForgetPswComponent }   from './forgetpsw/forgetpsw.component';
 import { PersonalizeComponent }   from './personalize/personalize.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
   { path: 'mirror', component: MirrorComponent },
   { path: 'meteo', component: MeteoComponent },
   { path: 'apimanager', component: ApimanagerComponent  },
-	{ path: 'forgetpsw' , component: ForgetPswComponent },
 	{ path: 'personalize', canActivate: [ AuthGuard ], component: PersonalizeComponent },
 	{ path: 'contacter' , canActivate: [ AuthGuard ], component: ContactComponent },
 	{ path: 'apropos' , canActivate: [ AuthGuard ], component: AproposComponent }
