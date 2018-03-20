@@ -47,6 +47,7 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import {
     ContactComponent,
     CineComponent,
     ApimanagerComponent,
-    AccountComponent
+    AccountComponent,
+    TestComponent
   ],
   imports: [
     Ng2DragDropModule.forRoot(),

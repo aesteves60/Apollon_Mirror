@@ -59,7 +59,7 @@ export class AccountComponent implements OnInit {
       }
     } else {
       //check si pas vide et si l'email a changé
-      if(this.email !== '' && this.email !== this.oldemail){
+      if (this.email !== '' && this.email !== this.oldemail){
         //update sans MDP
         let options = {
           params : {
@@ -68,7 +68,7 @@ export class AccountComponent implements OnInit {
           }
         };
         this.http.get('/API/updateMirror', options)
-        .subscribe( data => this.alertService.success('les information ont été modifié');
+        .subscribe( data => this.alertService.success('les information ont été modifié'));
       } else
       this.alertService.error('Veuillez remplir tous les champs avant de valider');
     }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AlertService } from "../_tools/alert/alert.service";
+import { AlertService } from '../_tools/alert/alert.service';
 import 'rxjs/add/operator/map';
-import { SERIAL_NUMBER } from "../../assets/config";
+import { SERIAL_NUMBER } from '../../assets/config';
 import { MatDialog } from '@angular/material';
 
 @Component({
@@ -25,8 +25,8 @@ export class PersonalizeComponent implements OnInit {
   public html = '';
 
 
-  constructor(private http: HttpClient, private alertService : AlertService,
-              private modal : MatDialog) {
+  constructor(private http: HttpClient, private alertService: AlertService,
+              private modal: MatDialog) {
   }
 
   ngOnInit() {
@@ -35,30 +35,34 @@ export class PersonalizeComponent implements OnInit {
   }
 
   public get_Modules(){
-    this.http.get('/API/get_modules').subscribe(res => this.modules = res);
+    this.http.get('/API/get_modules').subscribe(res => {
+      console.log(res);
+      return this.modules = res;
+    });
   }
 
-  public get_Views(){
+  public get_Views() {
         const options = { params: {
             'serial_number': SERIAL_NUMBER
-          }       };
+          }
+        };
         this.http.get('/API/get_views_mirror', options).subscribe(res => {
           this.views = res;
-          PersonalizeComponent.changeValue(this.ItemMirror_TopLeft,this.views[0]);
-          PersonalizeComponent.changeValue(this.ItemMirror_TopRight,this.views[1]);
-          PersonalizeComponent.changeValue(this.ItemMirror_Left,this.views[2]);
-          PersonalizeComponent.changeValue(this.ItemMirror_Right,this.views[3]);
-          PersonalizeComponent.changeValue(this.ItemMirror_BottomLeft,this.views[4]);
-          PersonalizeComponent.changeValue(this.ItemMirror_BottomRight,this.views[5]);
-          PersonalizeComponent.changeValue(this.ItemMirror_BottomCenterLeft,this.views[6]);
-          PersonalizeComponent.changeValue(this.ItemMirror_BottomCenterRight,this.views[7]);
+          PersonalizeComponent.changeValue(this.ItemMirror_TopLeft, this.views[0]);
+          PersonalizeComponent.changeValue(this.ItemMirror_TopRight, this.views[1]);
+          PersonalizeComponent.changeValue(this.ItemMirror_Left, this.views[2]);
+          PersonalizeComponent.changeValue(this.ItemMirror_Right, this.views[3]);
+          PersonalizeComponent.changeValue(this.ItemMirror_BottomLeft, this.views[4]);
+          PersonalizeComponent.changeValue(this.ItemMirror_BottomRight, this.views[5]);
+          PersonalizeComponent.changeValue(this.ItemMirror_BottomCenterLeft, this.views[6]);
+          PersonalizeComponent.changeValue(this.ItemMirror_BottomCenterRight, this.views[7]);
         });
   }
 
   public onElementDrop(e) {
     let _itemMirror = this.FindZoneMirror(e.nativeEvent.target.parentElement.id);
     e.dragData.views_position = e.nativeEvent.target.parentElement.id;
-    let views_position = e.nativeEvent.target.parentElement.id;
+    const views_position = e.nativeEvent.target.parentElement.id;
     const options = {
       params: {
         'views_position': views_position,
@@ -66,12 +70,12 @@ export class PersonalizeComponent implements OnInit {
         'module_id' : e.dragData.id
       }
     };
-    this.http.post('/API/change_position', options).subscribe(res => PersonalizeComponent.changeValue(_itemMirror,e.dragData));
-    this.alertService.success('Modification reussi')
+    this.http.post('/API/change_position', options).subscribe(res => PersonalizeComponent.changeValue(_itemMirror, e.dragData));
+    this.alertService.success('Modification reussi');
   }
 
   public remoteElement(e){
-    let _itemMirror = this.FindZoneMirror(e.target.parentElement.parentElement.id);
+    const _itemMirror = this.FindZoneMirror(e.target.parentElement.parentElement.id);
     this.alertService.success('Modification reussi');
     const options = {
       params: {
@@ -79,12 +83,12 @@ export class PersonalizeComponent implements OnInit {
         'serial_number': SERIAL_NUMBER
       }
     };
-    this.http.put('/API/remove_position', options).subscribe(res => { PersonalizeComponent.changeValue(_itemMirror,null);})
+    this.http.delete('/API/remove_position', options).subscribe(res => { PersonalizeComponent.changeValue(_itemMirror, null); });
   }
 
   private static changeValue(_itemMirror, value){
     if (value === null ){
-      value = {name :'Vide', image : '', views_position : _itemMirror.views_position };
+      value = {name : 'Vide', image : '', views_position : _itemMirror.views_position };
     }
     _itemMirror.pop();
     _itemMirror.push(value);
