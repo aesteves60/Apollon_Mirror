@@ -35,18 +35,13 @@ export class PersonalizeComponent implements OnInit {
   }
 
   public get_Modules(){
-    this.http.get('/API/get_modules').map(res => {
-      this.modules = res;
-      console.log(this.modules);
-      return true
-    });
+    this.http.get('/API/get_modules').subscribe(res => this.modules = res);
   }
 
   public get_Views(){
         const options = { params: {
             'serial_number': SERIAL_NUMBER
-          }       
-        };
+          }       };
         this.http.get('/API/get_views_mirror', options).subscribe(res => {
           this.views = res;
           PersonalizeComponent.changeValue(this.ItemMirror_TopLeft,this.views[0]);
@@ -84,7 +79,7 @@ export class PersonalizeComponent implements OnInit {
         'serial_number': SERIAL_NUMBER
       }
     };
-    this.http.delete('/API/remove_position', options).subscribe(res => { PersonalizeComponent.changeValue(_itemMirror,null);})
+    this.http.put('/API/remove_position', options).subscribe(res => { PersonalizeComponent.changeValue(_itemMirror,null);})
   }
 
   private static changeValue(_itemMirror, value){

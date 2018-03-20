@@ -6,20 +6,24 @@ table
     background: black;
     opacity: 0.8;
 }
-td
-{
+td{
   border: 1px solid white;
   height: 150px;
   width: 150px;
 }
 
-td > div {
+td > div{
   position: relative;  
   height: 100%;
   width: 100%;
-  text-align: center;
-  vertical-align: middle;
+  display: flex;
 }
+
+td > div > div {
+  margin: auto;
+  text-align: center;
+}
+
 
 .example-container {
   position: absolute;
@@ -35,6 +39,7 @@ td > div {
 .item_name{
   display: block;
   margin: 0 auto;
+  clear: both;
 }
 
 .drag-hint {
