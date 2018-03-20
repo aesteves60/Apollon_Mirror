@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div class="element">
+    <i class="icons material-icons">account_circle</i><br/>
+  </div>
+  Numero de serie : {{ serial_number }} <br/>
+  <div class="element_left">
+    <label for="email">Votre Email : </label>
+    <input type="text" id="email"
+           [(ngModel)]="email" required>
+
+    <label for="mdp">Nouveau mot de passe : </label>
+    <input type="password" id="mdp"
+           placeholder="Votre mot de passe"
+           [(ngModel)]="mdp"
+           maxlength="4"
+           email>
+
+    <label for="verifmdp">Vérifier le mot de passe : </label>
+    <input type="password" id="verifmdp"
+           placeholder="Votre mot de passe"
+           [(ngModel)]="verifmdp"
+           maxlength="4">
+  </div>
+  <div class="element">
+    <button (click)="updateMirror()">
+      Valider les modifications
+    </button>
+  </div>
+</div>

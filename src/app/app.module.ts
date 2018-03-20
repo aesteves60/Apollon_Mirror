@@ -7,7 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 //service
 import { LoginService } from "./login/login.service";
 import { MirrorService } from "./mirror/mirror.service";
-import { AlertService } from "./_tools/alert.service";
+import { AlertService } from "./_tools/alert/alert.service";
 import { HttpAPIInterceptor } from "./_tools/HttpInterceptor";
 import { AuthGuard } from "./_auth/auth.guard";
 
@@ -29,6 +29,8 @@ import { ContactComponent } from './contact/contact.component';
 import { CineComponent } from './mirror/cine/cine.component';
 import { ApimanagerComponent } from './apimanager/apimanager.component';
 import { AlertComponent } from './_tools/alert/alert.component';
+import { AccountComponent } from './account/account.component';
+
 import { MyMirrorDirective } from "./mirror/mirror.directive";
 
 //Angular Material
@@ -57,7 +59,8 @@ import {
     AproposComponent,
     ContactComponent,
     CineComponent,
-    ApimanagerComponent
+    ApimanagerComponent,
+    AccountComponent
   ],
   imports: [
     Ng2DragDropModule.forRoot(),

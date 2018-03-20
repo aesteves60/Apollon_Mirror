@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AlertService } from "../_tools/alert.service";
+import { AlertService } from "../_tools/alert/alert.service";
 import 'rxjs/add/operator/map';
 import { SERIAL_NUMBER } from "../../assets/config";
 import { MatDialog } from '@angular/material';
@@ -55,9 +55,6 @@ export class PersonalizeComponent implements OnInit {
         });
   }
 
-  public modifieModule(module_id){
-
-  }
   public onElemetDrop(e) {
     let _itemMirror = this.FindZoneMirror(e.nativeEvent.target.parentElement.id);
     e.dragData.views_position = e.nativeEvent.target.parentElement.id;
@@ -69,7 +66,7 @@ export class PersonalizeComponent implements OnInit {
         'module_id' : e.dragData.id
       }
     };
-    this.http.get('/API/change_position', options).subscribe(res => PersonalizeComponent.changeValue(_itemMirror,e.dragData));
+    this.http.post('/API/change_position', options).subscribe(res => PersonalizeComponent.changeValue(_itemMirror,e.dragData));
     this.alertService.success('Modification reussi')
   }
 
@@ -82,7 +79,7 @@ export class PersonalizeComponent implements OnInit {
         'serial_number': SERIAL_NUMBER
       }
     };
-    this.http.get('/API/remove_position', options).subscribe(res => { PersonalizeComponent.changeValue(_itemMirror,null);})
+    this.http.put('/API/remove_position', options).subscribe(res => { PersonalizeComponent.changeValue(_itemMirror,null);})
   }
 
   private static changeValue(_itemMirror, value){
