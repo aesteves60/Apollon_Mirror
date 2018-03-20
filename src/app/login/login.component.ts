@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
       this.code = this.code.substr(0, this.code.length - 1);
       switch (this.cmpt) {
         case 1 : this.cercle1_Class = 'cercle'; break;
-        case 2 : this.cercle2_Class = 'cercle';break;
-        case 3 : this.cercle3_Class = 'cercle';break;
+        case 2 : this.cercle2_Class = 'cercle'; break;
+        case 3 : this.cercle3_Class = 'cercle'; break;
         case 4 : this.cercle4_Class = 'cercle'; break;
       }
       this.cmpt--;

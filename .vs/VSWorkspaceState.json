@@ -3,8 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\mirror"
+    "\\src\\app\\mirror",
+    "\\src\\app\\mirror\\meteo"
   ],
-  "SelectedNode": "\\src\\app\\mirror",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
