@@ -11,7 +11,7 @@ import { SERIAL_NUMBER } from "../../assets/config";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public cmpt : number =0;
+  public cmpt : number = 0;
   public code : string ="";
   public cercle1_Class = 'cercle';
   public cercle2_Class = 'cercle';
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
         case 3 : this.cercle3_Class = 'cercle_rempli'; break;
         case 4 : this.cercle4_Class = 'cercle_rempli'; break;
       }
-      this.code = this.code + event.toElement.innerText;
+      this.code = this.code + event.target.innerText;
     }
     if (this.cmpt == 4){
       this.CheckPassword(this.code);

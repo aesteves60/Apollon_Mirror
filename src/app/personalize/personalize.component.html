@@ -13,31 +13,31 @@
     	<table>
     	   <tr>
     	       <td colspan="2">
-    	       		<div id="top_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElemetDrop($event)">
+    	       		<div id="top_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                 		<div *ngFor="let item of ItemMirror_TopLeft">
-                     {{ item.name }}
-                      <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
                       <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                      <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                      <span class="item_name">{{item.name}}</span>
                     </div>
             		</div>
             	</td>
     	       <td colspan="2">
-    	       		<div id="top_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElemetDrop($event)">
+    	       		<div id="top_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_TopRight">
-                   {{ item.name }}
-                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>
             	</td>
     	   </tr>
     	   <tr>
            <td>
-              <div id="left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElemetDrop($event)">
+              <div id="left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                 <div *ngFor="let item of ItemMirror_Left">
-                 {{ item.name }}
-                  <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
                   <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                  <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                  <span class="item_name">{{item.name}}</span>
                 </div>
               </div>
            </td>
@@ -46,49 +46,49 @@
               </div>
            </td>
            <td>
-              <div id="right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElemetDrop($event)">
+              <div id="right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                 <div *ngFor="let item of ItemMirror_Right">
-                 {{ item.name }}
-                  <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
                   <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                  <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                  <span class="item_name">{{item.name}}</span>
                 </div>
               </div>
             </td>
     	   </tr>
     	   <tr>
     	       <td>
-    	       		<div id="bottom_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElemetDrop($event)">
+    	       		<div id="bottom_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_BottomLeft">
-                   {{ item.name }}
-                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>
             	</td>
     	       <td>
-    	       		<div id="bottom_center_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElemetDrop($event)">
+    	       		<div id="bottom_center_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_BottomCenterLeft">
-                   {{ item.name }}
-                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>
             	</td>
     	       <td>
-    	       		<div id="bottom_center_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElemetDrop($event)">
+    	       		<div id="bottom_center_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_BottomCenterRight">
-                   {{ item.name }}
-                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>
             	</td>
     	       <td>
-    	       		<div id="bottom_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElemetDrop($event)">
+    	       		<div id="bottom_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_BottomRight">
-                   {{ item.name }}
-                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                    <img *ngIf="item.image" [src]='item.image' height="50px" width="50px"/>
+                    <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>
             	</td>
