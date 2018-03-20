@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-test',
@@ -11,13 +12,11 @@ export class TestComponent implements OnInit {
   id: number;
   private sub: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private http : HttpClient) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
-
   }
-
 }

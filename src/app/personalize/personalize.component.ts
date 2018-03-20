@@ -34,11 +34,8 @@ export class PersonalizeComponent implements OnInit {
     this.get_Views();
   }
 
-  public get_Modules(){
-    this.http.get('/API/get_modules').subscribe(res => {
-      console.log(res);
-      return this.modules = res;
-    });
+  public get_Modules() {
+    this.http.get('/API/get_modules').subscribe(res => this.modules = res);
   }
 
   public get_Views() {
@@ -60,7 +57,7 @@ export class PersonalizeComponent implements OnInit {
   }
 
   public onElementDrop(e) {
-    let _itemMirror = this.FindZoneMirror(e.nativeEvent.target.parentElement.id);
+    const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.parentElement.id);
     e.dragData.views_position = e.nativeEvent.target.parentElement.id;
     const views_position = e.nativeEvent.target.parentElement.id;
     const options = {
@@ -70,8 +67,12 @@ export class PersonalizeComponent implements OnInit {
         'module_id' : e.dragData.id
       }
     };
-    this.http.post('/API/change_position', options).subscribe(res => PersonalizeComponent.changeValue(_itemMirror, e.dragData));
-    this.alertService.success('Modification reussi');
+    console.log(options, e);
+    this.http.get('/API/change_position', options).subscribe(res => {
+      PersonalizeComponent.changeValue(_itemMirror, e.dragData);
+      return this.alertService.success('Modification reussi');
+    });
+
   }
 
   public remoteElement(e){
