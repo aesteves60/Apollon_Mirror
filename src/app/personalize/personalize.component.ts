@@ -55,7 +55,7 @@ export class PersonalizeComponent implements OnInit {
         });
   }
 
-  public onElemetDrop(e) {
+  public onElementDrop(e) {
     let _itemMirror = this.FindZoneMirror(e.nativeEvent.target.parentElement.id);
     e.dragData.views_position = e.nativeEvent.target.parentElement.id;
     let views_position = e.nativeEvent.target.parentElement.id;

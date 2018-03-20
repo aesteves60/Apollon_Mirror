@@ -9,15 +9,16 @@ table
 td
 {
   border: 1px solid white;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
-td div{
+td > div {
+  position: relative;  
   height: 100%;
   width: 100%;
   text-align: center;
-  line-height: 100px;
+  vertical-align: middle;
 }
 
 .example-container {
@@ -25,7 +26,15 @@ td div{
 }
 
 .icons_close{
-  float: right;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.item_name{
+  display: block;
+  margin: 0 auto;
 }
 
 .drag-hint {
