@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { SERIAL_NUMBER } from "../../assets/config";
 import { AlertService } from "../_tools/alert/alert.service";
+import * as shajs from 'sha.js';
+
 
 
 
@@ -34,15 +36,16 @@ export class AccountComponent implements OnInit {
     if (!(this.mdp === '') && !(this.verifmdp === '')) {
       if((Number(this.mdp)) && (Number(this.verifmdp))){
         if(this.mdp === this.verifmdp){
+          const hashpassword = shajs('sha256').update(this.mdp).digest('hex');
           let options = {
             params : {
               serial_number : SERIAL_NUMBER,
-              password      : this.mdp,
+              password      : hashpassword,
               email         : this.email
             }
           };
-          this.http.post('/API/updateMirror', options).
-          map( data => {
+          this.http.get('/API/updateMirror', options)
+          .subscribe( data => {
               this.mdp = '';
               this.verifmdp = '';
               this.alertService.success('les information ont été modifié');
@@ -56,19 +59,16 @@ export class AccountComponent implements OnInit {
       }
     } else {
       //check si pas vide et si l'email a changé
-      if(this.email === '' && this.email !== this.oldemail){
+      if(this.email !== '' && this.email !== this.oldemail){
         //update sans MDP
         let options = {
           params : {
-            serial_number : SERIAL_NUMBER,
-            email         : this.email
+            'serial_number' : SERIAL_NUMBER,
+            'email'         : this.email
           }
         };
-        this.http.post('/API/updateMirror', options).
-        map( data => {
-            this.alertService.success('les information ont été modifié');
-          },
-          error => this.alertService.error(error));
+        this.http.get('/API/updateMirror', options)
+        .subscribe( data => this.alertService.success('les information ont été modifié');
       } else
       this.alertService.error('Veuillez remplir tous les champs avant de valider');
     }

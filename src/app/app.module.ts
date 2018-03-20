@@ -9,6 +9,7 @@ import { LoginService } from "./login/login.service";
 import { MirrorService } from "./mirror/mirror.service";
 import { AlertService } from "./_tools/alert/alert.service";
 import { HttpAPIInterceptor } from "./_tools/HttpInterceptor";
+import { SocketService } from "./_tools/socket.service";
 import { AuthGuard } from "./_auth/auth.guard";
 
 
@@ -112,7 +113,7 @@ import {
       useClass: HttpAPIInterceptor,
       multi: true
     },
-
+    SocketService,
     AuthGuard
   ],
   entryComponents: [ MeteoComponent, CineComponent ],
