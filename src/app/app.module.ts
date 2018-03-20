@@ -12,7 +12,6 @@ import { HttpAPIInterceptor } from "./_tools/HttpInterceptor";
 import { SocketService } from "./_tools/socket.service";
 import { AuthGuard } from "./_auth/auth.guard";
 
-
 //drag n drop
 import { Ng2DragDropModule } from 'ng2-drag-drop';
 //sha256
@@ -28,7 +27,6 @@ import { MirrorComponent } from './mirror/mirror.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { ContactComponent } from './contact/contact.component';
 import { CineComponent } from './mirror/cine/cine.component';
-import { ApimanagerComponent } from './apimanager/apimanager.component';
 import { AlertComponent } from './_tools/alert/alert.component';
 import { AccountComponent } from './account/account.component';
 
@@ -61,7 +59,6 @@ import { TestComponent } from './test/test.component';
     AproposComponent,
     ContactComponent,
     CineComponent,
-    ApimanagerComponent,
     AccountComponent,
     TestComponent
   ],

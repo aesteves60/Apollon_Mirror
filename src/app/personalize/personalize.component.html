@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened="true">
-    <div draggable [dragData]="module" *ngFor="let module of modules.result"  class="module">
+    <div draggable [dragData]="module" *ngFor="let module of modules.result_object"  class="module">
       <div>{{ module.name }}</div>
       <img [src]='module.image' height="50px" width="50px"/>
       <mat-icon style="float: right" (click)="modifieModule(module.id)">mode_edit</mat-icon>
