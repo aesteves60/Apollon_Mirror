@@ -9,7 +9,6 @@ import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { AccountComponent } from './account/account.component';
 import { AuthGuard } from './_auth/auth.guard';
-import { TestComponent } from './test/test.component';
 
 
 const routes: Routes = [
@@ -17,7 +16,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'mirror', component: MirrorComponent },
   { path: 'meteo', component: MeteoComponent },
-  { path: 'test', component: TestComponent },
 	{ path: 'personalize', canActivate: [ AuthGuard ], component: PersonalizeComponent },
 	{ path: 'account', canActivate: [ AuthGuard ], component: AccountComponent },
 	{ path: 'contacter' , canActivate: [ AuthGuard ], component: ContactComponent },

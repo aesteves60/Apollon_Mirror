@@ -1,6 +1,8 @@
-<div [ngClass]="{'close': !isOpen}">
-  <div class="modal-overlay" (click)="closed(true)"></div>
-  <div class="body">
-    <ng-content></ng-content>
-  </div>
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content [innerHTML]="data.html">
 </div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Fermer</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+</div>
+

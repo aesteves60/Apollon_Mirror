@@ -1,7 +1,7 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[cpMyMiroor]'
+  selector: '[topLeft]'
 })
 export class MyMirrorDirective {
   constructor(public viewContainerRef: ViewContainerRef) { }

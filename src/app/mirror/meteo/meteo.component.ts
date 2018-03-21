@@ -22,11 +22,10 @@ export class MeteoComponent implements OnInit {
     this.currentUrl = this.router.url;
     let date = new Date();
     this.heure = date.getHours()+" : "+date.getMinutes();
-    let obj:any ;
-       this.http.get('https://www.prevision-meteo.ch/services/json/lat=51.032lng=2.377')
-     .subscribe(res =>
-        this.traiteData(res)
-      );
+    this.http.get('API/meteo')
+    .subscribe(res =>
+      this.traiteData(res)
+    );
   }
   traiteData(res){
     /*

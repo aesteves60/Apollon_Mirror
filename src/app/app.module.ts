@@ -20,7 +20,6 @@ import { sha256 } from 'crypto-js/sha256';
 //composent de l'application
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ModalModule } from './_tools/modal/modal.module';
 import { PersonalizeComponent } from './personalize/personalize.component';
 import { MeteoComponent } from './mirror/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
@@ -29,6 +28,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CineComponent } from './mirror/cine/cine.component';
 import { AlertComponent } from './_tools/alert/alert.component';
 import { AccountComponent } from './account/account.component';
+import { ModalComponent } from './_tools/modal/modal.component';
 
 import { MyMirrorDirective } from "./mirror/mirror.directive";
 
@@ -45,7 +45,6 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
-import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +59,7 @@ import { TestComponent } from './test/test.component';
     ContactComponent,
     CineComponent,
     AccountComponent,
-    TestComponent
+    ModalComponent
   ],
   imports: [
     Ng2DragDropModule.forRoot(),
@@ -68,7 +67,6 @@ import { TestComponent } from './test/test.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    ModalModule,
     HttpClientModule,
     CdkTableModule,
     BrowserAnimationsModule,
@@ -115,7 +113,7 @@ import { TestComponent } from './test/test.component';
     SocketService,
     AuthGuard
   ],
-  entryComponents: [ MeteoComponent, CineComponent ],
+  entryComponents: [ MeteoComponent, CineComponent, ModalComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

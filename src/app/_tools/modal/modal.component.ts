@@ -1,29 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ModalService } from './modal.service';
+import {Component, Inject,} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  templateUrl: 'modal.component.html',
 })
-export class ModalComponent implements OnInit {
-  @Input() modalId     : string;
-  isOpen = false;
+export class ModalComponent {
 
-  constructor(private modalService: ModalService) {
+  constructor(public dialogRef: MatDialogRef<ModalComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
-  ngOnInit() {
-    this.modalService.registerModal(this);
-  }
-
-  closed(checkBlocking = false) {
-    this.modalService.close(this.modalId, checkBlocking);
-  }
-
-  private keyup(event: KeyboardEvent): void {
-    if (event.keyCode === 27) {
-      this.modalService.close(this.modalId, true);
-    }
-  }
 }

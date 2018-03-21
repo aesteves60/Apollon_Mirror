@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertService } from '../_tools/alert/alert.service';
 import 'rxjs/add/operator/map';
 import { SERIAL_NUMBER } from '../../assets/config';
 import { MatDialog } from '@angular/material';
+import { ModalComponent } from '../_tools/modal/modal.component';
+
 
 @Component({
   selector: 'app-personalize',
@@ -24,14 +26,25 @@ export class PersonalizeComponent implements OnInit {
   public views   = {};
   public html = '';
 
-
-  constructor(private http: HttpClient, private alertService: AlertService,
-              private modal: MatDialog) {
-  }
+  constructor(private http: HttpClient,
+              private alertService: AlertService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.get_Modules();
     this.get_Views();
+  }
+
+  openDialog(module): void {
+    console.log(module);
+
+    let dialogRef = this.dialog.open(ModalComponent, {
+      width: '250px',
+      data: { html: `<div>  <input type="text">  </div>`,
+              title: module.name}
+    });
+
+    dialogRef.afterClosed().subscribe(result => { console.log(result) });
   }
 
   public get_Modules() {
@@ -57,9 +70,9 @@ export class PersonalizeComponent implements OnInit {
   }
 
   public onElementDrop(e) {
-    const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.parentElement.id);
-    e.dragData.views_position = e.nativeEvent.target.parentElement.id;
-    const views_position = e.nativeEvent.target.parentElement.id;
+    const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.id);
+    e.dragData.views_position = e.nativeEvent.target.id;
+    const views_position = e.nativeEvent.target.id;
     const options = {
       params: {
         'views_position': views_position,
@@ -67,7 +80,6 @@ export class PersonalizeComponent implements OnInit {
         'module_id' : e.dragData.id
       }
     };
-    console.log(options, e);
     this.http.get('/API/change_position', options).subscribe(res => {
       PersonalizeComponent.changeValue(_itemMirror, e.dragData);
       return this.alertService.success('Modification reussi');
@@ -107,5 +119,6 @@ export class PersonalizeComponent implements OnInit {
       case 'Bottom_left': return this.ItemMirror_BottomLeft;
     }
   }
+
 
 }

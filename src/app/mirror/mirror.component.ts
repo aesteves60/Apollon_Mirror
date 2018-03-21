@@ -19,7 +19,7 @@ export class MirrorComponent implements AfterContentInit {
   constructor(private mirrorService: MirrorService) { }
 
   ngAfterContentInit() {
-    this.mirrorItems = this.mirrorService.getAllPosts();
+    this.mirrorItems = this.mirrorService.getAllModules();
     this.mirrorService.loadComponent(this.mirrorDirective.viewContainerRef, this.mirrorItems[0])
   }
 
