@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { SERIAL_NUMBER } from '../../assets/config';
 import { MatDialog } from '@angular/material';
 import { ModalComponent } from '../_tools/modal/modal.component';
+import {SocketService} from '../_tools/socket.service';
 
 
 @Component({
@@ -28,11 +29,13 @@ export class PersonalizeComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private alertService: AlertService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private socket : SocketService) { }
 
   ngOnInit() {
     this.get_Modules();
     this.get_Views();
+    this.socket.gettest();
   }
 
   openDialog(module): void {
@@ -40,7 +43,7 @@ export class PersonalizeComponent implements OnInit {
 
     let dialogRef = this.dialog.open(ModalComponent, {
       width: '250px',
-      data: { html: `<div>  <input type="text">  </div>`,
+      data: { html: `<div> <input type="text" value="test"> </div>`,
               title: module.name}
     });
 

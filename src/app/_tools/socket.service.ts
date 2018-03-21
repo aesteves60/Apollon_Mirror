@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import * as io from 'socket.io-client';
 import {AlertService} from './alert/alert.service';
-
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class SocketService {
@@ -9,17 +9,16 @@ export class SocketService {
   private socket;
 
    constructor(private alertService : AlertService) {
-   	  this.socket = io(this.url);
-   		this.socket.on('connexion', (socket) => {
-       		console.log('connexion');
-       		socket.on('test', () => {
-            this.alertService.success('emit broadcast test ok ');
-          })
-      	});
+
   }
 
-  sendMessage(message){
-    this.socket.emit('test', message);
-  }
+  gettest(){
+    this.socket = io(this.url);
+    this.socket.emit('test','test');
+    console.log(this.socket);
+    this.socket.on('test', (message) => {
+        alert('emit ok ');
+    });
+   }
 
 }

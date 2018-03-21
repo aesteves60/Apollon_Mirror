@@ -12,8 +12,7 @@ import {SocketService} from './_tools/socket.service';
 export class AppComponent {
 
   constructor(private router: Router,
-              private loginS: LoginService,
-              private socket : SocketService) {
+              private loginS: LoginService) {
   }
 
   logout(){
