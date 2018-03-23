@@ -1,11 +1,14 @@
 import {ComponentFactoryResolver, Injectable, ViewContainerRef} from '@angular/core';
 import {MirrorItem} from "./mirror-item";
-import {MeteoComponent} from "./meteo/meteo.component";
+import {HttpClient} from '@angular/common/http';
+import {SERIAL_NUMBER} from '../../assets/config';
+
 
 @Injectable()
 export class MirrorService {
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver,
+              private http : HttpClient) { }
 
 
   loadComponent(viewContainerRef: ViewContainerRef, mirrorItem: MirrorItem) {
@@ -15,9 +18,12 @@ export class MirrorService {
   }
 
   getAllModules() {
-    return [
-      new MirrorItem(MeteoComponent, {name: 'Angular 2',
-        description: 'Angular is a platform that makes it easy to build applications with the web.'})
-    ];
+    let options = {
+      params : {
+        serial_number : SERIAL_NUMBER
+      }
+    };
+    return this.http.get('/API/get_views_mirror', options).map(res => res);
   }
+
 }

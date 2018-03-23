@@ -5,10 +5,12 @@ import 'rxjs/add/operator/map';
 import { SERIAL_NUMBER } from '../../assets/config';
 import { MatDialog } from '@angular/material';
 import { ModalComponent } from '../_tools/modal/modal.component';
-import {SocketService} from '../_tools/socket.service';
+import { SocketService } from '../_tools/socket.service';
+import { MirrorComponent } from '../mirror/mirror.component';
 
 
 @Component({
+  providers:[MirrorComponent ],
   selector: 'app-personalize',
   templateUrl: './personalize.component.html',
   styleUrls: ['./personalize.component.css']
@@ -27,10 +29,11 @@ export class PersonalizeComponent implements OnInit {
   public views   = {};
   public html = '';
 
-  constructor(private http: HttpClient,
-              private alertService: AlertService,
-              public dialog: MatDialog,
-              private socket : SocketService) { }
+  constructor(private http : HttpClient,
+              private alertService : AlertService,
+              public dialog : MatDialog,
+              private socket : SocketService,
+              private mirror : MirrorComponent) { }
 
   ngOnInit() {
     this.get_Modules();
@@ -39,8 +42,6 @@ export class PersonalizeComponent implements OnInit {
   }
 
   openDialog(module): void {
-    console.log(module);
-
     let dialogRef = this.dialog.open(ModalComponent, {
       width: '250px',
       data: { html: `<div> <input type="text" value="test"> </div>`,
@@ -87,7 +88,6 @@ export class PersonalizeComponent implements OnInit {
       PersonalizeComponent.changeValue(_itemMirror, e.dragData);
       return this.alertService.success('Modification reussi');
     });
-
   }
 
   public remoteElement(e){

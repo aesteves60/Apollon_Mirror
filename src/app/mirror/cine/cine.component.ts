@@ -17,11 +17,11 @@ export class CineComponent implements OnInit {
   }
 
   GetFilmsNowPlaying(){
-    this.http.get(this.URL_API)
+   /* this.http.get(this.URL_API)
       .subscribe(data => {
          this.films = data;
          return this.films.results;
-      } );
+      } );*/
   }
 
 }

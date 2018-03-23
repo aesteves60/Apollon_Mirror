@@ -1,13 +1,43 @@
 table
 {
 	width: 100%;
-    height: 100%;
+  height: 100%;
 }
 
+img{
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fade {
+  opacity: 0;
+  animation: fadein 5s;
+  -webkit-animation: fadein 5s;
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes fadein {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+
+
 .element{
-	width: 25%;
+	  width: 25%;
     height: 25%;
-    color : white;
+}
+
+.elementTop{
+  height: 25%;
 }
 
 .black{

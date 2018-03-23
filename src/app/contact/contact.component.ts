@@ -20,7 +20,7 @@ export class ContactComponent implements OnInit {
   }
 
   Send(){
-    let options = {
+    const options = {
       params :{
         firstname : this.firstname,
         lastname  : this.lastname,

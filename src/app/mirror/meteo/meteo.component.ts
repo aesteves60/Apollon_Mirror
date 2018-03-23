@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { jourMeteo } from './jourMeteo';
-import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
+import {SERIAL_NUMBER} from '../../../assets/config';
 
 @Component({
   selector: 'app-meteo',
@@ -22,14 +22,18 @@ export class MeteoComponent implements OnInit {
     this.currentUrl = this.router.url;
     let date = new Date();
     this.heure = date.getHours()+" : "+date.getMinutes();
-    this.http.get('API/meteo')
-    .subscribe(res =>
-      this.traiteData(res)
-    );
+    const options = { params: {
+        'serial_number': SERIAL_NUMBER
+      }
+    };
+    this.http.get('/API/meteo', options)
+    .subscribe(res => {
+      console.log(res);
+      return this.traiteData(res);
+    });
   }
   traiteData(res){
     /*
-
     tabMeteo => 0 condition actuelle
     tabMeteo => 1 condition de la journée actuelle
     tabMeteo => 1+n condition futur

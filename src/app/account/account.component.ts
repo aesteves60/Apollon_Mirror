@@ -37,7 +37,7 @@ export class AccountComponent implements OnInit {
       if((Number(this.mdp)) && (Number(this.verifmdp))){
         if(this.mdp === this.verifmdp){
           const hashpassword = shajs('sha256').update(this.mdp).digest('hex');
-          let options = {
+          const options = {
             params : {
               serial_number : SERIAL_NUMBER,
               password      : hashpassword,
@@ -61,7 +61,7 @@ export class AccountComponent implements OnInit {
       //check si pas vide et si l'email a changé
       if (this.email !== '' && this.email !== this.oldemail){
         //update sans MDP
-        let options = {
+        const options = {
           params : {
             'serial_number' : SERIAL_NUMBER,
             'email'         : this.email

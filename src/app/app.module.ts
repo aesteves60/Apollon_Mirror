@@ -4,14 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
-//service
-import { LoginService } from "./login/login.service";
-import { MirrorService } from "./mirror/mirror.service";
-import { AlertService } from "./_tools/alert/alert.service";
-import { HttpAPIInterceptor } from "./_tools/HttpInterceptor";
-import { SocketService } from "./_tools/socket.service";
-import { AuthGuard } from "./_auth/auth.guard";
-
 //drag n drop
 import { Ng2DragDropModule } from 'ng2-drag-drop';
 //sha256
@@ -29,8 +21,25 @@ import { CineComponent } from './mirror/cine/cine.component';
 import { AlertComponent } from './_tools/alert/alert.component';
 import { AccountComponent } from './account/account.component';
 import { ModalComponent } from './_tools/modal/modal.component';
+import { EmptyComponent } from './mirror/empty/empty.component';
 
-import { MyMirrorDirective } from "./mirror/mirror.directive";
+//service
+import { LoginService } from "./login/login.service";
+import { MirrorService } from "./mirror/mirror.service";
+import { AlertService } from "./_tools/alert/alert.service";
+import { HttpAPIInterceptor } from "./_tools/HttpInterceptor";
+import { SocketService } from "./_tools/socket.service";
+import { AuthGuard } from "./_auth/auth.guard";
+
+//directive
+import { BottomCenterLeftDirective,
+  BottomCenterRightDirective,
+  BottomLeftDirective,
+  BottomRightDirective,
+  LeftDirective,
+  RightDirective,
+  TopLeftDirective,
+  TopRightDirective } from "./mirror/directive/mirror.directive";
 
 //Angular Material
 import { CdkTableModule } from '@angular/cdk/table';
@@ -46,9 +55,12 @@ import {
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
 
+
 @NgModule({
   declarations: [
-    MyMirrorDirective,
+    BottomCenterLeftDirective, BottomCenterRightDirective, BottomLeftDirective,
+    BottomRightDirective, LeftDirective, RightDirective,
+    TopLeftDirective, TopRightDirective,
     AlertComponent,
     AppComponent,
     LoginComponent,
@@ -59,7 +71,8 @@ import {
     ContactComponent,
     CineComponent,
     AccountComponent,
-    ModalComponent
+    ModalComponent,
+    EmptyComponent
   ],
   imports: [
     Ng2DragDropModule.forRoot(),
@@ -113,7 +126,7 @@ import {
     SocketService,
     AuthGuard
   ],
-  entryComponents: [ MeteoComponent, CineComponent, ModalComponent],
+  entryComponents: [ MeteoComponent, CineComponent, ModalComponent, EmptyComponent, MirrorComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

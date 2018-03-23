@@ -1,11 +1,15 @@
 <app-alert></app-alert>
 
-<div *ngIf="router.url !== '/mirror' && router.url !== '/login' && router.url !== '/forgetpsw'">
+<div *ngIf="router.url !== '/mirror' && router.url !== '/login'">
 
 	<mat-toolbar color="primary">
 
 		<div  class="button-row mg-left-20">
-			<a routerLink="/personalize" mat-button [class.active]="select" ><mat-icon>home</mat-icon> Mirror</a>
+			<a routerLink="/personalize" mat-button [class.active]="select" >
+        <img src="../assets/img/Logo.png" style="height: 40px; width: 40px">
+        <!--<mat-icon>home</mat-icon>-->
+        Mirror
+      </a>
 			<a routerLink="/account" mat-button >Account</a>
 		</div>
 		<div  class="spacer"></div>
