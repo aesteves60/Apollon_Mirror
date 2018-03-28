@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from "rxjs/Subject";
-import { Alert } from "./alert";
 
 @Injectable()
 export class AlertService {
@@ -29,7 +28,20 @@ export class AlertService {
     }, 5000);
   }
 
+  close(){
+    this.subject.next(<Alert> {
+      type : '' ,
+      message : ''
+    });
+  }
+
   getMessage(): Observable<any> {
     return this.subject.asObservable();
   }
 }
+
+export class Alert {
+  type: string;
+  message: string;
+}
+

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from "./alert.service";
-import {Alert} from "./alert";
+import { AlertService, Alert } from "./alert.service";
 import {Subscription} from "rxjs/Subscription";
 
 @Component({
@@ -13,11 +12,13 @@ export class AlertComponent implements OnInit {
   subscription: Subscription;
 
   constructor( private alertService :AlertService ) {
-    this.subscription = this.alertService.getMessage().subscribe(alerts => { this.alerts = alerts; });
+    this.subscription = this.alertService.getMessage().subscribe(alerts => this.alerts = alerts);
   }
 
-  ngOnInit() {
+  ngOnInit() {}
 
+  private close(){
+    this.alertService.close();
   }
 
 }

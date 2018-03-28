@@ -1,0 +1,14 @@
+<div  class="actualiter">
+  <div class="title">L'Equipe</div>
+  <hr>
+  <div *ngFor="let article of lequipe.articles; let i = index">
+    <li *ngIf="i < 10" class="article_{{i}}">
+      {{ article.title }}
+      <button (click)="article.isShow = !article.isShow">Show</button>
+      <div [hidden]="!article.isShow" (click)="DeleteArticle(i)">
+        {{ article.description }}
+      </div>
+    </li>
+  </div>
+</div>
+

@@ -54,6 +54,8 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
+import { ActualiterComponent } from './mirror/actualiter/actualiter.component';
+import { LequipeComponent } from './mirror/lequipe/lequipe.component';
 
 
 @NgModule({
@@ -72,7 +74,9 @@ import {
     CineComponent,
     AccountComponent,
     ModalComponent,
-    EmptyComponent
+    EmptyComponent,
+    ActualiterComponent,
+    LequipeComponent
   ],
   imports: [
     Ng2DragDropModule.forRoot(),

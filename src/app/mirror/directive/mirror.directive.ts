@@ -50,7 +50,7 @@ export class TopLeftDirective {
   constructor(public viewContainerRef: ViewContainerRef) { }
 }
 @Directive({
-  selector: '[topLeft]'
+  selector: '[topRight]'
 })
 export class TopRightDirective {
   constructor(public viewContainerRef: ViewContainerRef) { }

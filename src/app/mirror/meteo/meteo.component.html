@@ -1,38 +1,33 @@
-<p >
-  <li style="list-style-type:none" *ngFor="let item of tabMeteo;let i = index">
+<div>
+  <div class="title">
+    Meteo
+    {{ city }}
+    <hr>
+  </div>
+  <div *ngFor="let item of tabMeteo;let i = index">
   	<div class="day_meteo_{{i}}">
 
-	
-		<img class="day_meteo_img_{{i}}" src= {{item.imgUrl}} >
-	
-		<div class="day_meteo_glob_{{i}}">
+      <img class="day_meteo_img_{{i}}" src= {{item.imgUrl}} >
 
-		<div  *ngIf="item.tmp !== null;" class="day_meteo_txt_{{i}}"> 
-			<span>
-				{{item.tmp}}
-			</span>
-		</div>
-		<div class="day_meteo_txt_{{i}}">
-			<span>
-				{{item.day}}
-			</span>
-			<span class="day_meteo_heure_{{i}}">
-				{{heure}}
-			</span>
-		</div>
-		<div class="day_meteo_txt_{{i}}">
-			<span>
-				{{item.tmin}}
-			</span>
-		</div>
-		<div class="day_meteo_txt_{{i}}">
-			<span>
-				{{item.tmax}}
-			</span>
-		</div>
-	</div>
-	</div>
-  	
-     
-  </li>
-</p>
+      <div class="day_meteo_glob_{{i}}">
+        <div class="day_meteo_txt_{{i}}">
+          <div>
+            {{ item.day }} {{ item.dayNumber }} {{ item.month }}
+          </div>
+          <div *ngIf="item.tmp !== null;" class="current_tmp">
+            {{ item.tmp }}
+          </div>
+        </div>
+        <div class="day_meteo_txt_{{i}}">
+          <div>
+            {{ item.tmin }} {{ item.tmax }}
+          </div>
+          <div *ngIf="!(item.wind_speed === 0)">
+            {{ item.wind_dir }} &nbsp; &nbsp;
+            {{ item.wind_speed }} km/h
+          </div>
+        </div>
+	    </div>
+	  </div>
+  </div>
+</div>

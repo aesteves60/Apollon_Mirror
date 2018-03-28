@@ -62,18 +62,19 @@ export class PersonalizeComponent implements OnInit {
         };
         this.http.get('/API/get_views_mirror', options).subscribe(res => {
           this.views = res;
-          PersonalizeComponent.changeValue(this.ItemMirror_TopLeft, this.views[0]);
-          PersonalizeComponent.changeValue(this.ItemMirror_TopRight, this.views[1]);
-          PersonalizeComponent.changeValue(this.ItemMirror_Left, this.views[2]);
-          PersonalizeComponent.changeValue(this.ItemMirror_Right, this.views[3]);
-          PersonalizeComponent.changeValue(this.ItemMirror_BottomLeft, this.views[4]);
-          PersonalizeComponent.changeValue(this.ItemMirror_BottomRight, this.views[5]);
-          PersonalizeComponent.changeValue(this.ItemMirror_BottomCenterLeft, this.views[6]);
-          PersonalizeComponent.changeValue(this.ItemMirror_BottomCenterRight, this.views[7]);
+          this.changeValue(this.ItemMirror_TopLeft, this.views[0]);
+          this.changeValue(this.ItemMirror_TopRight, this.views[1]);
+          this.changeValue(this.ItemMirror_Left, this.views[2]);
+          this.changeValue(this.ItemMirror_Right, this.views[3]);
+          this.changeValue(this.ItemMirror_BottomLeft, this.views[4]);
+          this.changeValue(this.ItemMirror_BottomRight, this.views[5]);
+          this.changeValue(this.ItemMirror_BottomCenterLeft, this.views[6]);
+          this.changeValue(this.ItemMirror_BottomCenterRight, this.views[7]);
         });
   }
 
   public onElementDrop(e) {
+    console.log(e);
     const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.id);
     e.dragData.views_position = e.nativeEvent.target.id;
     const views_position = e.nativeEvent.target.id;
@@ -85,7 +86,7 @@ export class PersonalizeComponent implements OnInit {
       }
     };
     this.http.get('/API/change_position', options).subscribe(res => {
-      PersonalizeComponent.changeValue(_itemMirror, e.dragData);
+      this.changeValue(_itemMirror, e.dragData);
       return this.alertService.success('Modification reussi');
     });
   }
@@ -99,10 +100,10 @@ export class PersonalizeComponent implements OnInit {
         'serial_number': SERIAL_NUMBER
       }
     };
-    this.http.delete('/API/remove_position', options).subscribe(res => { PersonalizeComponent.changeValue(_itemMirror, null); });
+    this.http.delete('/API/remove_position', options).subscribe(res => { this.changeValue(_itemMirror, null); });
   }
 
-  private static changeValue(_itemMirror, value){
+  private changeValue(_itemMirror, value){
     if (value === null ){
       value = {name : 'Vide', image : '', views_position : _itemMirror.views_position };
     }
