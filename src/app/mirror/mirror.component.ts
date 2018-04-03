@@ -15,7 +15,7 @@ import {EmptyComponent} from './empty/empty.component';
   selector: 'app-mirror',
   templateUrl: './mirror.component.html',
   styleUrls: ['./mirror.component.css'],
-  entryComponents: [ MeteoComponent, CineComponent, EmptyComponent ]
+  entryComponents: [ MeteoComponent, TraficComponent, ActualiteComponent, LequipeComponent, EmptyComponent ]
 })
 export class MirrorComponent implements AfterContentInit, OnInit {
 
@@ -75,13 +75,10 @@ export class MirrorComponent implements AfterContentInit, OnInit {
     if( module === null ) return EmptyComponent;
     switch (module.name){
       case 'Meteo'          : return MeteoComponent;
-      case 'Cinema'         : return CineComponent;
-      case 'Calendrier'     : return EmptyComponent;
-      case 'Trafic routier' : return EmptyComponent;
-      case 'Transpole'      : return EmptyComponent;
-      case 'Date / Heure'      : return EmptyComponent;
+      case 'Trafic routier' : return TraficComponent;
+      case 'Actualite'      : return ActualiteComponent;
+      case 'Equipe'         : return LequipeComponent;
       case ''               : return EmptyComponent;
-      case null             : return EmptyComponent;
     }
   }
 
