@@ -49,7 +49,6 @@ export class MirrorComponent implements AfterContentInit, OnInit {
 
   ngAfterContentInit() {
      this.mirrorService.getAllModules().subscribe(res => {
-       console.log(res);
        this.list_modules = [
            new MirrorItem(this.FindComponent(res[0] ? res[0] : null), null),
            new MirrorItem(this.FindComponent(res[1] ? res[1] : null), null),
@@ -60,7 +59,6 @@ export class MirrorComponent implements AfterContentInit, OnInit {
            new MirrorItem(this.FindComponent(res[6] ? res[6] : null), null),
            new MirrorItem(this.FindComponent(res[7] ? res[7] : null), null),
         ];
-       console.log(this.list_modules);
         this.mirrorService.loadComponent(this.topLeftDirective.viewContainerRef, this.list_modules[0]);
         this.mirrorService.loadComponent(this.topRightDirective.viewContainerRef, this.list_modules[1]);
         this.mirrorService.loadComponent(this.leftDirective.viewContainerRef, this.list_modules[2]);

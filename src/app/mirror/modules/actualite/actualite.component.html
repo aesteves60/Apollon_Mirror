@@ -4,8 +4,7 @@
   <div *ngFor="let article of articles; let i = index">
     <li *ngIf="i < 10" class="article_{{i}}">
       {{ article.title }}
-      <button (click)="article.isShow = !article.isShow">Voir +</button>
-      <div [hidden]="!article.isShow" (click)="DeleteArticle(i)">
+w      <div [hidden]="!article.isShow" (click)="DeleteArticle(i)">
         {{ article.description }}
       </div>
     </li>

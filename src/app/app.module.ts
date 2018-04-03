@@ -22,7 +22,7 @@ import { AlertComponent } from './_tools/alert/alert.component';
 import { AccountComponent } from './account/account.component';
 import { ModalComponent } from './_tools/modal/modal.component';
 import { EmptyComponent } from './mirror/modules/empty/empty.component';
-import { ActualiterComponent } from './mirror/modules/actualiter/actualiter.component';
+import { ActualiteComponent } from './mirror/modules/actualite/actualite.component';
 import { LequipeComponent } from './mirror/modules/lequipe/lequipe.component';
 import { TraficComponent } from './mirror/modules/trafic/trafic.component';
 
@@ -57,8 +57,6 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
-import { ActualiteComponent } from './mirror/modules/actualite/actualite.component';
-import { LequipeComponent } from './mirror/lequipe/lequipe.component';
 
 
 
@@ -80,7 +78,7 @@ import { LequipeComponent } from './mirror/lequipe/lequipe.component';
     ModalComponent,
     EmptyComponent,
     ActualiteComponent,
-    LequipeComponent
+    LequipeComponent,
     TraficComponent
   ],
   imports: [
