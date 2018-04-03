@@ -17,6 +17,9 @@ export class ActualiteComponent implements OnInit {
     this.http.get('/API/actualite')
              .subscribe(res => {
                this.articles = res['articles'];
+               /*this.articles.map(art => {
+                 art.date_parution = $filter('date')(art.publishedAt, "dd/MM");
+               });*/
                return this.articles.map(obj => obj.isShow = false);
              });
     this.socket = io(this.url);

@@ -2,17 +2,59 @@
   display: none;
 }
 
+.article{
+  display: flex;
+  width: 100%;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  vertical-align: middle;
+}
+
+.article_left{
+  float: left;
+  width: 25%;
+}
+
+.article_left img{
+  display: block;
+  max-width: 80%;
+  margin : 0 5%;
+}
+
+.article_right{
+  float: right;
+  width: 75%;
+  margin: auto;
+}
+
+.article_titre{
+  padding: 10px;
+  font-weight: 500;
+}
+
+.article_description{
+  padding: 10px;
+  font-style: italic; 
+}
+
+.author{
+  font-size: 0.8em;
+}
+.date_parution{
+  float: right;
+  font-size: 0.8em;
+}
 .actualite{
+  display: block;
   color: white;
   background-color: black;
   width: 60%;
-  font-family: system-ui, serif;
+  padding : 0 20%;
 }
 .title{
   padding: 10px;
   font-size: 30px;
   text-align: center;
-  font-family: system-ui, serif;
   font-weight: bold;
 }
 

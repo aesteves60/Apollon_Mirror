@@ -2,11 +2,21 @@
   <div class="title">Actualités</div>
   <hr>
   <div *ngFor="let article of articles; let i = index">
-    <li *ngIf="i < 10" class="article_{{i}}">
-      {{ article.title }}
-w      <div [hidden]="!article.isShow" (click)="DeleteArticle(i)">
-        {{ article.description }}
-      </div>
+    <li *ngIf="i < 10" class="article article_{{i}}">
+    	<div class="article_left">
+			<img src="{{ article.urlToImage }}" alt="{{ article.title }}" />
+    	</div>
+    	<div class="article_right">
+    		<div>
+    			<span *ngIf="article.author" class="author">Par {{ article.author }}</span>
+    			<span class="date_parution">le {{article.publishedAt | date:'dd/MM à HH:mm'}}</span>
+    		</div>
+	      <div class="article_titre">{{ article.title }}</div>
+	      <!--<button (click)="ShowArticle(i)"></button>-->
+	      <div class="article_description" [hidden]="!article.isShow" (click)="DeleteArticle(i)">
+	        {{ article.description }}
+	      </div>
+	    </div>
     </li>
   </div>
 </div>
