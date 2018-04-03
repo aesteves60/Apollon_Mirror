@@ -11,6 +11,7 @@ export class ContactComponent implements OnInit {
 
   firstname : string = '';
   lastname  : string = '';
+  email     : string = '';
   subject   : string = '';
 
   constructor( private http: HttpClient,  private alertService : AlertService ) { }
@@ -24,14 +25,16 @@ export class ContactComponent implements OnInit {
       params :{
         firstname : this.firstname,
         lastname  : this.lastname,
+        email  : this.email,
         subject   : this.subject
       }
     };
     this.http.get('/contact', options).subscribe( ok => {
       this.firstname = '';
       this.lastname  = '';
+      this.email     = '';
       this.subject   = '';
-      this.alertService.success('Votre demande a été envoyé');
+      this.alertService.success('Votre demande a été envoyée');
     });
   }
 

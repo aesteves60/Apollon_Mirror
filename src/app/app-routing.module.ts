@@ -9,7 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { AccountComponent } from './account/account.component';
 import { AuthGuard } from './_auth/auth.guard';
-import {ActualiterComponent} from './mirror/actualiter/actualiter.component';
+import {ActualiteComponent} from './mirror/actualite/actualite.component';
 import {LequipeComponent} from './mirror/lequipe/lequipe.component';
 
 
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'mirror', component: MirrorComponent },
   { path: 'meteo', component: MeteoComponent },
-  { path: 'actu', component: ActualiterComponent },
+  { path: 'actu', component: ActualiteComponent },
   { path: 'equipe', component: LequipeComponent },
 	{ path: 'personalize', canActivate: [ AuthGuard ], component: PersonalizeComponent },
 	{ path: 'account', canActivate: [ AuthGuard ], component: AccountComponent },

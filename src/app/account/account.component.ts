@@ -48,14 +48,14 @@ export class AccountComponent implements OnInit {
           .subscribe( data => {
               this.mdp = '';
               this.verifmdp = '';
-              this.alertService.success('les information ont été modifié');
+              this.alertService.success('Les informations ont été modifiées.');
             },
             error => this.alertService.error(error));
         } else {
-          this.alertService.error('Les deux mots de passe remplie ne sont pas identique');
+          this.alertService.error('Les deux mots de passe ne sont pas identiques.');
         }
       } else {
-        this.alertService.error('Veuillez remplir les champs mot de passe avec des nombres');
+        this.alertService.error('Veuillez remplir les champs mot de passe avec des chiffres.');
       }
     } else {
       //check si pas vide et si l'email a changé
@@ -68,9 +68,9 @@ export class AccountComponent implements OnInit {
           }
         };
         this.http.get('/API/updateMirror', options)
-        .subscribe( data => this.alertService.success('les information ont été modifié'));
+        .subscribe( data => this.alertService.success('Les informations ont été modifiées.'));
       } else
-      this.alertService.error('Veuillez remplir tous les champs avant de valider');
+      this.alertService.error('Veuillez remplir tous les champs avant de valider.');
     }
   }
 

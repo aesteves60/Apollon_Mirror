@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-actualiter',
-  templateUrl: './actualiter.component.html',
-  styleUrls: ['./actualiter.component.css']
+  selector: 'app-actualite',
+  templateUrl: './actualite.component.html',
+  styleUrls: ['./actualite.component.css']
 })
-export class ActualiterComponent implements OnInit {
+export class ActualiteComponent implements OnInit {
   public actualite;
 
   constructor(private http : HttpClient) {
