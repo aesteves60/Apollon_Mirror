@@ -9,7 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { AccountComponent } from './account/account.component';
 import { AuthGuard } from './_auth/auth.guard';
-import {ActualiterComponent} from './mirror/modules/actualiter/actualiter.component';
+import {ActualiteComponent} from './mirror/modules/actualite/actualite.component';
 import {LequipeComponent} from './mirror/modules/lequipe/lequipe.component';
 import {TraficComponent} from './mirror/modules/trafic/trafic.component';
 

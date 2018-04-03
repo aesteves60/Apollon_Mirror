@@ -7,17 +7,16 @@ import { MirrorService } from "./mirror.service";
 import { MirrorItem } from "./mirror.service";
 //component
 import {MeteoComponent} from './modules/meteo/meteo.component';
-import {CineComponent} from './modules/cine/cine.component';
 import {EmptyComponent} from './modules/empty/empty.component';
 import {LequipeComponent} from './modules/lequipe/lequipe.component';
-import {ActualiterComponent} from './modules/actualiter/actualiter.component';
+import {ActualiteComponent} from './modules/actualite/actualite.component';
 import {TraficComponent} from './modules/trafic/trafic.component';
 
 @Component({
   selector: 'app-mirror',
   templateUrl: './mirror.component.html',
   styleUrls: ['./mirror.component.css'],
-  entryComponents: [ MeteoComponent, TraficComponent, LequipeComponent, ActualiterComponent, EmptyComponent ]
+  entryComponents: [ MeteoComponent, TraficComponent, LequipeComponent, ActualiteComponent, EmptyComponent ]
 })
 export class MirrorComponent implements AfterContentInit, OnInit {
 
@@ -79,8 +78,8 @@ export class MirrorComponent implements AfterContentInit, OnInit {
     switch (module.name){
       case 'Météo'          : return MeteoComponent;
       case 'Trafic routier' : return TraficComponent;
-      case 'Actualité'      : return ActualiterComponent;
-      case 'L\'Equipe'         : return LequipeComponent;
+      case 'Actualité'      : return ActualiteComponent;
+      case 'L\'Equipe'      : return LequipeComponent;
       case ''               : return EmptyComponent;
     }
   }

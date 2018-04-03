@@ -57,7 +57,7 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
-import { ActualiteComponent } from './mirror/actualite/actualite.component';
+import { ActualiteComponent } from './mirror/modules/actualite/actualite.component';
 import { LequipeComponent } from './mirror/lequipe/lequipe.component';
 
 

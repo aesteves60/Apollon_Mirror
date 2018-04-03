@@ -8,14 +8,14 @@ import {HttpClient} from '@angular/common/http';
 })
 export class LequipeComponent implements OnInit {
 
-  public lequipe;
+  public articles;
 
 
   constructor(private http : HttpClient) {
     this.http.get('/API/lequipe')
       .subscribe(res => {
-        this.lequipe = res;
-        return this.lequipe.articles.map(obj => obj.isShow = false);
+        this.articles = res['articles'];
+        return this.articles.map(obj => obj.isShow = false);
       });
   }
 
@@ -23,7 +23,7 @@ export class LequipeComponent implements OnInit {
   }
 
   DeleteArticle(index : number){
-    delete(this.lequipe.articles[index]);
+    delete(this.articles[index]);
   }
 
 }
