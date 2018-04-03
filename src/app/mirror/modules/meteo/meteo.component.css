@@ -19,7 +19,8 @@ hr{
 	float: left;
 }
 .day_meteo_img_0{
-	min-width: 30%;
+	max-width: 30%;
+  height: auto;
 	float: left;
 }
 
