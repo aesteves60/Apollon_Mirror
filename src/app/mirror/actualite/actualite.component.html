@@ -1,0 +1,13 @@
+<div  class="actualite">
+  <div class="title">Actualités</div>
+  <hr>
+  <div *ngFor="let article of actualite.articles; let i = index">
+    <li *ngIf="i < 10" class="article_{{i}}">
+      {{ article.title }}
+      <button (click)="article.isShow = !article.isShow">Voir +</button>
+      <div [hidden]="!article.isShow" (click)="DeleteArticle(i)">
+        {{ article.description }}
+      </div>
+    </li>
+  </div>
+</div>

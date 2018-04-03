@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'mirror', component: MirrorComponent },
   { path: 'meteo', component: MeteoComponent },
-  { path: 'actu', component: ActualiterComponent },
+  { path: 'actu', component: ActualiteComponent },
   { path: 'equipe', component: LequipeComponent },
   { path: 'trafic', component: TraficComponent },
 	{ path: 'personalize', canActivate: [ AuthGuard ], component: PersonalizeComponent },

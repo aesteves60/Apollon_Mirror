@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
   CheckPassword( c : string){
     this.loginS.login(c, 'token').subscribe(result => {
       if (result === true) {
-        this.alertService.success('Connexion reussi')
+        this.alertService.success('Connexion réussie')
       } else {
         this.WrongPassword();
       }
@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
   }
 
   WrongPassword() {
-    this.alertService.error('Wrong password');
+    this.alertService.error('Le mot de passe est erroné');
     this.cmpt = 0 ;
     this.code = '';
     this.cercle1_Class = 'cercle';

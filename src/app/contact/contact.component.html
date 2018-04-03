@@ -1,12 +1,16 @@
 <div class="container">
   <form action="/action_page.php">
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name.."
+    <label for="fname">Nom</label>
+    <input type="text" id="fname" name="firstname" placeholder=""
            [(ngModel)]="firstname">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name.."
+    <label for="lname">Prénom</label>
+    <input type="text" id="lname" name="lastname" placeholder=""
            [(ngModel)]="lastname">
+
+    <label for="mail">Adresse email</label>
+    <input type="text" id="mail" name="email" placeholder=""
+           [(ngModel)]="email">
 
     <!--<label for="country">Country</label>
     <select id="country" name="country">
@@ -16,8 +20,8 @@
       </option>
     </select>-->
 
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"
+    <label for="subject">Message</label>
+    <textarea id="subject" name="subject" placeholder="Votre message..." style="height:200px"
               [(ngModel)]="subject"></textarea>
 
     <input type="submit" value="Submit" (click)="Send">

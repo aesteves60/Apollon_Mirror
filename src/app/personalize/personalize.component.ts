@@ -84,13 +84,13 @@ export class PersonalizeComponent implements OnInit {
     };
     this.http.get('/API/change_position', options).subscribe(res => {
       this.changeValue(_itemMirror, e.dragData);
-      return this.alertService.success('Modification reussi');
+      return this.alertService.success('Modification réussie.');
     });
   }
 
   public remoteElement(e){
     const _itemMirror = this.FindZoneMirror(e.target.parentElement.parentElement.id);
-    this.alertService.success('Modification reussi');
+    this.alertService.success('Modification réussie.');
     const options = {
       params: {
         'views_position': e.target.parentElement.parentElement.id,
