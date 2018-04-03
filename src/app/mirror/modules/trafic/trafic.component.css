@@ -1,0 +1,26 @@
+agm-map {
+  height: 400px;
+}
+
+hr{
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+#map {
+  height: 500px;
+}
+
+.element{
+  background-color: black;
+  color: white;
+  height: 500px;
+}
+
+.title{
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  font-family: system-ui, serif;
+  font-weight: bold;
+}

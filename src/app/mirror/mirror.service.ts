@@ -1,7 +1,8 @@
 import {ComponentFactoryResolver, Injectable, ViewContainerRef} from '@angular/core';
-import {MirrorItem} from "./mirror-item";
 import {HttpClient} from '@angular/common/http';
-import {SERIAL_NUMBER} from '../../assets/config';
+import {SERIAL_NUMBER} from '../../assets/config'
+import { Type } from '@angular/core';
+
 
 
 @Injectable()
@@ -27,3 +28,8 @@ export class MirrorService {
   }
 
 }
+
+export class MirrorItem {
+  constructor(public component: Type<any>, public data: any) {}
+}
+

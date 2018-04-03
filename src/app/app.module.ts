@@ -13,15 +13,18 @@ import { sha256 } from 'crypto-js/sha256';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PersonalizeComponent } from './personalize/personalize.component';
-import { MeteoComponent } from './mirror/meteo/meteo.component';
+import { MeteoComponent } from './mirror/modules/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { ContactComponent } from './contact/contact.component';
-import { CineComponent } from './mirror/cine/cine.component';
+import { CineComponent } from './mirror/modules/cine/cine.component';
 import { AlertComponent } from './_tools/alert/alert.component';
 import { AccountComponent } from './account/account.component';
 import { ModalComponent } from './_tools/modal/modal.component';
-import { EmptyComponent } from './mirror/empty/empty.component';
+import { EmptyComponent } from './mirror/modules/empty/empty.component';
+import { ActualiterComponent } from './mirror/modules/actualiter/actualiter.component';
+import { LequipeComponent } from './mirror/modules/lequipe/lequipe.component';
+import { TraficComponent } from './mirror/modules/trafic/trafic.component';
 
 //service
 import { LoginService } from "./login/login.service";
@@ -39,7 +42,7 @@ import { BottomCenterLeftDirective,
   LeftDirective,
   RightDirective,
   TopLeftDirective,
-  TopRightDirective } from "./mirror/directive/mirror.directive";
+  TopRightDirective } from "./mirror/mirror.directive";
 
 //Angular Material
 import { CdkTableModule } from '@angular/cdk/table';
@@ -54,8 +57,7 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
-import { ActualiterComponent } from './mirror/actualiter/actualiter.component';
-import { LequipeComponent } from './mirror/lequipe/lequipe.component';
+
 
 
 @NgModule({
@@ -76,9 +78,14 @@ import { LequipeComponent } from './mirror/lequipe/lequipe.component';
     ModalComponent,
     EmptyComponent,
     ActualiterComponent,
-    LequipeComponent
+    LequipeComponent,
+    TraficComponent
   ],
   imports: [
+    /*AgmCoreModule.forRoot({ // @agm/core
+      apiKey: 'AIzaSyDJot1R7QoZkfhcSBdxqdXzAgrnKuWF-zg'
+    }),
+    AgmDirectionModule,*/
     Ng2DragDropModule.forRoot(),
     BrowserModule,
     FormsModule,

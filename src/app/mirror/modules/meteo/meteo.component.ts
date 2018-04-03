@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { jourMeteo } from './jourMeteo';
 import 'rxjs/add/operator/map';
-import {SERIAL_NUMBER} from '../../../assets/config';
+import {SERIAL_NUMBER} from '../../../../assets/config';
 
 @Component({
   selector: 'app-meteo',

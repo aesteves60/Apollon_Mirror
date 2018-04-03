@@ -1,0 +1,13 @@
+<div class="element">
+  <div class="title">Trafic</div>
+  <hr>
+  <mat-icon [style.opacity]="travelModeSelect === 0 ? 1 : 0.6">directions_car</mat-icon>
+  <mat-icon [style.opacity]="travelModeSelect === 1 ? 1 : 0.6">directions_walk</mat-icon>
+  <mat-icon [style.opacity]="travelModeSelect === 2 ? 1 : 0.6">directions_bike</mat-icon>
+  <mat-icon [style.opacity]="travelModeSelect === 3 ? 1 : 0.6">directions_subway</mat-icon>
+
+  {{ distance }}
+  {{ duration }}
+
+  <div id="map"></div>
+</div>

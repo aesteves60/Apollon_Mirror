@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LoginService }from './login/login.service';
-import {SocketService} from './_tools/socket.service';
 
 @Component({
   selector: 'app-root',

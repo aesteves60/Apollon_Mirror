@@ -3,14 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent }   from './login/login.component';
 import { PersonalizeComponent }   from './personalize/personalize.component';
-import { MeteoComponent } from './mirror/meteo/meteo.component';
+import { MeteoComponent } from './mirror/modules/meteo/meteo.component';
 import { MirrorComponent } from './mirror/mirror.component';
 import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { AccountComponent } from './account/account.component';
 import { AuthGuard } from './_auth/auth.guard';
-import {ActualiterComponent} from './mirror/actualiter/actualiter.component';
-import {LequipeComponent} from './mirror/lequipe/lequipe.component';
+import {ActualiterComponent} from './mirror/modules/actualiter/actualiter.component';
+import {LequipeComponent} from './mirror/modules/lequipe/lequipe.component';
+import {TraficComponent} from './mirror/modules/trafic/trafic.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'meteo', component: MeteoComponent },
   { path: 'actu', component: ActualiterComponent },
   { path: 'equipe', component: LequipeComponent },
+  { path: 'trafic', component: TraficComponent },
 	{ path: 'personalize', canActivate: [ AuthGuard ], component: PersonalizeComponent },
 	{ path: 'account', canActivate: [ AuthGuard ], component: AccountComponent },
 	{ path: 'contacter' , canActivate: [ AuthGuard ], component: ContactComponent },

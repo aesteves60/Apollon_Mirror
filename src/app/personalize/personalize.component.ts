@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map';
 import { SERIAL_NUMBER } from '../../assets/config';
 import { MatDialog } from '@angular/material';
 import { ModalComponent } from '../_tools/modal/modal.component';
-import { SocketService } from '../_tools/socket.service';
 import { MirrorComponent } from '../mirror/mirror.component';
 
 
@@ -32,13 +31,11 @@ export class PersonalizeComponent implements OnInit {
   constructor(private http : HttpClient,
               private alertService : AlertService,
               public dialog : MatDialog,
-              private socket : SocketService,
               private mirror : MirrorComponent) { }
 
   ngOnInit() {
     this.get_Modules();
     this.get_Views();
-    this.socket.gettest();
   }
 
   openDialog(module): void {

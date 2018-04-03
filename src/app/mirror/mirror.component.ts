@@ -1,21 +1,23 @@
-import {Component, AfterContentInit, ViewChild, ViewContainerRef, OnInit} from '@angular/core';
-
+import {Component, AfterContentInit, ViewChild, OnInit} from '@angular/core';
 import {
   BottomCenterLeftDirective, BottomCenterRightDirective, BottomLeftDirective,
   BottomRightDirective, LeftDirective, RightDirective, TopLeftDirective, TopRightDirective
-} from './directive/mirror.directive';
-import {MirrorService} from "./mirror.service";
-import {MirrorItem} from "./mirror-item";
+} from './mirror.directive';
+import { MirrorService } from "./mirror.service";
+import { MirrorItem } from "./mirror.service";
 //component
-import {MeteoComponent} from './meteo/meteo.component';
-import {CineComponent} from './cine/cine.component';
-import {EmptyComponent} from './empty/empty.component';
+import {MeteoComponent} from './modules/meteo/meteo.component';
+import {CineComponent} from './modules/cine/cine.component';
+import {EmptyComponent} from './modules/empty/empty.component';
+import {LequipeComponent} from './modules/lequipe/lequipe.component';
+import {ActualiterComponent} from './modules/actualiter/actualiter.component';
+import {TraficComponent} from './modules/trafic/trafic.component';
 
 @Component({
   selector: 'app-mirror',
   templateUrl: './mirror.component.html',
   styleUrls: ['./mirror.component.css'],
-  entryComponents: [ MeteoComponent, CineComponent, EmptyComponent ]
+  entryComponents: [ MeteoComponent, TraficComponent, LequipeComponent, ActualiterComponent, EmptyComponent ]
 })
 export class MirrorComponent implements AfterContentInit, OnInit {
 
@@ -48,6 +50,7 @@ export class MirrorComponent implements AfterContentInit, OnInit {
 
   ngAfterContentInit() {
      this.mirrorService.getAllModules().subscribe(res => {
+       console.log(res);
        this.list_modules = [
            new MirrorItem(this.FindComponent(res[0] ? res[0] : null), null),
            new MirrorItem(this.FindComponent(res[1] ? res[1] : null), null),
@@ -74,14 +77,11 @@ export class MirrorComponent implements AfterContentInit, OnInit {
   private FindComponent(module) {
     if( module === null ) return EmptyComponent;
     switch (module.name){
-      case 'Meteo'          : return MeteoComponent;
-      case 'Cinema'         : return CineComponent;
-      case 'Calendrier'     : return EmptyComponent;
-      case 'Trafic routier' : return EmptyComponent;
-      case 'Transpole'      : return EmptyComponent;
-      case 'Date / Heure'      : return EmptyComponent;
+      case 'Météo'          : return MeteoComponent;
+      case 'Trafic routier' : return TraficComponent;
+      case 'Actualité'      : return ActualiterComponent;
+      case 'L\'Equipe'         : return LequipeComponent;
       case ''               : return EmptyComponent;
-      case null             : return EmptyComponent;
     }
   }
 
