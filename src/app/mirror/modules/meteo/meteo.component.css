@@ -10,7 +10,6 @@ hr{
   padding: 10px;
   font-size: 30px;
   text-align: center;
-  font-family: system-ui, serif;
   font-weight: bold;
 }
 
@@ -29,7 +28,6 @@ hr{
 	text-align: center;
 	font-size: 30px;
 	margin-top: 10px;
-  font-family: system-ui, serif;
   font-weight: bold;
 }
 .day_meteo_glob_0 .current_tmp {
@@ -49,7 +47,6 @@ hr{
 	margin-top: 10px;
 	float: left;
 	margin-left: 10px;
-  font-family: system-ui, serif;
   font-weight: bold;
 }
 .day_meteo_heure_1,.day_meteo_heure_2,.day_meteo_heure_3,.day_meteo_heure_4,.day_meteo_heure_5{

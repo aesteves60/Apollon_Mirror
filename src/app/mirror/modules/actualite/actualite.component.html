@@ -1,8 +1,8 @@
-<div  class="actualite">
+<div  class="actualite" [ngClass]="[router.url === '/mirror' ? 'actualite_mirror' : '' ]" >
   <div class="title">Actualités</div>
   <hr>
   <div *ngFor="let article of articles; let i = index">
-    <li *ngIf="i < 10" class="article article_{{i}}">
+    <li *ngIf="i < 6" class="article article_{{i}}">
     	<div class="article_left">
 			<img src="{{ article.urlToImage }}" alt="{{ article.title }}" />
     	</div>

@@ -1,9 +1,11 @@
-body{
-  background-color: #000;
+body, table{
+  background-color: #000 !important;
 }
+
 table{
 	width: 100%;
   height: 100%;
+  display: table;
 }
 
 
@@ -40,8 +42,17 @@ img{
 }
 
 .elementTop{
+  vertical-align: top;
   width: 50%;
   height: 25%;
+}
+
+.elementMiddle{
+  vertical-align: middle;
+}
+
+.elementBottom{
+  vertical-align: bottom;
 }
 
 .black{

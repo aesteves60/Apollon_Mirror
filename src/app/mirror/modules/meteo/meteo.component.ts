@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { jourMeteo } from './jourMeteo';
 import 'rxjs/add/operator/map';
 import {SERIAL_NUMBER} from '../../../../assets/config';
@@ -16,7 +17,7 @@ export class MeteoComponent implements OnInit {
   private wind_speed : number;
   private wind_dir : string;
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     const options = { params: {
