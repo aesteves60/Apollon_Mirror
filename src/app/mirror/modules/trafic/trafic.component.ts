@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {SERIAL_NUMBER} from '../../../../assets/config';
 
 
 declare let google : any;
@@ -27,7 +28,11 @@ export class TraficComponent implements OnInit {
   }
 
   getTrafic() {
-    this.http.get('/API/trafic')
+    const options = { params: {
+        'serial_number': SERIAL_NUMBER
+      }
+    };
+    this.http.get('/API/trafic',options)
       .subscribe(res => {
         this.trafic = res;
         this.distance = this.trafic.routes[0].legs[0].distance.text;

@@ -41,8 +41,8 @@ export class PersonalizeComponent implements OnInit {
   openDialog(module): void {
     let dialogRef = this.dialog.open(ModalComponent, {
       width: '250px',
-      data: { html: `<div> <input type="text" value="test"> </div>`,
-              title: module.name}
+      data: { component : 'Modal_Meteo',
+              name: module.name}
     });
 
     dialogRef.afterClosed().subscribe(result => { console.log(result) });
