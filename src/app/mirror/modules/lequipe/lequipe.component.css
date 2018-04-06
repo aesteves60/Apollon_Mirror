@@ -6,13 +6,11 @@
   color: white;
   background-color: black;
   width: 60%;
-  font-family: system-ui, serif;
 }
 .title{
   padding: 10px;
   font-size: 30px;
   text-align: center;
-  font-family: system-ui, serif;
   font-weight: bold;
 }
 

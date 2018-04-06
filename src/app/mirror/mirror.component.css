@@ -1,9 +1,12 @@
-body{
-  background-color: #000;
+body, table{
+  background-color: #000 !important;
 }
-table{
-	width: 100%;
-  height: 100%;
+
+.mirror{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
 }
 
 
@@ -33,19 +36,47 @@ img{
 }
 
 
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
 
 .element{
-	  width: 25%;
-    height: 25%;
+  display: block;
+  width: 24vw;
+  height: 32vh;
+  margin: 0.5vh 0.5vw;
+  overflow: hidden;
+
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  border: 1px dotted red;
+}
+
+.double{
+  width: 49vw;
 }
 
 .elementTop{
-  width: 50%;
-  height: 25%;
+  vertical-align: top;
+  width: 49vw;
+}
+
+
+.elementMiddle{
+  vertical-align: middle;
+}
+
+.elementBottom{
+  vertical-align: bottom;
 }
 
 .black{
 	background: black;
 	width: 100%;
-    height: 100%;
+  height: 100%;
 }

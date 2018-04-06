@@ -1,10 +1,13 @@
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened="true">
-    <div draggable [dragData]="module" *ngFor="let module of modules.result_object"  class="module">
-      <div>{{ module.name }}</div>
-      <img [src]='"../../assets/img/"+module.image' height="50px" width="50px"/>
-      <mat-icon style="float: right" (click)="openDialog(module)">mode_edit</mat-icon>
-    </div>
+    <mat-list>
+      <h3 mat-subheader>Modules disponibles</h3>
+      <mat-list-item draggable [dragData]="module" *ngFor="let module of modules.result_object"  class="module">
+        <img matListAvatar [src]='"../../assets/img/"+module.image' class="item_icon" />
+        <h4 mat-line>{{ module.name }}</h4>
+        <mat-icon class="icons_edit" (click)="openDialog(module)">mode_edit</mat-icon>
+      </mat-list-item>
+    </mat-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -16,7 +19,7 @@
     	       		<div id="top_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                 		<div *ngFor="let item of ItemMirror_TopLeft">
                       <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                      <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' height="50px" width="50px"/>
+                      <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' class="item_icon" />
                       <span class="item_name">{{item.name}}</span>
                     </div>
             		</div>
@@ -25,7 +28,7 @@
     	       		<div id="top_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_TopRight">
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' height="50px" width="50px"/>
+                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' class="item_icon" />
                     <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>
@@ -36,7 +39,7 @@
               <div id="left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                 <div *ngFor="let item of ItemMirror_Left">
                   <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                  <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' height="50px" width="50px"/>
+                  <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' class="item_icon" />
                   <span class="item_name">{{item.name}}</span>
                 </div>
               </div>
@@ -49,7 +52,7 @@
               <div id="right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                 <div *ngFor="let item of ItemMirror_Right">
                   <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                  <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' height="50px" width="50px"/>
+                  <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' class="item_icon" />
                   <span class="item_name">{{item.name}}</span>
                 </div>
               </div>
@@ -60,7 +63,7 @@
     	       		<div id="bottom_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_BottomLeft">
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' height="50px" width="50px"/>
+                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' class="item_icon" />
                     <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>
@@ -69,7 +72,7 @@
     	       		<div id="bottom_center_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_BottomCenterLeft">
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' height="50px" width="50px"/>
+                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' class="item_icon" />
                     <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>
@@ -78,7 +81,7 @@
     	       		<div id="bottom_center_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_BottomCenterRight">
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' height="50px" width="50px"/>
+                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' class="item_icon" />
                     <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>
@@ -87,7 +90,7 @@
     	       		<div id="bottom_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
                   <div *ngFor="let item of ItemMirror_BottomRight">
                     <mat-icon *ngIf="item.image" class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' height="50px" width="50px"/>
+                    <img *ngIf="item.image" [src]='"../../assets/img/"+item.image' class="item_icon" />
                     <span class="item_name">{{item.name}}</span>
                   </div>
             		</div>

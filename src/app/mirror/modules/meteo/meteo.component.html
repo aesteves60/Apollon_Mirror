@@ -1,10 +1,5 @@
-<div>
-  <div class="title">
-    Météo
-    {{ city }}
-    <hr>
-  </div>
-  <div *ngFor="let item of tabMeteo;let i = index">
+<div class="meteo">
+  <div *ngFor="let item of tabMeteo;let i = index" >
   	<div class="day_meteo_{{i}}">
 
       <img class="day_meteo_img_{{i}}" src= {{item.imgUrl}} >
@@ -20,7 +15,7 @@
         </div>
         <div class="day_meteo_txt_{{i}}">
           <div>
-            {{ item.tmin }} {{ item.tmax }}
+            {{ item.tmin }} / {{ item.tmax }}
           </div>
           <div *ngIf="!(item.wind_speed === 0)">
             {{ item.wind_dir }} &nbsp; &nbsp;

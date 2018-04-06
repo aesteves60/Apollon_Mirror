@@ -6,34 +6,28 @@ hr{
   color: #FFFFFF;
   background-color: #FFFFFF;
 }
-.title{
-  padding: 10px;
-  font-size: 30px;
-  text-align: center;
-  font-family: system-ui, serif;
-  font-weight: bold;
-}
+
 
 .day_meteo_0{
 	width: 100%;
 	float: left;
 }
 .day_meteo_img_0{
-	max-width: 30%;
+	max-width: 10%;
   height: auto;
+  margin: 2.5% 5vw;
 	float: left;
 }
 
 .day_meteo_glob_0{
   width: 70%;
 	text-align: center;
-	font-size: 30px;
+	font-size: 3vh;
 	margin-top: 10px;
-  font-family: system-ui, serif;
   font-weight: bold;
 }
 .day_meteo_glob_0 .current_tmp {
-  font-size: 60px;
+  font-size: 4vh;
 }
 
 .day_meteo_1,.day_meteo_2,.day_meteo_3,.day_meteo_4,.day_meteo_5{
@@ -49,7 +43,6 @@ hr{
 	margin-top: 10px;
 	float: left;
 	margin-left: 10px;
-  font-family: system-ui, serif;
   font-weight: bold;
 }
 .day_meteo_heure_1,.day_meteo_heure_2,.day_meteo_heure_3,.day_meteo_heure_4,.day_meteo_heure_5{

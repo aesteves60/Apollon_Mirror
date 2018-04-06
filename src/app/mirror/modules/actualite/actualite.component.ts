@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
+
 import * as io from 'socket.io-client';
 
 
@@ -13,7 +15,8 @@ export class ActualiteComponent implements OnInit {
   private url = 'http://localhost:8080';
   public socket;
 
-  constructor(private http : HttpClient) {
+
+  constructor(private http : HttpClient, private router: Router) {
     this.http.get('/API/actualite')
              .subscribe(res => {
                this.articles = res['articles'];

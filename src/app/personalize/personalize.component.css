@@ -24,8 +24,13 @@ td > div > div {
   text-align: center;
 }
 
-mat-sidenav-content{
-  background-color: white;
+.icons_edit{
+  position: absolute;
+  top: calc(50% - 10px);
+  right: 5px;
+  cursor: pointer;
+  height: 20px;
+  width: auto;
 }
 
 .icons_close{
@@ -41,15 +46,37 @@ mat-sidenav-content{
   clear: both;
 }
 
+.item_icon{
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+}
+
 .drag-hint {
   border: #ffc100 dashed 2px;
 }
 
+
+mat-sidenav {
+  	width: 20%;
+    padding: 0 10px;
+    border-right: 1px solid rgba(0,0,0,0.5);
+}
+
+mat-sidenav-container {
+	height: 100vh;
+}
+
+mat-sidenav-content{
+  background-color: white;
+}
+
+
 .module{
-  border: 1px solid rgba(0,0,0,.125);
-  background-color: #ddf0ef;
+  position: relative;
+  border: 1px solid rgba(0,0,0,.2);
   padding: 10px;
-  margin: 0px 0px 0px 5px;
 }
 .module:first-child {
   margin-top: 10px;
@@ -59,13 +86,4 @@ mat-sidenav-content{
 .module:last-child {
   border-bottom-right-radius: .5rem;
   border-bottom-left-radius: .5rem;
-}
-
-
-mat-sidenav {
-  	width: 15%;
-}
-
-mat-sidenav-container {
-	height: 100vh;
 }
