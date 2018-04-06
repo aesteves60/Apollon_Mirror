@@ -25,6 +25,8 @@ import { EmptyComponent } from './mirror/modules/empty/empty.component';
 import { ActualiteComponent } from './mirror/modules/actualite/actualite.component';
 import { LequipeComponent } from './mirror/modules/lequipe/lequipe.component';
 import { TraficComponent } from './mirror/modules/trafic/trafic.component';
+import { Modal_Meteo } from './_tools/modal/modal-meteo.component';
+
 
 //service
 import { LoginService } from "./login/login.service";
@@ -58,7 +60,6 @@ import {
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
 import { RadioComponent } from './mirror/modules/radio/radio.component';
-import { TestComponent } from './test/test.component';
 
 
 
@@ -83,7 +84,7 @@ import { TestComponent } from './test/test.component';
     LequipeComponent,
     TraficComponent,
     RadioComponent,
-    TestComponent
+    Modal_Meteo
   ],
   imports: [
     /*AgmCoreModule.forRoot({ // @agm/core

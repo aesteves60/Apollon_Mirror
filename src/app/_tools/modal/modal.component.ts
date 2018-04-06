@@ -6,7 +6,7 @@ import { Modal_Meteo } from './modal-meteo.component';
 @Component({
   selector: 'app-modal',
   templateUrl: 'modal.component.html',
-  //entryComponents: [ Modal_Meteo ]
+  entryComponents: [ Modal_Meteo ]
 })
 export class ModalComponent {
   @ViewChild(Modal_Content) modalContent_dir: Modal_Content;
@@ -15,11 +15,11 @@ export class ModalComponent {
               @Inject(MAT_DIALOG_DATA) public data: any,
               private componentFactoryResolver: ComponentFactoryResolver)
   {
-    //let componentFactory = this.componentFactoryResolver.resolveComponentFactory(data.component);
-    //let viewContainerRef = this.modalContent_dir.viewContainerRef;
-    //viewContainerRef.clear();
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(data.component);
+    let viewContainerRef = this.modalContent_dir.viewContainerRef;
+    viewContainerRef.clear();
 
-    //let componentRef = viewContainerRef.createComponent(componentFactory);
+    let componentRef = viewContainerRef.createComponent(componentFactory);
   }
 
   onNoClick(): void {
