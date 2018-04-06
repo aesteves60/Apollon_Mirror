@@ -58,6 +58,7 @@ import {
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
 import { RadioComponent } from './mirror/modules/radio/radio.component';
+import { TestComponent } from './test/test.component';
 
 
 
@@ -81,7 +82,8 @@ import { RadioComponent } from './mirror/modules/radio/radio.component';
     ActualiteComponent,
     LequipeComponent,
     TraficComponent,
-    RadioComponent
+    RadioComponent,
+    TestComponent
   ],
   imports: [
     /*AgmCoreModule.forRoot({ // @agm/core

@@ -16,7 +16,7 @@ import { MirrorComponent } from '../mirror/mirror.component';
 })
 export class PersonalizeComponent implements OnInit {
 
-  public ItemMirror_TopLeft            = [{name: 'Vide', image : '', views_position : 'top_left' }];
+  public ItemMirror_TopLeft            = [{name: 'Vide', image : '', views_position : 'top_left'}];
   public ItemMirror_TopRight           = [{name: 'Vide', image : '', views_position : 'top_right' }];
   public ItemMirror_Left               = [{name: 'Vide', image : '', views_position : 'left' }];
   public ItemMirror_Right              = [{name: 'Vide', image : '', views_position : 'right' }];
@@ -30,8 +30,7 @@ export class PersonalizeComponent implements OnInit {
 
   constructor(private http : HttpClient,
               private alertService : AlertService,
-              public dialog : MatDialog,
-              private mirror : MirrorComponent) { }
+              public dialog : MatDialog) {  }
 
   ngOnInit() {
     this.get_Modules();
@@ -59,50 +58,50 @@ export class PersonalizeComponent implements OnInit {
         };
         this.http.get('/API/get_views_mirror', options).subscribe(res => {
           this.views = res;
-          this.changeValue(this.ItemMirror_TopLeft, this.views[0]);
-          this.changeValue(this.ItemMirror_TopRight, this.views[1]);
-          this.changeValue(this.ItemMirror_Left, this.views[2]);
-          this.changeValue(this.ItemMirror_Right, this.views[3]);
-          this.changeValue(this.ItemMirror_BottomLeft, this.views[4]);
-          this.changeValue(this.ItemMirror_BottomRight, this.views[5]);
-          this.changeValue(this.ItemMirror_BottomCenterLeft, this.views[6]);
-          this.changeValue(this.ItemMirror_BottomCenterRight, this.views[7]);
+          this.ChangeValue(this.ItemMirror_TopLeft, this.views[0]);
+          this.ChangeValue(this.ItemMirror_TopRight, this.views[1]);
+          this.ChangeValue(this.ItemMirror_Left, this.views[2]);
+          this.ChangeValue(this.ItemMirror_Right, this.views[3]);
+          this.ChangeValue(this.ItemMirror_BottomLeft, this.views[4]);
+          this.ChangeValue(this.ItemMirror_BottomRight, this.views[5]);
+          this.ChangeValue(this.ItemMirror_BottomCenterLeft, this.views[6]);
+          this.ChangeValue(this.ItemMirror_BottomCenterRight, this.views[7]);
         });
   }
 
   public onElementDrop(e) {
-    console.log(e);
-    const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.id);
-    e.dragData.views_position = e.nativeEvent.target.id;
-    const views_position = e.nativeEvent.target.id;
+    const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.id || e.nativeEvent.target.parentElement.parentElement.id);
     const options = {
       params: {
-        'views_position': views_position,
+        'views_position': _itemMirror[0].views_position,
         'serial_number': SERIAL_NUMBER,
         'module_id' : e.dragData.id
       }
     };
     this.http.get('/API/change_position', options).subscribe(res => {
-      this.changeValue(_itemMirror, e.dragData);
+      e.dragData.views_position = _itemMirror[0].views_position;
+      this.ChangeValue(_itemMirror, e.dragData);
       return this.alertService.success('Modification réussie.');
     });
   }
 
   public remoteElement(e){
-    const _itemMirror = this.FindZoneMirror(e.target.parentElement.parentElement.id);
-    this.alertService.success('Modification réussie.');
+    const _itemMirror = this.FindZoneMirror(e.target.parentElement.parentElement.parentElement.id);
     const options = {
       params: {
-        'views_position': e.target.parentElement.parentElement.id,
+        'views_position': _itemMirror[0].views_position,
         'serial_number': SERIAL_NUMBER
       }
     };
-    this.http.delete('/API/remove_position', options).subscribe(res => { this.changeValue(_itemMirror, null); });
+    this.http.delete('/API/remove_position', options).subscribe(res => {
+      this.ChangeValue(_itemMirror, null);
+      this.alertService.success('Modification réussie.');
+    });
   }
 
-  private changeValue(_itemMirror, value){
-    if (value === null ){
-      value = {name : 'Vide', image : '', views_position : _itemMirror.views_position };
+  private ChangeValue(_itemMirror, value){
+    if (value === null){
+      value = {name : 'Vide', image : '', views_position : _itemMirror[0].views_position};
     }
     _itemMirror.pop();
     _itemMirror.push(value);
@@ -117,7 +116,7 @@ export class PersonalizeComponent implements OnInit {
       case 'bottom_center_left': return this.ItemMirror_BottomCenterLeft;
       case 'bottom_center_right': return this.ItemMirror_BottomCenterRight;
       case 'bottom_right': return this.ItemMirror_BottomRight;
-      case 'Bottom_left': return this.ItemMirror_BottomLeft;
+      case 'bottom_left': return this.ItemMirror_BottomLeft;
     }
   }
 

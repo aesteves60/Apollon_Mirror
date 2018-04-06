@@ -12,7 +12,6 @@
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^5.0.5",
     "@angular/cdk": "^5.0.0-rc.2",
     "@angular/common": "^5.0.0",
@@ -24,15 +23,11 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
-    "agm-direction": "^0.4.1",
     "core-js": "^2.4.1",
     "crypto-js": "^3.1.9-1",
-    "ng-drag-drop": "^4.0.0",
     "ng2-drag-drop": "^3.0.2",
-    "ng2-dragula": "^1.5.0",
     "npm": "^5.8.0",
     "rxjs": "^5.5.2",
-    "sha.js": "^2.4.10",
     "socket.io-client": "^2.0.4",
     "zone.js": "^0.8.14"
   },
