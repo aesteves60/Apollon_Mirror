@@ -26,9 +26,11 @@ td > div > div {
 
 .icons_edit{
   position: absolute;
-  top: 5px;
+  top: calc(50% - 10px);
   right: 5px;
   cursor: pointer;
+  height: 20px;
+  width: auto;
 }
 
 .icons_close{
@@ -57,7 +59,7 @@ td > div > div {
 
 
 mat-sidenav {
-  	width: 15%;
+  	width: 20%;
     padding: 0 10px;
     border-right: 1px solid rgba(0,0,0,0.5);
 }
@@ -73,9 +75,8 @@ mat-sidenav-content{
 
 .module{
   position: relative;
-  border-bottom: 1px solid rgba(0,0,0,.3);
+  border: 1px solid rgba(0,0,0,.2);
   padding: 10px;
-  min-height: 80px;
 }
 .module:first-child {
   margin-top: 10px;

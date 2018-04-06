@@ -20,9 +20,9 @@ constructor(date:string, condition:string, condtionLabel:string, tmax:string, tm
   this.date = date;
   this.condition = condition;
   this.conditionLabel = condtionLabel;
-  this.tmax = tmax != null ? 'Max : '+tmax+'° ' : tmax;
-  this.tmin = tmin != null ? 'Min : '+tmin+'° ' : tmin;
-  this.tmp = tmp != null ? ' '+tmp+'° ' : tmp;
+  this.tmax = tmax != null ? ''+tmax+'°' : tmax;
+  this.tmin = tmin != null ? ''+tmin+'°' : tmin;
+  this.tmp = tmp != null ? ' '+tmp+'°' : tmp;
   this.wind_dir = 'Vent : '+wind_dir;
   this.wind_speed = wind_speed;
   this.day = jourMeteo.convertToDay(d);

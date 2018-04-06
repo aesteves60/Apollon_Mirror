@@ -3,7 +3,7 @@
 }
 
 .article{
-  display: flex;
+  display: block;
   width: 100%;
   padding: 5px 0;
   border-bottom: 1px solid rgba(255,255,255,0.5);
@@ -25,6 +25,10 @@
   float: right;
   width: 75%;
   margin: auto;
+}
+
+.article_meta{
+
 }
 
 .article_titre{
@@ -56,13 +60,6 @@
   width: 60%;
   padding: 0 5%;
   float: right;
-}
-
-.title{
-  padding: 10px;
-  font-size: 30px;
-  text-align: center;
-  font-weight: bold;
 }
 
 .article_7{
