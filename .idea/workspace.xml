@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="999ed1e4-7c12-42ab-89b6-2cbc2b0d2591" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/_tools/modal/modal-content.directive.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/_tools/modal/modal-meteo.component.ts" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/app/_tools/modal/modal.component.html" afterPath="$PROJECT_DIR$/src/app/_tools/modal/modal.component.html" />
       <change beforePath="$PROJECT_DIR$/src/app/_tools/modal/modal.component.ts" afterPath="$PROJECT_DIR$/src/app/_tools/modal/modal.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" afterPath="$PROJECT_DIR$/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/mirror/modules/trafic/trafic.component.ts" afterPath="$PROJECT_DIR$/src/app/mirror/modules/trafic/trafic.component.ts" />
       <change beforePath="$PROJECT_DIR$/src/app/personalize/personalize.component.ts" afterPath="$PROJECT_DIR$/src/app/personalize/personalize.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -39,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="personalize.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="personalize.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/personalize/personalize.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+              <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -51,12 +46,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modal.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="modal.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/_tools/modal/modal.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="168">
+              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#85#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/_tools/modal/modal-meteo.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding>
                 <marker date="1523020107974" expanded="true" signature="158:325" ph="..." />
                 <marker date="1523020107974" expanded="true" signature="206:314" ph="..." />
@@ -88,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/mirror/mirror.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="18" column="108" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="108" />
+              <caret line="18" column="108" lean-forward="false" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="108" />
               <folding />
             </state>
           </provider>
@@ -178,9 +175,9 @@
         <option value="$PROJECT_DIR$/src/app/_tools/modal/modal-meteo.html" />
         <option value="$PROJECT_DIR$/src/app/_tools/modal/modal-content.directive.ts" />
         <option value="$PROJECT_DIR$/src/app/_tools/modal/modal.component.html" />
-        <option value="$PROJECT_DIR$/src/app/_tools/modal/modal.component.ts" />
         <option value="$PROJECT_DIR$/src/app/_tools/modal/modal-meteo.component.ts" />
         <option value="$PROJECT_DIR$/src/app/personalize/personalize.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/_tools/modal/modal.component.ts" />
       </list>
     </option>
   </component>
@@ -452,12 +449,12 @@
       <workItem from="1522824281736" duration="5754000" />
       <workItem from="1522854239145" duration="1055000" />
       <workItem from="1522934163153" duration="610000" />
-      <workItem from="1523005223700" duration="6497000" />
+      <workItem from="1523005223700" duration="6808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125478000" />
+    <option name="totallyTimeSpent" value="125789000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -808,7 +805,7 @@
         <state relative-caret-position="336">
           <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
-            <element signature="e#0#85#0" expanded="true" />
+            <element signature="e#0#85#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -832,7 +829,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/mirror/mirror.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="18" column="108" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="108" />
+          <caret line="18" column="108" lean-forward="false" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="108" />
           <folding />
         </state>
       </provider>
@@ -856,7 +853,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/_tools/modal/modal-meteo.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
             <marker date="1523020107974" expanded="true" signature="158:325" ph="..." />
             <marker date="1523020107974" expanded="true" signature="206:314" ph="..." />
@@ -864,20 +861,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/_tools/modal/modal.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/personalize/personalize.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+          <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/_tools/modal/modal.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#85#0" expanded="true" />
           </folding>
         </state>
       </provider>

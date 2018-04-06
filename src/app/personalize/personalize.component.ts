@@ -41,7 +41,7 @@ export class PersonalizeComponent implements OnInit {
   openDialog(module): void {
     let dialogRef = this.dialog.open(ModalComponent, {
       width: '250px',
-      data: { component : 'Modal_Meteo',
+      data: { //component : 'Modal_Meteo',
               name: module.name}
     });
 
