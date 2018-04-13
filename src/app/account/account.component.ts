@@ -44,7 +44,7 @@ export class AccountComponent implements OnInit {
               email         : this.email
             }
           };
-          this.http.get('/API/updateMirror', options)
+          this.http.get('/API/update_mirror', options)
           .subscribe( data => {
               this.mdp = '';
               this.verifmdp = '';
@@ -67,7 +67,7 @@ export class AccountComponent implements OnInit {
             'email'         : this.email
           }
         };
-        this.http.get('/API/updateMirror', options)
+        this.http.get('/API/update_mirror', options)
         .subscribe( data => this.alertService.success('Les informations ont été modifiées.'));
       } else
       this.alertService.error('Veuillez remplir tous les champs avant de valider.');

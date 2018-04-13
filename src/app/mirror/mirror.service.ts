@@ -13,9 +13,11 @@ export class MirrorService {
 
 
   loadComponent(viewContainerRef: ViewContainerRef, mirrorItem: MirrorItem) {
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(mirrorItem.component);
-    viewContainerRef.clear();
-    let componentRef = viewContainerRef.createComponent(componentFactory);
+    if( mirrorItem.component !== null ) {
+      let componentFactory = this.componentFactoryResolver.resolveComponentFactory(mirrorItem.component);
+      viewContainerRef.clear();
+      let componentRef = viewContainerRef.createComponent(componentFactory);
+    }
   }
 
   getAllModules() {

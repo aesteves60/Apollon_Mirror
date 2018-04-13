@@ -45,6 +45,7 @@ import { BottomCenterLeftDirective,
   RightDirective,
   TopLeftDirective,
   TopRightDirective } from "./mirror/mirror.directive";
+import { ModalContentDirective } from './_tools/modal/modal-content.directive'
 
 //Angular Material
 import { CdkTableModule } from '@angular/cdk/table';
@@ -65,9 +66,16 @@ import { RadioComponent } from './mirror/modules/radio/radio.component';
 
 @NgModule({
   declarations: [
+    /*
+     * DIRECTIVE
+     */
     BottomCenterLeftDirective, BottomCenterRightDirective, BottomLeftDirective,
     BottomRightDirective, LeftDirective, RightDirective,
     TopLeftDirective, TopRightDirective,
+    ModalContentDirective,
+    /*
+     * COMPONENT
+     */
     AlertComponent,
     AppComponent,
     LoginComponent,
@@ -87,10 +95,6 @@ import { RadioComponent } from './mirror/modules/radio/radio.component';
     Modal_Meteo
   ],
   imports: [
-    /*AgmCoreModule.forRoot({ // @agm/core
-      apiKey: 'AIzaSyDJot1R7QoZkfhcSBdxqdXzAgrnKuWF-zg'
-    }),
-    AgmDirectionModule,*/
     Ng2DragDropModule.forRoot(),
     BrowserModule,
     FormsModule,
@@ -99,6 +103,9 @@ import { RadioComponent } from './mirror/modules/radio/radio.component';
     HttpClientModule,
     CdkTableModule,
     BrowserAnimationsModule,
+    /*
+     * ANGULAR MATERIAL
+     */
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -131,18 +138,21 @@ import { RadioComponent } from './mirror/modules/radio/radio.component';
     MatTableModule
   ],
   providers: [
+    /*
+     * SERVICES
+     */
     LoginService,
     MirrorService,
     AlertService,
+    SocketService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpAPIInterceptor,
       multi: true
     },
-    SocketService,
     AuthGuard
   ],
-  entryComponents: [ MeteoComponent, CineComponent, ModalComponent, EmptyComponent, MirrorComponent],
+  entryComponents: [ MeteoComponent, CineComponent, ModalComponent, EmptyComponent, MirrorComponent, Modal_Meteo ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

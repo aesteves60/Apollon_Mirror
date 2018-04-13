@@ -6,6 +6,7 @@ import { SERIAL_NUMBER } from '../../assets/config';
 import { MatDialog } from '@angular/material';
 import { ModalComponent } from '../_tools/modal/modal.component';
 import { MirrorComponent } from '../mirror/mirror.component';
+import {Modal_Meteo} from '../_tools/modal/modal-meteo.component';
 
 
 @Component({
@@ -39,12 +40,10 @@ export class PersonalizeComponent implements OnInit {
 
   openDialog(module): void {
     let dialogRef = this.dialog.open(ModalComponent, {
-      width: '250px',
-      data: { //component : 'Modal_Meteo',
+      width: '300px',
+      data: { component : Modal_Meteo,
               name: module.name}
     });
-
-    dialogRef.afterClosed().subscribe(result => { console.log(result) });
   }
 
   public get_Modules() {

@@ -1,9 +1,11 @@
-<h1 mat-dialog-title>{{ data.name }}</h1>
+<div class="modal">
+  <h1 mat-dialog-title>{{ data.name }}</h1>
 
-<ng-template modalContent></ng-template>
+  <div #modalContainer></div>
 
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Fermer</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Fermer</button>
+    <button mat-button cdkFocusInitial (click)="onValid()">Valider</button>
+  </div>
 </div>
 
