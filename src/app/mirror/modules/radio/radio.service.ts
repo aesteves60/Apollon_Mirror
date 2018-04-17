@@ -48,16 +48,18 @@ export class RadioService {
     }
   }
 
-  getVolume(): any {
+  getVolume(): number {
     return this.audio.volume;
   }
 
   setVolume(value: number) {
-    this.audio.volume = value;
+    console.log(value);
+    if((value > 0) || (value < 1)) {
+      this.audio.volume = value.toFixed(2);
+    }
   }
 
   setMuted(value: boolean) {
-    console.log('muted');
     this.audio.muted = value;
   }
 }

@@ -1,0 +1,13 @@
+.radio{
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+.radio_icons{
+  size: 100px;
+  align-content: center;
+  justify-content: center;
+  margin: auto;
+  color: white;
+}

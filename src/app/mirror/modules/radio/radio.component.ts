@@ -8,6 +8,8 @@ import {RadioService} from './radio.service';
 })
 export class RadioComponent implements OnInit, OnDestroy {
 
+  icons : string = 'volume_up';
+
   constructor( private radioService : RadioService) { }
 
   ngOnInit() {
@@ -18,4 +20,30 @@ export class RadioComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     this.radioService.StopPlay();
   }
+
+  Mute(){
+    this.icons = 'volume_off';
+    this.radioService.setMuted(true);
+  }
+
+  UpVolume(){
+    console.log(this.radioService.getVolume());
+    this.radioService.setVolume(this.radioService.getVolume() + 0.1);
+    this.setIcons(this.radioService.getVolume());
+  }
+
+  DownVolume(){
+    console.log(this.radioService.getVolume());
+    this.radioService.setVolume(this.radioService.getVolume() - 0.1);
+    this.setIcons(this.radioService.getVolume());
+  }
+
+  setIcons(_volume){
+    if(_volume < 0.5 ){
+      this.icons = 'volume_down'
+    } else {
+      this.icons = 'volume_up'
+    }
+  }
+
 }
