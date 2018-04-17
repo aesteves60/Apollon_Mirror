@@ -1,21 +1,26 @@
-import {Component, AfterContentInit, ViewChild, OnInit} from '@angular/core';
+import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
 import {
-  BottomCenterLeftDirective, BottomCenterRightDirective, BottomLeftDirective,
-  BottomRightDirective, LeftDirective, RightDirective, TopLeftDirective, TopRightDirective
-} from './mirror.directive';
-import {MirrorService} from './mirror.service';
-import {MirrorItem} from './mirror.service';
+  BottomCenterLeftDirective,
+  BottomCenterRightDirective,
+  BottomLeftDirective,
+  BottomRightDirective,
+  LeftDirective,
+  RightDirective,
+  TopLeftDirective,
+  TopRightDirective
+}                                                         from './mirror.directive';
+import { MirrorItem, MirrorService }                      from './mirror.service';
 //component
-import {MeteoComponent} from './modules/meteo/meteo.component';
-import {EmptyComponent} from './modules/empty/empty.component';
-import {LequipeComponent} from './modules/lequipe/lequipe.component';
-import {ActualiteComponent} from './modules/actualite/actualite.component';
-import {TraficComponent} from './modules/trafic/trafic.component';
+import { MeteoComponent }                                 from './modules/meteo/meteo.component';
+import { EmptyComponent }                                 from './modules/empty/empty.component';
+import { LequipeComponent }                               from './modules/lequipe/lequipe.component';
+import { ActualiteComponent }                             from './modules/actualite/actualite.component';
+import { TraficComponent }                                from './modules/trafic/trafic.component';
 
 @Component({
-  selector: 'app-mirror',
-  templateUrl: './mirror.component.html',
-  styleUrls: ['./mirror.component.css'],
+  selector       : 'app-mirror',
+  templateUrl    : './mirror.component.html',
+  styleUrls      : ['./mirror.component.css'],
   entryComponents: [MeteoComponent, TraficComponent, LequipeComponent, ActualiteComponent, EmptyComponent]
 })
 export class MirrorComponent implements AfterContentInit, OnInit {
@@ -29,14 +34,15 @@ export class MirrorComponent implements AfterContentInit, OnInit {
   @ViewChild(TopRightDirective) private topRightDirective: TopRightDirective;
   @ViewChild(TopLeftDirective) private topLeftDirective: TopLeftDirective;
 
-  private list_modules = [];
+  private list_modules   = [];
   private list_directive = [];
 
-  constructor(private mirrorService: MirrorService) { }
+  constructor(private mirrorService: MirrorService) {
+  }
 
   ngOnInit() {
-    this.list_directive = [this.topLeftDirective, this.topRightDirective, this.leftDirective, this.rightDirective, this.bottomLeftDirective,
-      this.bottomCenterLeftDirective, this.bottomCenterRightDirective, this.bottomRightDirective];
+    this.list_directive = [this.topLeftDirective, this.topRightDirective, this.leftDirective, this.rightDirective,
+      this.bottomLeftDirective, this.bottomCenterLeftDirective, this.bottomCenterRightDirective, this.bottomRightDirective];
   }
 
   ngAfterContentInit() {
@@ -49,7 +55,7 @@ export class MirrorComponent implements AfterContentInit, OnInit {
   }
 
   private FindComponent(module) {
-    if (module === null) return null;
+    if(module === null) return null;
     switch (module.name) {
       case 'Météo'          :
         return MeteoComponent;

@@ -6,22 +6,29 @@ import {SERIAL_NUMBER} from '../../../assets/config';
   selector: 'modal-meteo',
   template: `
     <div><h4>Selectionner une ville : </h4>
-      <input list="browsers" name="browser" [(ngModel)]="selectedVille" (keyup)="findVille($event)">
-    </div>              
-    `
+      <input [(ngModel)]="selectedVille" (keyup)="findVille($event)">
+    </div>
+  `
 })
 export class Modal_Meteo implements OnInit {
   @Output() output = new EventEmitter();
-  selectedVille : any;
+  selectedVille: any;
 
-  constructor(private http :HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit() {
-    this.http.get('/API/get_meteo_config', {params: { serial_number: SERIAL_NUMBER}})
-             .subscribe((res) => {
-               this.output.next(res);
-               this.selectedVille = res
-             });
+    const options = {
+      params: {
+        serial_number: SERIAL_NUMBER,
+        module : 'Météo'
+      }
+    };
+    this.http.get('/API/get_config', options)
+      .subscribe((res) => {
+        this.output.next(res);
+        this.selectedVille = res;
+      });
   }
 
   findVille(e): void {

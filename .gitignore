@@ -28,3 +28,7 @@ build/Release
 node_modules
 *.sublime-project
 *.sublime-workspace
+
+\.idea/codeStyles/
+
+\.idea/

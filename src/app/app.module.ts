@@ -1,56 +1,60 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AppRoutingModule} from './app-routing.module';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 //drag n drop
-import { Ng2DragDropModule } from 'ng2-drag-drop';
+import {Ng2DragDropModule} from 'ng2-drag-drop';
 //sha256
-import { sha256 } from 'crypto-js/sha256';
+import {sha256} from 'crypto-js/sha256';
 
 //composent de l'application
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { PersonalizeComponent } from './personalize/personalize.component';
-import { MeteoComponent } from './mirror/modules/meteo/meteo.component';
-import { MirrorComponent } from './mirror/mirror.component';
-import { AproposComponent } from './apropos/apropos.component';
-import { ContactComponent } from './contact/contact.component';
-import { CineComponent } from './mirror/modules/cine/cine.component';
-import { AlertComponent } from './_tools/alert/alert.component';
-import { AccountComponent } from './account/account.component';
-import { ModalComponent } from './_tools/modal/modal.component';
-import { EmptyComponent } from './mirror/modules/empty/empty.component';
-import { ActualiteComponent } from './mirror/modules/actualite/actualite.component';
-import { LequipeComponent } from './mirror/modules/lequipe/lequipe.component';
-import { TraficComponent } from './mirror/modules/trafic/trafic.component';
-import { Modal_Meteo } from './_tools/modal/modal-meteo.component';
+import {AppComponent} from './app.component';
+import {LoginComponent} from './login/login.component';
+import {PersonalizeComponent} from './personalize/personalize.component';
+import {MeteoComponent} from './mirror/modules/meteo/meteo.component';
+import {MirrorComponent} from './mirror/mirror.component';
+import {AproposComponent} from './apropos/apropos.component';
+import {ContactComponent} from './contact/contact.component';
+import {CineComponent} from './mirror/modules/cine/cine.component';
+import {AlertComponent} from './_tools/alert/alert.component';
+import {AccountComponent} from './account/account.component';
+import {ModalComponent} from './_tools/modal/modal.component';
+import {EmptyComponent} from './mirror/modules/empty/empty.component';
+import {ActualiteComponent} from './mirror/modules/actualite/actualite.component';
+import {LequipeComponent} from './mirror/modules/lequipe/lequipe.component';
+import {TraficComponent} from './mirror/modules/trafic/trafic.component';
+import {Modal_Meteo} from './_tools/modal/modal-meteo.component';
+import {Modal_Radio} from './_tools/modal/modal-radio.component';
+import {RadioComponent} from './mirror/modules/radio/radio.component';
 
 
 //service
-import { LoginService } from "./login/login.service";
-import { MirrorService } from "./mirror/mirror.service";
-import { AlertService } from "./_tools/alert/alert.service";
-import { HttpAPIInterceptor } from "./_tools/HttpInterceptor";
-import { SocketService } from "./_tools/socket.service";
-import { AuthGuard } from "./_auth/auth.guard";
+import {LoginService} from './login/login.service';
+import {MirrorService} from './mirror/mirror.service';
+import {AlertService} from './_tools/alert/alert.service';
+import {HttpAPIInterceptor} from './_tools/HttpInterceptor';
+import {SocketService} from './_tools/socket.service';
+import {AuthGuard} from './_auth/auth.guard';
+import {RadioService} from './mirror/modules/radio/radio.service';
 
 //directive
-import { BottomCenterLeftDirective,
+import {
+  BottomCenterLeftDirective,
   BottomCenterRightDirective,
   BottomLeftDirective,
   BottomRightDirective,
   LeftDirective,
   RightDirective,
   TopLeftDirective,
-  TopRightDirective } from "./mirror/mirror.directive";
-import { ModalContentDirective } from './_tools/modal/modal-content.directive'
+  TopRightDirective
+} from './mirror/mirror.directive';
 
 //Angular Material
-import { CdkTableModule } from '@angular/cdk/table';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
+import {CdkTableModule} from '@angular/cdk/table';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 import {
   MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatPaginatorModule,
   MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
@@ -60,8 +64,6 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
-import { RadioComponent } from './mirror/modules/radio/radio.component';
-
 
 
 @NgModule({
@@ -72,7 +74,6 @@ import { RadioComponent } from './mirror/modules/radio/radio.component';
     BottomCenterLeftDirective, BottomCenterRightDirective, BottomLeftDirective,
     BottomRightDirective, LeftDirective, RightDirective,
     TopLeftDirective, TopRightDirective,
-    ModalContentDirective,
     /*
      * COMPONENT
      */
@@ -92,7 +93,8 @@ import { RadioComponent } from './mirror/modules/radio/radio.component';
     LequipeComponent,
     TraficComponent,
     RadioComponent,
-    Modal_Meteo
+    Modal_Meteo,
+    Modal_Radio
   ],
   imports: [
     Ng2DragDropModule.forRoot(),
@@ -145,6 +147,7 @@ import { RadioComponent } from './mirror/modules/radio/radio.component';
     MirrorService,
     AlertService,
     SocketService,
+    RadioService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpAPIInterceptor,
@@ -152,7 +155,8 @@ import { RadioComponent } from './mirror/modules/radio/radio.component';
     },
     AuthGuard
   ],
-  entryComponents: [ MeteoComponent, CineComponent, ModalComponent, EmptyComponent, MirrorComponent, Modal_Meteo ],
-  bootstrap: [ AppComponent ]
+  entryComponents: [MeteoComponent, CineComponent, ModalComponent, EmptyComponent, MirrorComponent, Modal_Meteo, Modal_Radio],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
