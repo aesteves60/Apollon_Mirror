@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
-import { LoginService }from './login/login.service';
+// You may not have this explicit reference.
+/// <reference path="../../../node_modules/@types/gapi/index.d.ts" />
+declare var gapi : any;
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,5 @@ import { LoginService }from './login/login.service';
 })
 export class AppComponent {
 
-  constructor(private router: Router,
-              private loginS: LoginService) {
-  }
-
-  logout(){
-    this.loginS.logout();
-  }
+  constructor(){ }
 }

@@ -40,3 +40,26 @@ button{
   padding: 10px;
   justify-content: center;
 }
+
+.google_buttonDec{
+  height: 45px;      /* equals max image height */
+  width: 300px;
+  color: #FFFFFF;
+  background-color: #f4363c;
+  font-family: Roboto,arial,sans-serif;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid #f4363c;
+  border-radius: 4px;
+}
+.google_buttonDec span{
+  line-height: 45px;
+}
+
+
+.google_buttonDec img{
+  background-color: #FFFFFF;
+  float: left;
+  max-height: 45px;
+  max-width: 160px;
+}

@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {AlertService} from '../_tools/alert/alert.service';
+import {Component, OnInit}   from '@angular/core';
+import {HttpClient}          from '@angular/common/http';
+import {AlertService}        from '../_tools/alert/alert.service';
 import 'rxjs/add/operator/map';
-import {SERIAL_NUMBER} from '../../assets/config';
-import {MatDialog} from '@angular/material';
-import {ModalComponent} from '../_tools/modal/modal.component';
-import {MirrorComponent} from '../mirror/mirror.component';
+import {SERIAL_NUMBER}       from '../../assets/config';
+import {MatDialog}           from '@angular/material';
+import {ModalComponent}      from '../_tools/modal/modal.component';
+import {MirrorComponent}     from '../mirror/mirror.component';
+import { GoogleAuthService } from "../_auth/authGoogle.service";
 
 
 @Component({
-  providers: [MirrorComponent],
   selector: 'app-personalize',
   templateUrl: './personalize.component.html',
   styleUrls: ['./personalize.component.css']
@@ -26,16 +26,24 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirror_BottomRight = [{name: 'Vide', image: '', views_position: 'bottom_center_right'}];
   public modules = {};
   public views = {};
-  public html = '';
+  public user: any;
 
   constructor(private http: HttpClient,
               private alertService: AlertService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private googleAuthService: GoogleAuthService) {
   }
 
   ngOnInit() {
     this.get_Modules();
     this.get_Views();
+  }
+
+  signIn(): void {
+    this.googleAuthService.signIn().then(() => {
+      this.alertService.success("Connexion reussi");
+      return this.googleAuthService.getUser().subscribe(user => this.user = user)
+    }).catch(() => this.alertService.error("Une erreur est survenu"))
   }
 
   openDialog(module): void {

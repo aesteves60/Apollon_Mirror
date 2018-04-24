@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { SERIAL_NUMBER } from "../../assets/config";
-import { AlertService } from "../_tools/alert/alert.service";
-import * as shajs from 'sha.js';
-
-
+import { SERIAL_NUMBER }     from "../../assets/config";
+import * as shajs            from 'sha.js';
+import { AlertService }      from "../_tools/alert/alert.service";
+import { GoogleAuthService } from "../_auth/authGoogle.service";
+import { MirrorService }     from "../mirror/mirror.service";
 
 
 @Component({
@@ -19,17 +18,24 @@ export class AccountComponent implements OnInit {
   email    : string;
   oldemail : string = '';
   serial_number = SERIAL_NUMBER;
+  user     : any;
+  isLogged : boolean;
 
-  constructor( private http : HttpClient, private alertService : AlertService) { }
+  constructor( private mirrorService : MirrorService,
+               private alertService : AlertService,
+               private googleAuthService: GoogleAuthService) { }
 
   ngOnInit() {
-    this.http.get('/API/get_mirror', { params : { serial_number :  SERIAL_NUMBER } })
-      .subscribe( data => {
-      let response = JSON.stringify(data);
-      let res = JSON.parse(response);
-      this.oldemail = res.email;
-      return this.email = res.email;
+    this.mirrorService.getMirror().subscribe( res => {
+      this.oldemail = res['email'];
+      this.email = res['email'];
     });
+    this.isLogged = this.googleAuthService.isLogged;
+  }
+
+  signOut(){
+    this.googleAuthService.signOut().then(() => this.alertService.success("Deconnexion reussi"))
+                                    .catch(() => this.alertService.error("Une erreur est survenu"))
   }
 
   updateMirror(){
@@ -44,19 +50,13 @@ export class AccountComponent implements OnInit {
               email         : this.email
             }
           };
-          this.http.get('/API/update_mirror', options)
-          .subscribe( data => {
-              this.mdp = '';
-              this.verifmdp = '';
+          this.mirrorService.updateMirror(options).subscribe( () => {
+              this.mdp = '';this.verifmdp = '';
               this.alertService.success('Les informations ont été modifiées.');
-            },
-            error => this.alertService.error(error));
-        } else {
-          this.alertService.error('Les deux mots de passe ne sont pas identiques.');
-        }
-      } else {
-        this.alertService.error('Veuillez remplir les champs mot de passe avec des chiffres.');
-      }
+            }, error => this.alertService.error(error)
+          );
+        } else this.alertService.error('Les deux mots de passe ne sont pas identiques.');
+      } else this.alertService.error('Veuillez remplir les champs mot de passe avec des chiffres.');
     } else {
       //check si pas vide et si l'email a changé
       if (this.email !== '' && this.email !== this.oldemail){
@@ -67,8 +67,8 @@ export class AccountComponent implements OnInit {
             'email'         : this.email
           }
         };
-        this.http.get('/API/update_mirror', options)
-        .subscribe( data => this.alertService.success('Les informations ont été modifiées.'));
+        this.mirrorService.updateMirror(options)
+                          .subscribe( () => this.alertService.success('Les informations ont été modifiées.'));
       } else
       this.alertService.error('Veuillez remplir tous les champs avant de valider.');
     }

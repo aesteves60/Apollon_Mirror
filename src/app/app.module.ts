@@ -28,6 +28,7 @@ import {TraficComponent} from './mirror/modules/trafic/trafic.component';
 import {Modal_Meteo} from './_tools/modal/modal-meteo.component';
 import {Modal_Radio} from './_tools/modal/modal-radio.component';
 import {RadioComponent} from './mirror/modules/radio/radio.component';
+import { CalendarComponent } from './mirror/modules/calendar/calendar.component';
 
 
 //service
@@ -37,7 +38,9 @@ import {AlertService} from './_tools/alert/alert.service';
 import {HttpAPIInterceptor} from './_tools/HttpInterceptor';
 import {SocketService} from './_tools/socket.service';
 import {AuthGuard} from './_auth/auth.guard';
+import {GoogleAuthService} from './_auth/authGoogle.service';
 import {RadioService} from './mirror/modules/radio/radio.service';
+import {MeteoService} from './mirror/modules/meteo/meteo.service';
 
 //directive
 import {
@@ -64,6 +67,7 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 } from '@angular/material';
+import { TopbarComponent } from './topbar/topbar.component';
 
 
 @NgModule({
@@ -94,7 +98,9 @@ import {
     TraficComponent,
     RadioComponent,
     Modal_Meteo,
-    Modal_Radio
+    Modal_Radio,
+    CalendarComponent,
+    TopbarComponent
   ],
   imports: [
     Ng2DragDropModule.forRoot(),
@@ -148,6 +154,8 @@ import {
     AlertService,
     SocketService,
     RadioService,
+    MeteoService,
+    GoogleAuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpAPIInterceptor,

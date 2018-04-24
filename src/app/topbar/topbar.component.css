@@ -1,0 +1,9 @@
+.spacer {
+  flex-grow: 1;
+}
+
+.select{
+  background-color: #9ba0ff;
+  border-radius: 10px ;
+  color: #FFFFFF;
+}
