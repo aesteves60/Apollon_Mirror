@@ -1,26 +1,6 @@
 <app-alert></app-alert>
 
-<div *ngIf="router.url !== '/mirror' && router.url !== '/login'">
-
-	<mat-toolbar color="primary">
-
-		<div  class="button-row mg-left-20">
-			<a routerLink="/mirror" mat-button [class.active]="select" >
-				<img src="../assets/img/Logo.png" style="height: 40px; width: 40px">
-				Mirroir
-			</a>
-			<a routerLink="/personalize" mat-button >Personnaliser</a>
-			<a routerLink="/account" mat-button >Mon compte</a>
-		</div>
-		<div  class="spacer"></div>
-		<div  class="button-row mg-left-20">
-			<a routerLink="/apropos" mat-button>A propos</a>
-			<a routerLink="/contacter" mat-button>Nous contacter</a>
-			<a (click)="logout()" mat-button><mat-icon>exit_to_app</mat-icon> Déconnexion</a>
-		</div>
-
-	</mat-toolbar>
-</div>
+<app-topbar></app-topbar>
 
 <!--The content below is only a placeholder and can be replaced.-->
 <router-outlet></router-outlet>

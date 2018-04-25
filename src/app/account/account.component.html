@@ -1,4 +1,8 @@
 <div class="container">
+  <div id="authorize-button" (click)="signOut()" class="google_buttonDec" *ngIf="isLogged">
+    <span>Se déconnecté de Google</span>
+    <img class="google_img" src="../../assets/img/google-logo.png">
+  </div>
 
   <div class="element">
     <i class="icons material-icons">account_circle</i><br/>

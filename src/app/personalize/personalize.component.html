@@ -12,8 +12,13 @@
 
   <mat-sidenav-content>
     <div class="container">
-      <!-- mirror-->
-    	<table>
+      <div id="authorize-button" (click)="signIn()" class="google_button" *ngIf="user === undefined">
+        <span>Se connecté avec Google</span>
+        <img class="google_img" src="../../assets/img/google-logo.png">
+      </div>
+
+      <!--mirror-->
+    	<table style="margin-top: 10px">
     	   <tr>
     	       <td colspan="2">
     	       		<div id="top_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
