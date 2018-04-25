@@ -69,6 +69,9 @@ import {
 } from '@angular/material';
 import { TopbarComponent } from './topbar/topbar.component';
 
+// You may not have this explicit reference.
+/// <reference path="../../node_modules/@types/gapi/index.d.ts" />
+declare var gapi : any;
 
 @NgModule({
   declarations: [

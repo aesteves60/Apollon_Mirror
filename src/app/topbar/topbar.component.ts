@@ -15,11 +15,11 @@ export class TopbarComponent implements OnInit {
 
   constructor(private router: Router,
               private loginS: LoginService,
-              private googleAuthService: GoogleAuthService) { }
+              private googleAuthService: GoogleAuthService) {
+  }
 
   ngOnInit() {
     this.googleAuthService.getUser().subscribe(user => {
-      console.log(user);
       this.user = user
     });
   }

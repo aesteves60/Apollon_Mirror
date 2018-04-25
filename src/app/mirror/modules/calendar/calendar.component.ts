@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }       from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { GoogleAuthService }       from "../../../_auth/authGoogle.service";
 
 @Component({
   selector: 'app-calendar',
@@ -7,20 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() {}
+  private user;
+
+  constructor(private http :HttpClient,
+              private googleAuthService :GoogleAuthService) {}
 
   ngOnInit() {
-    gapi.client.load('calendar', 'v3').then(() => {
-      gapi.client.request({'path': '/users/me/calendarList', 'params': {
-          "maxResults": 10,
-          "minAccessRole": "reader"
-        }}).then((res)=> console.log(res));
-    })
-  }
-
-  private initializeGoogleCalendarAPI(){
-    return new Promise((resolve, reject) => {
-      resolve();
-    });
+    this.googleAuthService.getUser().subscribe(res => this.user = res);
+    this.http.get(`https://www.googleapis.com/calendar/v3/calendars/alexandre.esteves.ae@gmail.com/events`,
+      {headers: new HttpHeaders({
+            Authorization: `Bearer ${ sessionStorage.getItem(GoogleAuthService.SESSION_STORAGE_KEY) }`,
+            "timeMin": ""
+          })
+      }).subscribe(res => console.log(res));
   }
 }

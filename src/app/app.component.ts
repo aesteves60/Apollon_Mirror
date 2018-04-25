@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-// You may not have this explicit reference.
-/// <reference path="../../../node_modules/@types/gapi/index.d.ts" />
-declare var gapi : any;
 
 @Component({
   selector: 'app-root',
@@ -11,5 +8,6 @@ declare var gapi : any;
 })
 export class AppComponent {
 
-  constructor(){ }
+  constructor(){
+  }
 }
