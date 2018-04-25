@@ -1,7 +1,7 @@
 import {ComponentFactoryResolver, Injectable, ViewContainerRef} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {SERIAL_NUMBER} from '../../assets/config'
-import { Type } from '@angular/core';
+import {HttpClient}                                             from '@angular/common/http';
+import {SERIAL_NUMBER}                                          from '../../assets/config'
+import { Type }                                                 from '@angular/core';
 
 
 

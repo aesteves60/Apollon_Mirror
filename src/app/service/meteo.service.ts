@@ -1,7 +1,7 @@
 import {Injectable}    from '@angular/core';
 import {HttpClient}    from '@angular/common/http';
-import {SERIAL_NUMBER} from '../../../../assets/config';
-import { jourMeteo }   from "./jourMeteo";
+import {SERIAL_NUMBER} from '../../assets/config';
+import { jourMeteo }   from "../component/modules/meteo/jourMeteo";
 
 @Injectable()
 export class MeteoService {

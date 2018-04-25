@@ -1,19 +1,19 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {LoginComponent} from './login/login.component';
-import {PersonalizeComponent} from './personalize/personalize.component';
-import {MeteoComponent} from './mirror/modules/meteo/meteo.component';
-import {MirrorComponent} from './mirror/mirror.component';
-import {ContactComponent}    from './contact/contact.component';
-import {AproposComponent}    from './apropos/apropos.component';
-import {AccountComponent}    from './account/account.component';
-import {AuthGuard}           from './_auth/auth.guard';
-import {ActualiteComponent}  from './mirror/modules/actualite/actualite.component';
-import {LequipeComponent}    from './mirror/modules/lequipe/lequipe.component';
-import {TraficComponent}     from './mirror/modules/trafic/trafic.component';
-import {RadioComponent}      from './mirror/modules/radio/radio.component';
-import { CalendarComponent } from "./mirror/modules/calendar/calendar.component";
+import {LoginComponent}       from '../component/login/login.component';
+import {PersonalizeComponent} from '../component/personalize/personalize.component';
+import {MeteoComponent}       from '../component/modules/meteo/meteo.component';
+import {MirrorComponent}      from '../component/mirror/mirror.component';
+import {ContactComponent}     from '../component/modules/contact/contact.component';
+import {AproposComponent}     from '../component/apropos/apropos.component';
+import {AccountComponent}     from '../component/account/account.component';
+import {AuthGuard}            from '../auth/auth.guard';
+import {ActualiteComponent}   from '../component/modules/actualite/actualite.component';
+import {LequipeComponent}     from '../component/modules/lequipe/lequipe.component';
+import {TraficComponent}      from '../component/modules/trafic/trafic.component';
+import {RadioComponent}       from '../component/modules/radio/radio.component';
+import { CalendarComponent }  from "../component/modules/calendar/calendar.component";
 
 
 const routes: Routes = [

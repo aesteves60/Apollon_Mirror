@@ -1,7 +1,7 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AppRoutingModule} from './app-routing.module';
+import {BrowserModule}                       from '@angular/platform-browser';
+import {NgModule}                            from '@angular/core';
+import {FormsModule, ReactiveFormsModule}    from '@angular/forms';
+import {AppRoutingModule}                    from './router/app-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 //drag n drop
@@ -10,37 +10,37 @@ import {Ng2DragDropModule} from 'ng2-drag-drop';
 import {sha256} from 'crypto-js/sha256';
 
 //composent de l'application
-import {AppComponent} from './app.component';
-import {LoginComponent} from './login/login.component';
-import {PersonalizeComponent} from './personalize/personalize.component';
-import {MeteoComponent} from './mirror/modules/meteo/meteo.component';
-import {MirrorComponent} from './mirror/mirror.component';
-import {AproposComponent} from './apropos/apropos.component';
-import {ContactComponent} from './contact/contact.component';
-import {CineComponent} from './mirror/modules/cine/cine.component';
-import {AlertComponent} from './_tools/alert/alert.component';
-import {AccountComponent} from './account/account.component';
-import {ModalComponent} from './_tools/modal/modal.component';
-import {EmptyComponent} from './mirror/modules/empty/empty.component';
-import {ActualiteComponent} from './mirror/modules/actualite/actualite.component';
-import {LequipeComponent} from './mirror/modules/lequipe/lequipe.component';
-import {TraficComponent} from './mirror/modules/trafic/trafic.component';
-import {Modal_Meteo} from './_tools/modal/modal-meteo.component';
-import {Modal_Radio} from './_tools/modal/modal-radio.component';
-import {RadioComponent} from './mirror/modules/radio/radio.component';
-import { CalendarComponent } from './mirror/modules/calendar/calendar.component';
+import {AppComponent}         from './component/app.component';
+import {LoginComponent}       from './component/login/login.component';
+import {PersonalizeComponent} from './component/personalize/personalize.component';
+import {MeteoComponent}      from './component/modules/meteo/meteo.component';
+import {MirrorComponent}     from './component/mirror/mirror.component';
+import {AproposComponent}    from './component/apropos/apropos.component';
+import {ContactComponent}    from './component/modules/contact/contact.component';
+import {CineComponent}       from './component/modules/cine/cine.component';
+import {AlertComponent}      from './service/alert/alert.component';
+import {AccountComponent}    from './component/account/account.component';
+import {ModalComponent}      from './component/modal/modal.component';
+import {EmptyComponent}      from './component/empty/empty.component';
+import {ActualiteComponent}  from './component/modules/actualite/actualite.component';
+import {LequipeComponent}    from './component/modules/lequipe/lequipe.component';
+import {TraficComponent}     from './component/modules/trafic/trafic.component';
+import {Modal_Meteo}         from './component/modal/modal-meteo.component';
+import {Modal_Radio}         from './component/modal/modal-radio.component';
+import {RadioComponent}      from './component/modules/radio/radio.component';
+import { CalendarComponent } from './component/modules/calendar/calendar.component';
 
 
 //service
-import {LoginService} from './login/login.service';
-import {MirrorService} from './mirror/mirror.service';
-import {AlertService} from './_tools/alert/alert.service';
-import {HttpAPIInterceptor} from './_tools/HttpInterceptor';
-import {SocketService} from './_tools/socket.service';
-import {AuthGuard} from './_auth/auth.guard';
-import {GoogleAuthService} from './_auth/authGoogle.service';
-import {RadioService} from './mirror/modules/radio/radio.service';
-import {MeteoService} from './mirror/modules/meteo/meteo.service';
+import {LoginService}       from './service/login.service';
+import {MirrorService}      from './service/mirror.service';
+import {AlertService}       from './service/alert/alert.service';
+import {HttpAPIInterceptor} from './HttpInterceptor';
+import {SocketService}      from './service/socket.service';
+import {AuthGuard}          from './auth/auth.guard';
+import {GoogleAuthService}  from './auth/authGoogle.service';
+import {RadioService}       from './service/radio.service';
+import {MeteoService}       from './service/meteo.service';
 
 //directive
 import {
@@ -52,7 +52,7 @@ import {
   RightDirective,
   TopLeftDirective,
   TopRightDirective
-} from './mirror/mirror.directive';
+} from './component/mirror/mirror.directive';
 
 //Angular Material
 import {CdkTableModule} from '@angular/cdk/table';
@@ -66,8 +66,8 @@ import {
   MatSidenavModule, MatSliderModule, MatSortModule, MatSlideToggleModule,
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
-} from '@angular/material';
-import { TopbarComponent } from './topbar/topbar.component';
+}                          from '@angular/material';
+import { TopbarComponent } from './component/topbar/topbar.component';
 
 // You may not have this explicit reference.
 /// <reference path="../../node_modules/@types/gapi/index.d.ts" />

@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import * as shajs from 'sha.js';
-import {HttpClient} from "@angular/common/http";
+import { Injectable }    from '@angular/core';
+import { Router }        from '@angular/router';
+import * as shajs        from 'sha.js';
+import {HttpClient}      from "@angular/common/http";
 import { SERIAL_NUMBER } from '../../assets/config';
-import { Observable } from "rxjs/Observable";
+import { Observable }    from "rxjs/Observable";
 
 @Injectable()
 export class LoginService {

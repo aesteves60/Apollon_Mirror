@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {SERIAL_NUMBER} from '../../../../assets/config';
+import {Injectable}    from '@angular/core';
+import {HttpClient}    from '@angular/common/http';
+import {SERIAL_NUMBER} from '../../assets/config';
 
 
 export interface Radio {
