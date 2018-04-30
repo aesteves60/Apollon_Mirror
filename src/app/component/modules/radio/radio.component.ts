@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {RadioService} from './radio.service';
+import {RadioService}                 from '../../../service/radio.service';
 
 @Component({
   selector: 'app-radio',

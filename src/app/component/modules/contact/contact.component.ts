@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {AlertService} from "../_tools/alert/alert.service";
+import {HttpClient}          from "@angular/common/http";
+import {AlertService}        from "../../../service/alert/alert.service";
 
 @Component({
   selector: 'app-contact',

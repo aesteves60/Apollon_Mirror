@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
-import { LoginService }      from "../login/login.service";
-import { GoogleAuthService } from "../_auth/authGoogle.service";
+import { LoginService }      from "../../service/login.service";
+import { GoogleAuthService } from "../../auth/authGoogle.service";
 import BasicProfile = gapi.auth2.BasicProfile;
+import { UserService }       from "../../service/user.service";
 
 @Component({
   selector: 'app-topbar',
@@ -12,14 +13,15 @@ import BasicProfile = gapi.auth2.BasicProfile;
 export class TopbarComponent implements OnInit {
 
   user :BasicProfile;
+  show : boolean = false;
 
   constructor(private router: Router,
               private loginS: LoginService,
-              private googleAuthService: GoogleAuthService) {
+              private user$: UserService) {
   }
 
   ngOnInit() {
-    this.googleAuthService.getUser().subscribe(user => {
+    this.user$.getUser().subscribe(user => {
       this.user = user
     });
   }

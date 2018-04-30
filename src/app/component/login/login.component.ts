@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient } from "@angular/common/http";
-import { LoginService } from "./login.service";
-import { AlertService } from "../_tools/alert/alert.service";
-import { SERIAL_NUMBER } from "../../assets/config";
+import { Router }            from '@angular/router';
+import { HttpClient }        from "@angular/common/http";
+import { LoginService }      from "../../service/login.service";
+import { AlertService }      from "../../service/alert/alert.service";
+import { SERIAL_NUMBER }     from "../../../assets/config";
 
 @Component({
   selector: 'app-login',

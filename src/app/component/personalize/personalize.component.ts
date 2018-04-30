@@ -1,12 +1,14 @@
 import {Component, OnInit}   from '@angular/core';
 import {HttpClient}          from '@angular/common/http';
-import {AlertService}        from '../_tools/alert/alert.service';
+import {AlertService}        from '../../service/alert/alert.service';
 import 'rxjs/add/operator/map';
-import {SERIAL_NUMBER}       from '../../assets/config';
+import {SERIAL_NUMBER}       from '../../../assets/config';
 import {MatDialog}           from '@angular/material';
-import {ModalComponent}      from '../_tools/modal/modal.component';
+import {ModalComponent}      from '../modal/modal.component';
 import {MirrorComponent}     from '../mirror/mirror.component';
-import { GoogleAuthService } from "../_auth/authGoogle.service";
+import { GoogleAuthService } from "../../auth/authGoogle.service";
+import { ModuleService }     from "../../service/module.service";
+import { UserService }       from "../../service/user.service";
 
 
 @Component({
@@ -25,14 +27,14 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirror_BottomCenterRight = [{name: 'Vide', image: '', views_position: 'bottom_center_left'}];
   public ItemMirror_BottomRight = [{name: 'Vide', image: '', views_position: 'bottom_center_right'}];
   public modules = {};
-  public views = {};
   public user: any;
 
   constructor(private http: HttpClient,
-              private alertService: AlertService,
+              private alert$: AlertService,
+              private module$: ModuleService,
               public dialog: MatDialog,
-              private googleAuthService: GoogleAuthService) {
-  }
+              private googleAuthService: GoogleAuthService,
+              private user$: UserService) { }
 
   ngOnInit() {
     this.get_Modules();
@@ -41,11 +43,10 @@ export class PersonalizeComponent implements OnInit {
 
   signIn(): void {
     this.googleAuthService.signIn().then(() => {
-      this.alertService.success("Connexion reussi");
-      return this.googleAuthService.getUser().subscribe(user => this.user = user)
+      this.alert$.success("Connexion reussi");
+      return this.user$.getUser().subscribe(user => this.user = user)
     }).catch((e) => {
-      console.log(e);
-      this.alertService.error("Une erreur est survenu");
+      this.alert$.error("Une erreur est survenu",e);
     })
   }
 
@@ -57,55 +58,36 @@ export class PersonalizeComponent implements OnInit {
   }
 
   public get_Modules() {
-    this.http.get('/API/get_modules').subscribe(res => this.modules = res);
+    this.module$.getModules().subscribe((res) => this.modules = res);
   }
 
   public get_Views() {
-    const options = {
-      params: {
-        'serial_number': SERIAL_NUMBER
-      }
-    };
-    this.http.get('/API/get_views_mirror', options).subscribe(res => {
-      this.views = res;
-      this.ChangeValue(this.ItemMirror_TopLeft, this.views[0]);
-      this.ChangeValue(this.ItemMirror_TopRight, this.views[1]);
-      this.ChangeValue(this.ItemMirror_Left, this.views[2]);
-      this.ChangeValue(this.ItemMirror_Right, this.views[3]);
-      this.ChangeValue(this.ItemMirror_BottomLeft, this.views[4]);
-      this.ChangeValue(this.ItemMirror_BottomRight, this.views[5]);
-      this.ChangeValue(this.ItemMirror_BottomCenterLeft, this.views[6]);
-      this.ChangeValue(this.ItemMirror_BottomCenterRight, this.views[7]);
+    this.module$.getViews().subscribe((res)=>{
+        this.ChangeValue(this.ItemMirror_TopLeft, res[0]);
+        this.ChangeValue(this.ItemMirror_TopRight, res[1]);
+        this.ChangeValue(this.ItemMirror_Left, res[2]);
+        this.ChangeValue(this.ItemMirror_Right, res[3]);
+        this.ChangeValue(this.ItemMirror_BottomLeft, res[4]);
+        this.ChangeValue(this.ItemMirror_BottomRight, res[5]);
+        this.ChangeValue(this.ItemMirror_BottomCenterLeft, res[6]);
+        this.ChangeValue(this.ItemMirror_BottomCenterRight, res[7]);
     });
   }
 
   public onElementDrop(e) {
     const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.id || e.nativeEvent.target.parentElement.parentElement.id);
-    const options = {
-      params: {
-        'views_position': _itemMirror[0].views_position,
-        'serial_number': SERIAL_NUMBER,
-        'module_id': e.dragData.id
-      }
-    };
-    this.http.get('/API/change_position', options).subscribe(res => {
-      e.dragData.views_position = _itemMirror[0].views_position;
-      this.ChangeValue(_itemMirror, e.dragData);
-      return this.alertService.success('Modification réussie.');
+    this.module$.ChangePosition(_itemMirror[0].views_position, e.dragData.id).subscribe((res) => {
+        e.dragData.views_position = res;  //egal à _itemMirror[0].views_position
+        this.ChangeValue(_itemMirror, e.dragData);
+        return this.alert$.success('Modification réussie.');
     });
   }
 
   public remoteElement(e) {
     const _itemMirror = this.FindZoneMirror(e.target.parentElement.parentElement.parentElement.id);
-    const options = {
-      params: {
-        'views_position': _itemMirror[0].views_position,
-        'serial_number': SERIAL_NUMBER
-      }
-    };
-    this.http.delete('/API/remove_position', options).subscribe(res => {
-      this.ChangeValue(_itemMirror, null);
-      this.alertService.success('Modification réussie.');
+    this.module$.RemoteElement( _itemMirror[0].views_position).subscribe((res) => {
+        this.ChangeValue(_itemMirror, null);
+        this.alert$.success('Modification réussie.');
     });
   }
 

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SERIAL_NUMBER }     from "../../assets/config";
+import { SERIAL_NUMBER }     from "../../../assets/config";
 import * as shajs            from 'sha.js';
-import { AlertService }      from "../_tools/alert/alert.service";
-import { GoogleAuthService } from "../_auth/authGoogle.service";
-import { MirrorService }     from "../mirror/mirror.service";
+import { AlertService }      from "../../service/alert/alert.service";
+import { GoogleAuthService } from "../../auth/authGoogle.service";
+import { MirrorService }     from "../../service/mirror.service";
+import { UserService }       from "../../service/user.service";
 
 
 @Component({
@@ -23,14 +24,15 @@ export class AccountComponent implements OnInit {
 
   constructor( private mirrorService : MirrorService,
                private alertService : AlertService,
-               private googleAuthService: GoogleAuthService) { }
+               private googleAuthService: GoogleAuthService,
+               private user$: UserService) { }
 
   ngOnInit() {
     this.mirrorService.getMirror().subscribe( res => {
       this.oldemail = res['email'];
       this.email = res['email'];
     });
-    this.isLogged = this.googleAuthService.isLogged;
+    this.isLogged = this.user$.isLogged;
   }
 
   signOut(){

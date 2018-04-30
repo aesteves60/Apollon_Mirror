@@ -10,7 +10,8 @@ export class AlertService {
     this.alert('alert alert-success',message);
   }
 
-  error(message: string) {
+  error(message: string, err: any = null) {
+    console.log(err);
     this.alert('alert alert-error',message);
   }
 

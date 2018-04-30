@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient }        from '@angular/common/http';
-import { MeteoService }      from "./meteo.service";
+import { MeteoService }      from "../../../service/meteo.service";
 import { jourMeteo }         from "./jourMeteo";
 
 @Component({

@@ -20,15 +20,6 @@ export class MirrorService {
     }
   }
 
-  getAllModules() {
-    let options = {
-      params : {
-        serial_number : SERIAL_NUMBER
-      }
-    };
-    return this.http.get('/API/get_views_mirror', options).map(res => res);
-  }
-
   getMirror() {
     return this.http.get('/API/get_mirror', { params : { serial_number :  SERIAL_NUMBER } })
              .map(res => res);

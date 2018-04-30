@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {RadioService, Radio} from '../../mirror/modules/radio/radio.service';
+import {HttpClient}                              from '@angular/common/http';
+import {RadioService, Radio}                     from '../../service/radio.service';
 
 @Component({
   selector: 'modal-radio',
@@ -25,7 +25,7 @@ export class Modal_Radio implements OnInit {
   }
 
   ngOnInit() {
-    this.radioService.getRadios().subscribe(result => {
+    this.radioService.getRadios().subscribe((result) => {
       this.radios = <Radio[]>result;
       this.radioService.getRadioConfig().subscribe(res => {
         this.selectedRadio = this.radios.find(r => res === r.src);

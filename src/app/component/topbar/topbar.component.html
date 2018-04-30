@@ -1,5 +1,4 @@
-<div *ngIf="router.url !== '/mirror' && router.url !== '/login'">
-
+<div *ngIf="router.url !== '/mirror' && router.url !== '/login'" class="shadow">
   <mat-toolbar color="primary">
 
     <div  class="button-row mg-left-20">
@@ -11,17 +10,24 @@
       <a routerLink="/account" mat-button >Mon compte</a>
     </div>
     <div class="spacer"></div>
-    <div class="button-row mg-left-20">
-      <a routerLink="/apropos" mat-button>A propos</a>
-      <a routerLink="/contacter" mat-button>Nous contacter</a>
-      <div *ngIf="user">
-        <img [src]="user.getImageUrl()" style="max-height: 50px; max-width: 50px; border-radius: 25px;">
-        <span>
+    <div *ngIf="user" class="user">
+      <img [src]="user.getImageUrl()" style="max-height: 50px; max-width: 50px; border-radius: 25px;">
+      <div>
           {{user.getName()}}
-        </span>
-        </div>
-      <a (click)="logout()" mat-button><mat-icon>exit_to_app</mat-icon> Déconnexion</a>
+      </div>
     </div>
+    <div class="button-row mg-left-20">
+
+      <div class="more" (click)="show = !show">
+        <mat-icon>add</mat-icon>
+      </div>
+    </div>
+      <div class="deploy" *ngIf="show">
+        <li><a routerLink="/apropos" (click)="show = false" mat-button>A propos</a></li>
+        <li><a routerLink="/contacter" (click)="show = false" mat-button>Nous contacter</a></li>
+        <li><a (click)="logout(); show = false" mat-button><mat-icon>exit_to_app</mat-icon> Déconnexion</a></li>
+      </div>
+
 
   </mat-toolbar>
 </div>

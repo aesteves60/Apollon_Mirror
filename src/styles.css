@@ -26,6 +26,20 @@ html, body{
     padding: 20px;
 }
 
+.bg_black{
+  background-color: black;
+}
+.c_write{
+  color: #FFFFFF;
+}
+
+.h100{
+  height: 100%;
+}
+.w100{
+  width: 100%;
+}
+
 .loader {
   position: absolute;
   left: 50%;

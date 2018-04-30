@@ -1,1 +1,12 @@
-calendar works!
+<div *ngIf="user !== undefined;then log else notLog"></div>
+<ng-template #log>
+  <div class="bg_black h100 w100 c_write">
+    <div *ngFor="let event of events">
+      {{ event.summary }}
+      {{ event.start.date }}
+    </div>
+  </div>
+</ng-template>
+<ng-template #notLog>
+  <div class="bg_black h100 w100 c_write">Veuillez vous connecté avec Google pour avoir accée à cette affichage</div>
+</ng-template>

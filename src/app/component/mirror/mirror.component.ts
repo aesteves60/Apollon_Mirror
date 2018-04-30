@@ -9,13 +9,15 @@ import {
   TopLeftDirective,
   TopRightDirective
 }                                                         from './mirror.directive';
-import { MirrorItem, MirrorService }                      from './mirror.service';
+import { MirrorItem, MirrorService }                      from '../../service/mirror.service';
+import { ModuleService }                                  from "../../service/module.service";
+
 //component
-import { MeteoComponent }                                 from './modules/meteo/meteo.component';
-import { EmptyComponent }                                 from './modules/empty/empty.component';
-import { LequipeComponent }                               from './modules/lequipe/lequipe.component';
-import { ActualiteComponent }                             from './modules/actualite/actualite.component';
-import { TraficComponent }                                from './modules/trafic/trafic.component';
+import { MeteoComponent }     from '../modules/meteo/meteo.component';
+import { EmptyComponent }     from '../empty/empty.component';
+import { LequipeComponent }   from '../modules/lequipe/lequipe.component';
+import { ActualiteComponent } from '../modules/actualite/actualite.component';
+import { TraficComponent }    from '../modules/trafic/trafic.component';
 
 @Component({
   selector       : 'app-mirror',
@@ -37,7 +39,7 @@ export class MirrorComponent implements AfterContentInit, OnInit {
   private list_modules   = [];
   private list_directive = [];
 
-  constructor(private mirrorService: MirrorService) {
+  constructor(private module$: ModuleService, private mirror$: MirrorService) {
   }
 
   ngOnInit() {
@@ -46,10 +48,10 @@ export class MirrorComponent implements AfterContentInit, OnInit {
   }
 
   ngAfterContentInit() {
-    this.mirrorService.getAllModules().subscribe(res => {
+    this.module$.getViews().subscribe(res => {
       for (let i = 0; i < res['length']; i++) {
         this.list_modules.push(new MirrorItem(this.FindComponent(res[i]), null));
-        this.mirrorService.loadComponent(this.list_directive[i].viewContainerRef, this.list_modules[i]);
+        this.mirror$.loadComponent(this.list_directive[i].viewContainerRef, this.list_modules[i]);
       }
     });
   }

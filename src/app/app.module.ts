@@ -29,7 +29,7 @@ import {Modal_Meteo}         from './component/modal/modal-meteo.component';
 import {Modal_Radio}         from './component/modal/modal-radio.component';
 import {RadioComponent}      from './component/modules/radio/radio.component';
 import { CalendarComponent } from './component/modules/calendar/calendar.component';
-
+import { TopbarComponent } from './component/topbar/topbar.component';
 
 //service
 import {LoginService}       from './service/login.service';
@@ -41,6 +41,9 @@ import {AuthGuard}          from './auth/auth.guard';
 import {GoogleAuthService}  from './auth/authGoogle.service';
 import {RadioService}       from './service/radio.service';
 import {MeteoService}       from './service/meteo.service';
+import {ModuleService}   from "./service/module.service";
+import {UserService}   from "./service/user.service";
+
 
 //directive
 import {
@@ -67,7 +70,6 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 }                          from '@angular/material';
-import { TopbarComponent } from './component/topbar/topbar.component';
 
 // You may not have this explicit reference.
 /// <reference path="../../node_modules/@types/gapi/index.d.ts" />
@@ -158,7 +160,9 @@ declare var gapi : any;
     SocketService,
     RadioService,
     MeteoService,
+    ModuleService,
     GoogleAuthService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpAPIInterceptor,

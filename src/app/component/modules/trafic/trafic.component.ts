@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {SERIAL_NUMBER} from '../../../../assets/config';
+import { HttpClient }        from '@angular/common/http';
+import {SERIAL_NUMBER}       from '../../../../assets/config';
 
 
 declare let google : any;
