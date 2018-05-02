@@ -1,20 +1,26 @@
-import {Injectable} from '@angular/core';
-import * as io from 'socket.io-client';
+import {Injectable}   from '@angular/core';
+import * as io        from 'socket.io-client';
+import { Observable } from "rxjs/Observable";
+import { Event }      from '../model/event';
+
+
+const SERVER_URL  = 'http://localhost:8080';
 
 @Injectable()
 export class SocketService {
-  private url = 'http://localhost:8080';
   private socket;
-  private selectedArticle = null;
 
-   constructor() {
+  constructor() {
   }
 
-  gettest(){
-    /*this.socket.emit('test','test');
-    console.log(this.socket);
-    this.socket.on('test', (message) => {
-        alert('emit ok ');
-    });*/
-   }
+  public initSocket(): void {
+    this.socket = io(SERVER_URL);
+  }
+
+  public onEvent(event: Event): Observable<any> {
+    return new Observable<Event>(observer => {
+      this.socket.on(event, () => observer.next());
+    });
+  }
+
 }
