@@ -36,7 +36,10 @@ mat-toolbar{
   z-index: 5;
   top: 64px;
   right: 0;
+}
 
+.deploy li a {
+  width: 100%;
 }
 
 li{

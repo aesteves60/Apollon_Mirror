@@ -26,6 +26,7 @@ export class TopbarComponent implements OnInit {
     });
   }
 
+
   logout(){
     this.loginS.logout();
   }

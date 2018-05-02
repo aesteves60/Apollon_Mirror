@@ -1,43 +1,37 @@
 import { Component, OnInit }       from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { GoogleAuthService }       from "../../../auth/authGoogle.service";
 import { UserService }             from "../../../service/user.service";
+import { GoogleAuthService }       from "../../../auth/authGoogle.service";
 
 @Component({
-  selector: 'app-calendar',
-  templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  selector: 'app-gmail',
+  templateUrl: './gmail.component.html',
+  styleUrls: ['./gmail.component.css']
 })
-export class CalendarComponent implements OnInit {
+export class GmailComponent implements OnInit {
 
   private user = undefined;
-  private yesterday: Date;
-  private events;
+  private emails;
+
 
   constructor(private http :HttpClient,
-              private user$ :UserService) {
-    let today = new Date();
-    this.yesterday = new Date();
-    this.yesterday.setDate(today.getDate()-1);
-  }
+              private user$ :UserService) { }
 
   ngOnInit() {
-    this.user$.getUser().subscribe((user) => {
-      console.log(user);
-      this.user = user;
+    this.user = this.user$.user;
+    if(this.user){
       this.http.get(`https://www.googleapis.com/calendar/v3/calendars/${ this.user.getEmail() }/events`,
         {headers: new HttpHeaders({
             Authorization: `Bearer ${ sessionStorage.getItem(GoogleAuthService.SESSION_STORAGE_KEY) }`
           }),
           params:{
             "maxResults":'10',
-            "timeMin":this.yesterday.toISOString()
           }
         }).subscribe(res => {
         console.log(res);
-        return this.events = res['items'];
+        return this.emails = res['items'];
       });
-    });
-
+    }
   }
+
 }

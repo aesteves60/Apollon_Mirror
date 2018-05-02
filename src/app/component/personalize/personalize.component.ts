@@ -42,12 +42,10 @@ export class PersonalizeComponent implements OnInit {
   }
 
   signIn(): void {
-    this.googleAuthService.signIn().then(() => {
-      this.alert$.success("Connexion reussi");
-      return this.user$.getUser().subscribe(user => this.user = user)
-    }).catch((e) => {
-      this.alert$.error("Une erreur est survenu",e);
-    })
+    this.googleAuthService.signIn()
+        .then(() => this.alert$.success("Connexion reussi"))
+        .catch((e) => this.alert$.error("Une erreur est survenu",e));
+    this.user$.getUser().subscribe(user => this.user = user)
   }
 
   openDialog(module): void {

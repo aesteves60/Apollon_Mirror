@@ -7,6 +7,7 @@
         Mirroir
       </a>
       <a routerLink="/personalize" mat-button >Personnaliser</a>
+      <a routerLink="/calendar" mat-button >Calendar</a>
       <a routerLink="/account" mat-button >Mon compte</a>
     </div>
     <div class="spacer"></div>
@@ -22,7 +23,7 @@
         <mat-icon>add</mat-icon>
       </div>
     </div>
-      <div class="deploy" *ngIf="show">
+      <div class="deploy" *ngIf="show" (mouseleave)="show = false">
         <li><a routerLink="/apropos" (click)="show = false" mat-button>A propos</a></li>
         <li><a routerLink="/contacter" (click)="show = false" mat-button>Nous contacter</a></li>
         <li><a (click)="logout(); show = false" mat-button><mat-icon>exit_to_app</mat-icon> Déconnexion</a></li>

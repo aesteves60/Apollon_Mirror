@@ -13,7 +13,7 @@
 
     <mat-sidenav-content>
       <div class="container">
-        <div id="authorize-button" (click)="signIn()" class="google_button" *ngIf="user === undefined">
+        <div id="authorize-button" (click)="signIn()" class="google_button" *ngIf="!user">
           <span>Se connecté avec Google</span>
           <img class="google_img" src="../../../assets/img/google-logo.png">
         </div>

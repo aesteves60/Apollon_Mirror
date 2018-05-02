@@ -7,23 +7,24 @@ import BasicProfile = gapi.auth2.BasicProfile;
 @Injectable()
 export class UserService {
 
-
-  private user: BasicProfile = undefined;
+  private static _user: BasicProfile = undefined;
   private subject            = new Subject<any>();
   private _isLogged: boolean = false;
-
 
   constructor(private http: HttpClient){}
 
   public setUser(user: BasicProfile): void {
-    this.user = user;
-    this.subject.next(this.user);
+    UserService._user = user;
+    this.subject.next(UserService._user);
   }
 
   public getUser(): Observable<any> {
     return this.subject.asObservable();
   }
 
+  public get user(){
+    return UserService._user;
+  }
 
   get isLogged(): boolean {
     return this._isLogged;

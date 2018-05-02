@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router';
-
-import * as io from 'socket.io-client';
+import {HttpClient}          from '@angular/common/http';
+import { Event }             from '../../../model/event';
+import { SocketService }     from "../../../service/socket.service";
 
 
 @Component({
@@ -12,24 +11,21 @@ import * as io from 'socket.io-client';
 })
 export class ActualiteComponent implements OnInit {
   public articles;
-  private url = 'http://localhost:8080';
-  public socket;
 
 
-  constructor(private http : HttpClient, private router: Router) {
+  constructor(private http : HttpClient, private socket$: SocketService) {
     this.http.get('/API/actualite')
              .subscribe(res => {
                this.articles = res['articles'];
                return this.articles.map(obj => obj.isShow = false);
              });
-    this.socket = io(this.url);
   }
 
   ngOnInit() {
-    this.socket.on('actu', (response) => {
-      console.log(response.actuId);
-      this.ShowArticle(parseInt(response.actuId) - 1);
-    });
+    this.socket$.initSocket();
+
+    let ioConnection = this.socket$.onEvent(Event.SHOW_ARTICLE).subscribe((index) => this.ShowArticle(index));
+
   }
 
   DeleteArticle(index : number){

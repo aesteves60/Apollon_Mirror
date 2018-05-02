@@ -5,7 +5,7 @@ import {LoginComponent}       from '../component/login/login.component';
 import {PersonalizeComponent} from '../component/personalize/personalize.component';
 import {MeteoComponent}       from '../component/modules/meteo/meteo.component';
 import {MirrorComponent}      from '../component/mirror/mirror.component';
-import {ContactComponent}     from '../component/modules/contact/contact.component';
+import {ContactComponent}     from '../component/contact/contact.component';
 import {AproposComponent}     from '../component/apropos/apropos.component';
 import {AccountComponent}     from '../component/account/account.component';
 import {AuthGuard}            from '../auth/auth.guard';

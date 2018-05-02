@@ -54,8 +54,9 @@ export class GoogleAuthService {
       this.getAuth().subscribe((auth) => {
         try {
           auth.signOut();
+          sessionStorage.removeItem(GoogleAuthService.SESSION_STORAGE_KEY);
+          this.user$.setUser(null);
         } catch(e) { reject(e) }
-        sessionStorage.removeItem(GoogleAuthService.SESSION_STORAGE_KEY);
         resolve();
       });
     });
@@ -66,7 +67,8 @@ export class GoogleAuthService {
       gapi.load('auth2', () => {
         gapi.auth2.init(<AuthorizeConfig>{
           client_id: "657052571660-fjqao7sajokl30rrfavj7s32k24bn7pq.apps.googleusercontent.com",
-          scope    : ["https://www.googleapis.com/auth/calendar", "https://www.googleapis.com/auth/calendar.readonly"].join(" "),
+          scope    : ["https://www.googleapis.com/auth/calendar", "https://www.googleapis.com/auth/calendar.readonly",
+                      "https://www.googleapis.com/auth/gmail.readonly"].join(" "),
           response_type: 'id_token permission'
         }).then((auth) => {
           console.log(auth);

@@ -13,17 +13,17 @@ import {sha256} from 'crypto-js/sha256';
 import {AppComponent}         from './component/app.component';
 import {LoginComponent}       from './component/login/login.component';
 import {PersonalizeComponent} from './component/personalize/personalize.component';
-import {MeteoComponent}      from './component/modules/meteo/meteo.component';
-import {MirrorComponent}     from './component/mirror/mirror.component';
-import {AproposComponent}    from './component/apropos/apropos.component';
-import {ContactComponent}    from './component/modules/contact/contact.component';
-import {CineComponent}       from './component/modules/cine/cine.component';
-import {AlertComponent}      from './service/alert/alert.component';
-import {AccountComponent}    from './component/account/account.component';
-import {ModalComponent}      from './component/modal/modal.component';
-import {EmptyComponent}      from './component/empty/empty.component';
-import {ActualiteComponent}  from './component/modules/actualite/actualite.component';
-import {LequipeComponent}    from './component/modules/lequipe/lequipe.component';
+import {MeteoComponent}       from './component/modules/meteo/meteo.component';
+import {MirrorComponent}      from './component/mirror/mirror.component';
+import {AproposComponent}     from './component/apropos/apropos.component';
+import {ContactComponent}     from './component/contact/contact.component';
+import {CineComponent}        from './component/modules/cine/cine.component';
+import {AlertComponent}       from './service/alert/alert.component';
+import {AccountComponent}     from './component/account/account.component';
+import {ModalComponent}       from './component/modal/modal.component';
+import {EmptyComponent}       from './component/empty/empty.component';
+import {ActualiteComponent}   from './component/modules/actualite/actualite.component';
+import {LequipeComponent}     from './component/modules/lequipe/lequipe.component';
 import {TraficComponent}     from './component/modules/trafic/trafic.component';
 import {Modal_Meteo}         from './component/modal/modal-meteo.component';
 import {Modal_Radio}         from './component/modal/modal-radio.component';
@@ -70,6 +70,7 @@ import {
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
 }                          from '@angular/material';
+import { GmailComponent } from './component/modules/gmail/gmail.component';
 
 // You may not have this explicit reference.
 /// <reference path="../../node_modules/@types/gapi/index.d.ts" />
@@ -105,7 +106,8 @@ declare var gapi : any;
     Modal_Meteo,
     Modal_Radio,
     CalendarComponent,
-    TopbarComponent
+    TopbarComponent,
+    GmailComponent
   ],
   imports: [
     Ng2DragDropModule.forRoot(),
