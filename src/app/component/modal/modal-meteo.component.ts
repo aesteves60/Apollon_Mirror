@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {SERIAL_NUMBER} from '../../../assets/config';
+import {Config} from '../../../assets/config';
 
 @Component({
   selector: 'modal-meteo',
@@ -20,7 +20,7 @@ export class Modal_Meteo implements OnInit {
   ngOnInit() {
     const options = {
       params: {
-        serial_number: SERIAL_NUMBER,
+        serial_number: Config.SERIAL_NUMBER,
         module : 'Météo'
       }
     };

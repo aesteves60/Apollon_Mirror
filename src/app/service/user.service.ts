@@ -26,7 +26,7 @@ export class UserService {
     return this.subject.asObservable();
   }
 
-  public get user(){
+  public get user(): BasicProfile{
     return UserService._user;
   }
 

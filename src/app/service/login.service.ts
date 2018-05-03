@@ -2,14 +2,13 @@ import { Injectable }    from '@angular/core';
 import { Router }        from '@angular/router';
 import * as shajs        from 'sha.js';
 import {HttpClient}      from "@angular/common/http";
-import { SERIAL_NUMBER } from '../../assets/config';
+import { Config } from '../../assets/config';
 import { Observable }    from "rxjs/Observable";
 
 @Injectable()
 export class LoginService {
 
   public token: string;
-
 
   constructor(private router: Router, private http : HttpClient) {
     this.token = null;
@@ -31,12 +30,11 @@ export class LoginService {
     });
   }
 
-  getAuthentification(password: string)
-  {
+  getAuthentification(password: string): Observable<any> {
     const hashpassword = shajs('sha256').update(password).digest('hex');
 
     const options = { params: {
-        'serial_number': SERIAL_NUMBER,
+        'serial_number': Config.SERIAL_NUMBER,
         'password': hashpassword
       }
     };

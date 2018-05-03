@@ -3,7 +3,7 @@ import { Router }            from '@angular/router';
 import { HttpClient }        from "@angular/common/http";
 import { LoginService }      from "../../service/login.service";
 import { AlertService }      from "../../service/alert/alert.service";
-import { SERIAL_NUMBER }     from "../../../assets/config";
+import { Config }     from "../../../assets/config";
 
 @Component({
   selector: 'app-login',
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   ForgetPassword(){
-    this.http.get('/forgetpsw', {params :{serial_number : SERIAL_NUMBER}}).subscribe( ok => {
+    this.http.get('/forgetpsw', {params :{serial_number : Config.SERIAL_NUMBER}}).subscribe( ok => {
       this.alertService.error('Un email avec votre nouveau mot de passe vous a été envoyé');
     }
   )};

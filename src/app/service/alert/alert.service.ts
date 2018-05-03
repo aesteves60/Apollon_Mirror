@@ -11,7 +11,7 @@ export class AlertService {
   }
 
   error(message: string, err: any = null) {
-    console.log(err);
+    if(err) console.log(err);
     this.alert('alert alert-error',message);
   }
 

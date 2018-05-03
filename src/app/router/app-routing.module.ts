@@ -8,11 +8,11 @@ import {MirrorComponent}      from '../component/mirror/mirror.component';
 import {ContactComponent}     from '../component/contact/contact.component';
 import {AproposComponent}     from '../component/apropos/apropos.component';
 import {AccountComponent}     from '../component/account/account.component';
-import {AuthGuard}            from '../auth/auth.guard';
-import {ActualiteComponent}   from '../component/modules/actualite/actualite.component';
-import {LequipeComponent}     from '../component/modules/lequipe/lequipe.component';
-import {TraficComponent}      from '../component/modules/trafic/trafic.component';
-import {RadioComponent}       from '../component/modules/radio/radio.component';
+import { AuthGuard }            from '../auth/auth.guard';
+import { ActualiteComponent }   from '../component/modules/actualite/actualite.component';
+import { LequipeComponent }     from '../component/modules/lequipe/lequipe.component';
+import { TraficComponent }      from '../component/modules/trafic/trafic.component';
+import { RadioComponent }       from '../component/modules/radio/radio.component';
 import { CalendarComponent }  from "../component/modules/calendar/calendar.component";
 
 

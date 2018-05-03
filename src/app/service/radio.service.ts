@@ -1,6 +1,7 @@
-import {Injectable}    from '@angular/core';
-import {HttpClient}    from '@angular/common/http';
-import {SERIAL_NUMBER} from '../../assets/config';
+import {Injectable}   from '@angular/core';
+import {HttpClient}   from '@angular/common/http';
+import {Config}       from '../../assets/config';
+import { Observable } from "rxjs/Observable";
 
 
 export interface Radio {
@@ -19,10 +20,10 @@ export class RadioService {
     this.getRadioConfig().subscribe(res => this.audio.src = res);
   }
 
-  getRadioConfig(){
-    const options = {
+  getRadioConfig(): Observable<any> {
+  const options = {
       params: {
-        serial_number: SERIAL_NUMBER,
+        serial_number: Config.SERIAL_NUMBER,
         module: 'Radio'
       }
     };
@@ -30,19 +31,19 @@ export class RadioService {
                     .map(res => res);
   }
 
-  getRadios(){
+  getRadios(): Observable<Radio[]>{
     return this.http.get<Radio[]>('/API/get_radios')
                     .map((res) => res);
   }
 
-  StartPlay() {
+  StartPlay(): void {
     if (this.audio.paused) {
       this.audio.load();
       this.audio.play();
     }
   }
 
-  StopPlay() {
+  StopPlay(): void {
     if (this.audio.played) {
       this.audio.pause();
     }

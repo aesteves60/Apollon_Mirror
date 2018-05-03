@@ -1,7 +1,8 @@
-import {Injectable}    from '@angular/core';
-import {HttpClient}    from '@angular/common/http';
-import {SERIAL_NUMBER} from '../../assets/config';
-import { jourMeteo }   from "../component/modules/meteo/jourMeteo";
+import {Injectable}   from '@angular/core';
+import {HttpClient}   from '@angular/common/http';
+import { Config }     from '../../assets/config';
+import { jourMeteo }  from "../component/modules/meteo/jourMeteo";
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class MeteoService {
@@ -14,16 +15,16 @@ export class MeteoService {
 
   constructor(private http: HttpClient) { }
 
-  get(){
+  get(): Observable<any> {
     const options = { params: {
-        'serial_number': SERIAL_NUMBER
+        'serial_number': Config.SERIAL_NUMBER
       }
     };
     return this.http.get('/API/meteo', options)
                     .map(res => this.traiteData(res));
   }
 
-  private traiteData(res){
+  private traiteData(res): jourMeteo[] {
     /*
      tabMeteo => 0 condition actuelle
      tabMeteo => 1 condition de la journée actuelle

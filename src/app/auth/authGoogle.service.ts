@@ -2,10 +2,8 @@ import { Injectable, NgZone } from "@angular/core";
 import { Observable }         from "rxjs/Observable";
 import { Observer }           from "rxjs/Observer";
 import 'rxjs/add/observable/of';
-import { Subject }            from "rxjs/Subject";
 import GoogleUser = gapi.auth2.GoogleUser;
 import GoogleAuth = gapi.auth2.GoogleAuth;
-import BasicProfile = gapi.auth2.BasicProfile;
 import AuthorizeConfig = gapi.auth2.AuthorizeConfig;
 import { UserService }        from "../service/user.service";
 

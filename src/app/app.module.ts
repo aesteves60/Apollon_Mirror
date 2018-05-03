@@ -21,7 +21,6 @@ import {CineComponent}        from './component/modules/cine/cine.component';
 import {AlertComponent}       from './service/alert/alert.component';
 import {AccountComponent}     from './component/account/account.component';
 import {ModalComponent}       from './component/modal/modal.component';
-import {EmptyComponent}       from './component/empty/empty.component';
 import {ActualiteComponent}   from './component/modules/actualite/actualite.component';
 import {LequipeComponent}     from './component/modules/lequipe/lequipe.component';
 import {TraficComponent}     from './component/modules/trafic/trafic.component';
@@ -98,7 +97,6 @@ declare var gapi : any;
     CineComponent,
     AccountComponent,
     ModalComponent,
-    EmptyComponent,
     ActualiteComponent,
     LequipeComponent,
     TraficComponent,
@@ -172,7 +170,7 @@ declare var gapi : any;
     },
     AuthGuard
   ],
-  entryComponents: [MeteoComponent, CineComponent, ModalComponent, EmptyComponent, MirrorComponent, Modal_Meteo, Modal_Radio],
+  entryComponents: [MeteoComponent, CineComponent, ModalComponent, MirrorComponent, Modal_Meteo, Modal_Radio],
   bootstrap: [AppComponent]
 })
 export class AppModule {

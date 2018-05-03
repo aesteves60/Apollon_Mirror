@@ -5,7 +5,7 @@ import {
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Modal_Meteo}                   from './modal-meteo.component';
 import {HttpClient}                    from '@angular/common/http';
-import {SERIAL_NUMBER}                 from '../../../assets/config';
+import {Config}                 from '../../../assets/config';
 import {AlertService}                  from '../../service/alert/alert.service';
 import {Modal_Radio}                   from './modal-radio.component';
 
@@ -43,7 +43,7 @@ export class ModalComponent implements AfterContentInit, OnDestroy {
   onValid(): void {
     const option = {
       params: {
-        'serial_number': SERIAL_NUMBER,
+        'serial_number': Config.SERIAL_NUMBER,
         'module': this.data['name'],
         'value': this.childData
       }

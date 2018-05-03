@@ -1,6 +1,6 @@
 import {Injectable}    from '@angular/core';
 import {HttpClient}    from '@angular/common/http';
-import {SERIAL_NUMBER} from '../../assets/config';
+import { Config } from '../../assets/config';
 import { Observable }  from "rxjs/Observable";
 
 
@@ -23,7 +23,7 @@ export class ModuleService {
   getViews(): Observable<any> {
     const options = {
       params: {
-        'serial_number': SERIAL_NUMBER
+        'serial_number': Config.SERIAL_NUMBER
       }
     };
     return this.http.get('/API/get_views_mirror', options).map(res => res)
@@ -33,7 +33,7 @@ export class ModuleService {
     const options = {
       params: {
         'views_position': _views_position,
-        'serial_number': SERIAL_NUMBER,
+        'serial_number': Config.SERIAL_NUMBER,
         'module_id': _moduleId
       }
     };
@@ -44,7 +44,7 @@ export class ModuleService {
     const options = {
       params: {
         'views_position': _views_position,
-        'serial_number': SERIAL_NUMBER
+        'serial_number': Config.SERIAL_NUMBER
       }
     };
     return this.http.delete('/API/remove_position', options).map((res) => res );

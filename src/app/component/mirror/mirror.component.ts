@@ -14,7 +14,6 @@ import { ModuleService }                                  from "../../service/mo
 
 //component
 import { MeteoComponent }     from '../modules/meteo/meteo.component';
-import { EmptyComponent }     from '../empty/empty.component';
 import { LequipeComponent }   from '../modules/lequipe/lequipe.component';
 import { ActualiteComponent } from '../modules/actualite/actualite.component';
 import { TraficComponent }    from '../modules/trafic/trafic.component';
@@ -23,7 +22,7 @@ import { TraficComponent }    from '../modules/trafic/trafic.component';
   selector       : 'app-mirror',
   templateUrl    : './mirror.component.html',
   styleUrls      : ['./mirror.component.css'],
-  entryComponents: [MeteoComponent, TraficComponent, LequipeComponent, ActualiteComponent, EmptyComponent]
+  entryComponents: [MeteoComponent, TraficComponent, LequipeComponent, ActualiteComponent]
 })
 export class MirrorComponent implements AfterContentInit, OnInit {
 
