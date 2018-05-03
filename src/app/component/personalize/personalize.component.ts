@@ -21,9 +21,9 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirror_Left = [{name: 'Vide', image: '', views_position: 'left'}];
   public ItemMirror_Right = [{name: 'Vide', image: '', views_position: 'right'}];
   public ItemMirror_BottomLeft = [{name: 'Vide', image: '', views_position: 'bottom_left'}];
-  public ItemMirror_BottomCenterLeft = [{name: 'Vide', image: '', views_position: 'bottom_right'}];
-  public ItemMirror_BottomCenterRight = [{name: 'Vide', image: '', views_position: 'bottom_center_left'}];
-  public ItemMirror_BottomRight = [{name: 'Vide', image: '', views_position: 'bottom_center_right'}];
+  public ItemMirror_BottomCenterLeft = [{name: 'Vide', image: '', views_position: 'bottom_center_left'}];
+  public ItemMirror_BottomCenterRight = [{name: 'Vide', image: '', views_position: 'bottom_center_right'}];
+  public ItemMirror_BottomRight = [{name: 'Vide', image: '', views_position: 'bottom_right'}];
   public modules = {};
   public user: any;
 
@@ -72,6 +72,7 @@ export class PersonalizeComponent implements OnInit {
 
   public onElementDrop(e) {
     const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.id || e.nativeEvent.target.parentElement.parentElement.id);
+    console.log(_itemMirror);
     this.module$.ChangePosition(_itemMirror[0].views_position, e.dragData.id).subscribe((res) => {
         e.dragData.views_position = res;  //egal à _itemMirror[0].views_position
         this.ChangeValue(_itemMirror, e.dragData);

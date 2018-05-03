@@ -8,13 +8,15 @@ hr{
 }
 
 #map {
-  height: 500px;
+  height: 90%;
+  width: 100%;
 }
 
 .element{
   background-color: black;
   color: white;
-  height: 500px;
+  height: 100%;
+  width: 100%;
 }
 
 .title{

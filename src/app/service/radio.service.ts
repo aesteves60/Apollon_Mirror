@@ -54,7 +54,6 @@ export class RadioService {
   }
 
   setVolume(value: number) {
-    console.log(value);
     if((value > 0) || (value < 1)) {
       this.audio.volume = value.toFixed(2);
     }
