@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { ArticleService }    from "../../../service/article.service";
+import { SocketService }     from "../../../service/socket.service";
 
 @Component({
   selector: 'app-lequipe',
@@ -11,19 +12,24 @@ export class LequipeComponent implements OnInit {
   public articles;
 
 
-  constructor(private http : HttpClient) {
-    this.http.get('/API/lequipe')
-      .subscribe(res => {
-        this.articles = res['articles'];
-        return this.articles.map(obj => obj.isShow = false);
-      });
+  constructor(private article$: ArticleService, private socket$ : SocketService) {
+
   }
 
   ngOnInit() {
+    this.article$.getArticleEquipe().subscribe(res => this.articles = res);
+    this.socket$.initSocket();
+
+    let ioConnection = this.socket$.OnShowActu().subscribe((index) => this.ShowArticle(index));
   }
 
   DeleteArticle(index : number){
     delete(this.articles[index]);
   }
+
+  ShowArticle(index : number){
+    this.articles[index].isShow = true;
+  }
+
 
 }
