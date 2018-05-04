@@ -11,8 +11,10 @@ export class ArticleService {
 
   getArticleActu(): Observable<any> {
     return this.http.get('/API/actualite').map(res => {
-      this.articles = res['articles'];
-      return this.articles.map(obj => obj.isShow = false);
+      return res['articles'].map(obj => {
+        obj.isShow = false;
+        return obj;
+      });
     });
   }
 

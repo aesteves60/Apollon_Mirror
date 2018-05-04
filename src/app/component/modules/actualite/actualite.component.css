@@ -4,8 +4,7 @@
 
 .article{
   display: block;
-  width: 100%;
-  padding: 5px 0;
+  width: 90%;
   border-bottom: 1px solid rgba(255,255,255,0.5);
   vertical-align: middle;
 }
@@ -38,7 +37,7 @@
 
 .article_description{
   padding: 10px;
-  font-style: italic; 
+  font-style: italic;
 }
 
 .author{
@@ -52,13 +51,14 @@
   display: block;
   color: white;
   background-color: black;
-  width: 60%;
-  padding : 0 20%;
+}
+
+.actualite_page{
+  padding: 0 20%;
 }
 
 .actualite_mirror{
-  width: 60%;
-  padding: 0 5%;
+  width: 100%;
   float: right;
 }
 

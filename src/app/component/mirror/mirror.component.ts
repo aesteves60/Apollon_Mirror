@@ -56,8 +56,12 @@ export class MirrorComponent implements AfterContentInit, OnInit {
   loadView(): void {
     this.module$.getViews().subscribe(res => {
       for (let i = 0; i < res['length']; i++) {
-        this.list_modules.push(this.mirror$.getMirorItem().find(item => res[i]['name'] === item.name));
-        this.mirror$.loadComponent(this.list_directive[i].viewContainerRef, this.list_modules[i].component);
+        if( res[i] ){
+          this.list_modules.push(this.mirror$.getMirorItem().find(item => res[i]['name'] === item.name));
+          this.mirror$.loadComponent(this.list_directive[i].viewContainerRef, this.list_modules[i]);
+        } else {
+          this.list_modules.push(null);
+        }
       }
     });
   }

@@ -3,6 +3,7 @@ import {HttpClient}           from '@angular/common/http';
 import { Config }             from '../../assets/config'
 import { Type }               from '@angular/core';
 import { Observable }         from "rxjs/Observable";
+import has = Reflect.has;
 import { MeteoComponent }     from "../component/modules/meteo/meteo.component";
 import { TraficComponent }    from "../component/modules/trafic/trafic.component";
 import { ActualiteComponent } from "../component/modules/actualite/actualite.component";
@@ -17,9 +18,9 @@ export class MirrorService {
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
               private http : HttpClient) {}
 
-  loadComponent(viewContainerRef: ViewContainerRef, component: any): Object {
-    if( component ) {
-      let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+  loadComponent(viewContainerRef: ViewContainerRef, mirrorItem: MirrorItem): Object {
+    if( mirrorItem ) {
+      let componentFactory = this.componentFactoryResolver.resolveComponentFactory(mirrorItem.component);
       viewContainerRef.clear();
       return viewContainerRef.createComponent(componentFactory);
     }
@@ -56,7 +57,7 @@ export class MirrorService {
       new MirrorItem(MeteoComponent, 'Météo'),
       new MirrorItem(TraficComponent, 'Trafic routier'),
       new MirrorItem(ActualiteComponent, 'Actualité'),
-      new MirrorItem(LequipeComponent, 'L\'équipe'),
+      new MirrorItem(LequipeComponent, 'L\'Equipe'),
       new MirrorItem(RadioComponent, 'Radio'),
       new MirrorItem(CalendarComponent, 'Calendrier'),
       new MirrorItem(GmailComponent, 'Email')

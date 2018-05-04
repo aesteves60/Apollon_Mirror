@@ -1,4 +1,4 @@
-<div  class="actualite" [ngClass]="[router.url === '/mirror' ? 'actualite_mirror' : '' ]" >
+<div  class="actualite" [ngClass]="[router.url === '/mirror' ? 'actualite_mirror' : 'actualite_page' ]" >
 	<div *ngFor="let article of articles; let i = index">
 		<li *ngIf="i < 4" class="article article_{{i}}">
 			<div class="article_meta">
