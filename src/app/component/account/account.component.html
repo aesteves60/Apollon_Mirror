@@ -31,4 +31,12 @@
       Valider les modifications
     </button>
   </div>
+
+  <div id="authorize-button" (click)="signIn()" class="google_button" *ngIf="!user" >
+        <span>Se connecter avec Google</span>
+        <img class="google_img" src="../../../assets/img/google-logo.png">
+      </div>
+
+      
 </div>
+
