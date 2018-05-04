@@ -13,80 +13,56 @@
 
     <mat-sidenav-content>
       <div class="container">
-        <div id="authorize-button" (click)="signIn()" class="google_button" *ngIf="!user">
-          <span>Se connecté avec Google</span>
-          <img class="google_img" src="../../../assets/img/google-logo.png">
-        </div>
 
-        <!--mirror-->
-        <table style="margin-top: 10px">
-           <tr>
-               <td colspan="2">
-                  <div id="top_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
-                      <div *ngFor="let item of ItemMirror_TopLeft">
+        <h3>Votre mirroir</h3>
+
+        <div class="float_left">
+        
+          <!--mirror-->
+          <table class="table_edit_mirror" style="margin-top: 10px">
+             <tr>
+                 <td colspan="2">
+                    <div id="top_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
+                        <div *ngFor="let item of ItemMirror_TopLeft">
+                          <div *ngIf="item.image">
+                            <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                            <img [src]='"../../../assets/img/"+item.image' class="item_icon" />
+                          </div>
+                          <span class="item_name">{{item.name}}</span>
+                        </div>
+                    </div>
+                  </td>
+                 <td colspan="2">
+                    <div id="top_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
+                      <div *ngFor="let item of ItemMirror_TopRight">
                         <div *ngIf="item.image">
                           <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                          <img [src]='"../../../assets/img/"+item.image' class="item_icon" />
+                          <img [src]='"../../assets/img/"+item.image' class="item_icon" />
                         </div>
                         <span class="item_name">{{item.name}}</span>
                       </div>
+                    </div>
+                  </td>
+             </tr>
+             <tr>
+               <td>
+                  <div id="left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
+                    <div *ngFor="let item of ItemMirror_Left">
+                      <div *ngIf="item.image">
+                        <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                        <img [src]='"../../assets/img/"+item.image' class="item_icon" />
+                      </div>
+                      <span class="item_name">{{item.name}}</span>
+                    </div>
                   </div>
                </td>
                <td colspan="2">
-                  <div id="top_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
-                    <div *ngFor="let item of ItemMirror_TopRight">
-                      <div *ngIf="item.image">
-                        <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                        <img [src]='"../../assets/img/"+item.image' class="item_icon" />
-                      </div>
-                      <span class="item_name">{{item.name}}</span>
-                    </div>
-                  </div>
-               </td>
-           </tr>
-           <tr>
-             <td>
-                <div id="left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
-                  <div *ngFor="let item of ItemMirror_Left">
-                    <div *ngIf="item.image">
-                      <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                      <img [src]='"../../assets/img/"+item.image' class="item_icon" />
-                    </div>
-                    <span class="item_name">{{item.name}}</span>
-                  </div>
-                </div>
-             </td>
-             <td colspan="2">
-                <div id="center">
-                </div>
-             </td>
-             <td>
-                <div id="right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
-                  <div *ngFor="let item of ItemMirror_Right">
-                    <div *ngIf="item.image">
-                      <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                      <img [src]='"../../assets/img/"+item.image' class="item_icon" />
-                    </div>
-                    <span class="item_name">{{item.name}}</span>
-                  </div>
-                </div>
-             </td>
-           </tr>
-           <tr>
-               <td>
-                  <div id="bottom_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
-                    <div *ngFor="let item of ItemMirror_BottomLeft">
-                      <div *ngIf="item.image">
-                        <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                        <img [src]='"../../assets/img/"+item.image' class="item_icon" />
-                      </div>
-                      <span class="item_name">{{item.name}}</span>
-                    </div>
+                  <div id="center">
                   </div>
                </td>
                <td>
-                  <div id="bottom_center_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
-                    <div *ngFor="let item of ItemMirror_BottomCenterLeft">
+                  <div id="right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
+                    <div *ngFor="let item of ItemMirror_Right">
                       <div *ngIf="item.image">
                         <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
                         <img [src]='"../../assets/img/"+item.image' class="item_icon" />
@@ -94,31 +70,75 @@
                       <span class="item_name">{{item.name}}</span>
                     </div>
                   </div>
-               </td>
-               <td>
-                  <div id="bottom_center_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
-                    <div *ngFor="let item of ItemMirror_BottomCenterRight">
-                      <div *ngIf="item.image">
-                        <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                        <img [src]='"../../assets/img/"+item.image' class="item_icon" />
+                </td>
+             </tr>
+             <tr>
+                 <td>
+                    <div id="bottom_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
+                      <div *ngFor="let item of ItemMirror_BottomLeft">
+                        <div *ngIf="item.image">
+                          <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                          <img [src]='"../../assets/img/"+item.image' class="item_icon" />
+                        </div>
+                        <span class="item_name">{{item.name}}</span>
                       </div>
-                      <span class="item_name">{{item.name}}</span>
                     </div>
-                  </div>
-               </td>
-               <td>
-                  <div id="bottom_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
-                    <div *ngFor="let item of ItemMirror_BottomRight">
-                      <div *ngIf="item.image">
-                        <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
-                        <img [src]='"../../assets/img/"+item.image' class="item_icon" />
+                  </td>
+                 <td>
+                    <div id="bottom_center_left" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
+                      <div *ngFor="let item of ItemMirror_BottomCenterLeft">
+                        <div *ngIf="item.image">
+                          <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                          <img [src]='"../../assets/img/"+item.image' class="item_icon" />
+                        </div>
+                        <span class="item_name">{{item.name}}</span>
                       </div>
-                      <span class="item_name">{{item.name}}</span>
                     </div>
-                  </div>
-               </td>
-           </tr>
-        </table>
+                  </td>
+                 <td>
+                    <div id="bottom_center_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
+                      <div *ngFor="let item of ItemMirror_BottomCenterRight">
+                        <div *ngIf="item.image">
+                          <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                          <img [src]='"../../assets/img/"+item.image' class="item_icon" />
+                        </div>
+                        <span class="item_name">{{item.name}}</span>
+                      </div>
+                    </div>
+                  </td>
+                 <td>
+                    <div id="bottom_right" droppable [dragHintClass]="'drag-hint'" (onDrop)="onElementDrop($event)">
+                      <div *ngFor="let item of ItemMirror_BottomRight">
+                        <div *ngIf="item.image">
+                          <mat-icon class="icons_close" (click)="remoteElement($event)">close</mat-icon>
+                          <img [src]='"../../assets/img/"+item.image' class="item_icon" />
+                        </div>
+                        <span class="item_name">{{item.name}}</span>
+                      </div>
+                    </div>
+                  </td>
+             </tr>
+          </table>
+
+          <div class="clear"></div>
+
+        </div>
+        <div class="float_left">
+          <mat-card class="card card_fonctionnement">
+
+            <mat-card-title>Fonctionnement</mat-card-title>
+            <mat-card-content>
+              <p>
+                Pour personnaliser votre mirroir, glissez-déposez les modules de la liste de gauche, sur l'emplacement voulu dans le mirroir.
+              </p>
+              <p>
+                Pour paramétrer les modules, cliquez sur l'icone <mat-icon>mode_edit</mat-icon> du module voulu.
+              </p>
+            </mat-card-content>
+
+          </mat-card>
+
+        </div>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
