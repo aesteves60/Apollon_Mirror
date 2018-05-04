@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient}          from '@angular/common/http';
+import { Router }            from '@angular/router';
 import { SocketService }     from "../../../service/socket.service";
+import { ArticleService }    from "../../../service/article.service";
 
 
 @Component({
@@ -11,15 +12,13 @@ import { SocketService }     from "../../../service/socket.service";
 export class ActualiteComponent implements OnInit {
   public articles;
 
-  constructor(private http : HttpClient, private socket$: SocketService) {
-    this.http.get('/API/actualite')
-             .subscribe(res => {
-               this.articles = res['articles'];
-               return this.articles.map(obj => obj.isShow = false);
-             });
+  constructor(private socket$: SocketService,
+              private router: Router,
+              private article$: ArticleService) {
   }
 
   ngOnInit() {
+    this.article$.getArticleActu().subscribe(res => this.articles = res);
     this.socket$.initSocket();
 
     let ioConnection = this.socket$.OnShowActu().subscribe((index) => this.ShowArticle(index));

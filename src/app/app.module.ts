@@ -29,6 +29,7 @@ import {Modal_Radio}         from './component/modal/modal-radio.component';
 import {RadioComponent}      from './component/modules/radio/radio.component';
 import { CalendarComponent } from './component/modules/calendar/calendar.component';
 import { TopbarComponent } from './component/topbar/topbar.component';
+import { GmailComponent } from './component/modules/gmail/gmail.component';
 
 //service
 import {LoginService}       from './service/login.service';
@@ -42,6 +43,7 @@ import {RadioService}       from './service/radio.service';
 import {MeteoService}       from './service/meteo.service';
 import {ModuleService}   from "./service/module.service";
 import {UserService}   from "./service/user.service";
+import { ArticleService } from "./service/article.service";
 
 
 //directive
@@ -68,8 +70,8 @@ import {
   MatSidenavModule, MatSliderModule, MatSortModule, MatSlideToggleModule,
   MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule,
   MatTooltipModule, MatFormFieldModule, MatExpansionModule, MatStepperModule
-}                          from '@angular/material';
-import { GmailComponent } from './component/modules/gmail/gmail.component';
+}                       from '@angular/material';
+import { contentModal } from "./component/modal/modal.directive";
 
 // You may not have this explicit reference.
 /// <reference path="../../node_modules/@types/gapi/index.d.ts" />
@@ -82,7 +84,7 @@ declare var gapi : any;
      */
     BottomCenterLeftDirective, BottomCenterRightDirective, BottomLeftDirective,
     BottomRightDirective, LeftDirective, RightDirective,
-    TopLeftDirective, TopRightDirective,
+    TopLeftDirective, TopRightDirective,contentModal,
     /*
      * COMPONENT
      */
@@ -96,16 +98,16 @@ declare var gapi : any;
     ContactComponent,
     CineComponent,
     AccountComponent,
-    ModalComponent,
     ActualiteComponent,
     LequipeComponent,
     TraficComponent,
     RadioComponent,
-    Modal_Meteo,
-    Modal_Radio,
     CalendarComponent,
     TopbarComponent,
-    GmailComponent
+    GmailComponent,
+    ModalComponent,
+    Modal_Meteo,
+    Modal_Radio
   ],
   imports: [
     Ng2DragDropModule.forRoot(),
@@ -163,6 +165,7 @@ declare var gapi : any;
     ModuleService,
     GoogleAuthService,
     UserService,
+    ArticleService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpAPIInterceptor,
@@ -170,8 +173,8 @@ declare var gapi : any;
     },
     AuthGuard
   ],
-  entryComponents: [MeteoComponent, CineComponent, ModalComponent, MirrorComponent, Modal_Meteo, Modal_Radio],
-  bootstrap: [AppComponent]
+  entryComponents: [ ModalComponent ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }

@@ -1,9 +1,15 @@
 import {ComponentFactoryResolver, Injectable, ViewContainerRef} from '@angular/core';
-import {HttpClient}                                             from '@angular/common/http';
-import { Config }                                               from '../../assets/config'
-import { Type }                                                 from '@angular/core';
-import { Observable }                                           from "rxjs/Observable";
-import has = Reflect.has;
+import {HttpClient}           from '@angular/common/http';
+import { Config }             from '../../assets/config'
+import { Type }               from '@angular/core';
+import { Observable }         from "rxjs/Observable";
+import { MeteoComponent }     from "../component/modules/meteo/meteo.component";
+import { TraficComponent }    from "../component/modules/trafic/trafic.component";
+import { ActualiteComponent } from "../component/modules/actualite/actualite.component";
+import { LequipeComponent }   from "../component/modules/lequipe/lequipe.component";
+import { RadioComponent }     from "../component/modules/radio/radio.component";
+import { CalendarComponent }  from "../component/modules/calendar/calendar.component";
+import { GmailComponent }     from "../component/modules/gmail/gmail.component";
 
 @Injectable()
 export class MirrorService {
@@ -11,11 +17,11 @@ export class MirrorService {
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
               private http : HttpClient) {}
 
-  loadComponent(viewContainerRef: ViewContainerRef, mirrorItem: MirrorItem): void {
-    if( mirrorItem.component !== null ) {
-      let componentFactory = this.componentFactoryResolver.resolveComponentFactory(mirrorItem.component);
+  loadComponent(viewContainerRef: ViewContainerRef, component: any): Object {
+    if( component ) {
+      let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
       viewContainerRef.clear();
-      let componentRef = viewContainerRef.createComponent(componentFactory);
+      return viewContainerRef.createComponent(componentFactory);
     }
   }
 
@@ -26,7 +32,6 @@ export class MirrorService {
 
   updateMirror(email: string, hashpassword: string = null): Observable<any>{
     let options;
-    console.log(email, hashpassword);
     if(hashpassword){
       options = {
         params : {
@@ -43,13 +48,24 @@ export class MirrorService {
         }
       };
     }
-    console.log(options);
     return this.http.get('/API/update_mirror', options)
+  }
+
+  getMirorItem() {
+    return [
+      new MirrorItem(MeteoComponent, 'Météo'),
+      new MirrorItem(TraficComponent, 'Trafic routier'),
+      new MirrorItem(ActualiteComponent, 'Actualité'),
+      new MirrorItem(LequipeComponent, 'L\'équipe'),
+      new MirrorItem(RadioComponent, 'Radio'),
+      new MirrorItem(CalendarComponent, 'Calendrier'),
+      new MirrorItem(GmailComponent, 'Email')
+    ];
   }
 
 }
 
 export class MirrorItem {
-  constructor(public component: Type<any>, public data: any) {}
+  constructor(public component: Type<any>, public name:string) {}
 }
 

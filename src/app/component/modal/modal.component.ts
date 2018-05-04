@@ -1,23 +1,22 @@
 import {
-  AfterContentInit, Component, ComponentFactoryResolver,
-  ComponentRef, Inject, OnDestroy, ViewChild, ViewContainerRef
-}                                      from '@angular/core';
+  AfterContentInit, Component, ComponentFactoryResolver, ComponentRef, Inject, OnDestroy, Type, ViewChild
+} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {Modal_Meteo}                   from './modal-meteo.component';
-import {HttpClient}                    from '@angular/common/http';
-import {Config}                 from '../../../assets/config';
-import {AlertService}                  from '../../service/alert/alert.service';
-import {Modal_Radio}                   from './modal-radio.component';
+import {HttpClient}                   from '@angular/common/http';
+import {Config}                       from '../../../assets/config';
+import {Modal_Radio}                  from './modal-radio.component';
+import {Modal_Meteo}                  from './modal-meteo.component';
+import { contentModal }               from "./modal.directive";
 
 
 @Component({
   selector: 'app-modal',
   templateUrl: 'modal.component.html',
-  entryComponents: [Modal_Meteo, Modal_Radio],
+  entryComponents: [Modal_Meteo, Modal_Radio]
 })
 export class ModalComponent implements AfterContentInit, OnDestroy {
 
-  @ViewChild('modalContainer', {read: ViewContainerRef}) container;
+  @ViewChild(contentModal) private contentModal: contentModal;
   componentRef: ComponentRef<any>;
   data = {};
   childData: string;
@@ -25,17 +24,15 @@ export class ModalComponent implements AfterContentInit, OnDestroy {
   constructor(public dialogRef: MatDialogRef<ModalComponent>,
               @Inject(MAT_DIALOG_DATA) public d: Object,
               private componentFactoryResolver: ComponentFactoryResolver,
-              private http: HttpClient,
-              private alert: AlertService) {
-    this.data = d;
-  }
+              private http: HttpClient)
+  { this.data = d }
 
   ngAfterContentInit(): void {
-    let component = this.FindComponent(this.data['name']);
-    if (component) {
-      this.container.clear();
-      let componentFactory = this.componentFactoryResolver.resolveComponentFactory(Modal_Radio);
-      this.componentRef = this.container.createComponent(componentFactory);
+    let content = this.getModalContent().find(c => this.data['name'] === c.name);
+    if (content) {
+      let componentFact = this.componentFactoryResolver.resolveComponentFactory(content.component);
+      this.contentModal.viewContainerRef.clear();
+      this.componentRef = this.contentModal.viewContainerRef.createComponent(componentFact);
       this.componentRef.instance.output.subscribe(event => this.childData = event);
     }
   }
@@ -66,13 +63,15 @@ export class ModalComponent implements AfterContentInit, OnDestroy {
     this.componentRef.destroy();
   }
 
-  private FindComponent(name) {
-    if (name === null) return null;
-    switch (name) {
-      case 'Météo': return Modal_Meteo;
-      case 'Radio': return Modal_Radio;
-      case ''           :
-        return null;
-    }
+  private getModalContent(): Array<any> {
+    return [
+      new Modal_Content(Modal_Radio, 'Radio'),
+      new Modal_Content(Modal_Meteo, 'Météo')
+    ]
+
   }
+}
+
+export class Modal_Content {
+  constructor(public component: Type<any>, public name:string) {}
 }
