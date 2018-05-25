@@ -1,5 +1,5 @@
 input[type=text],[type = password] {
-  width: 100%; /* Full width */
+  width: 80%; /* Full width */
   padding: 12px; /* Some padding */
   border: 1px solid #b9cbcc; /* Gray border */
   border-radius: 4px; /* Rounded borders */
@@ -27,7 +27,7 @@ button{
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
 }
 
@@ -39,6 +39,10 @@ button{
   font-size: 60px;
   padding: 10px;
   justify-content: center;
+}
+
+.card_account{
+
 }
 
 .google_buttonDec{

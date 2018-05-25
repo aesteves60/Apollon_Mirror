@@ -84,3 +84,8 @@ html, body{
 .card{
   margin: 10px;
 }
+
+.mat-grid-list {
+  width: 100%;
+  height: auto;
+}
