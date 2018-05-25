@@ -54,6 +54,7 @@ td > div > div {
   max-height: 50px;
   width: auto;
   height: auto;
+  cursor: grab;
 }
 
 .drag-hint {
