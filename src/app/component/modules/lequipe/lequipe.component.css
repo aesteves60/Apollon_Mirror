@@ -2,16 +2,50 @@
   display: none;
 }
 
-.actualiter{
+.article{
+  display: block;
+  width: 90%;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  vertical-align: middle;
+}
+
+.article_titre{
+  padding: 10px;
+  font-weight: 500;
+}
+
+.article_description{
+  padding: 10px;
+  font-style: italic;
+}
+
+.article_description img{
+  max-height: 50%;
+  max-width: 50%;
+  position: relative;
+}
+
+.author{
+  font-size: 0.8em;
+}
+
+.date_parution{
+  float: right;
+  font-size: 0.8em;
+}
+.actualite{
+  display: block;
   color: white;
   background-color: black;
-  width: 60%;
 }
-.title{
-  padding: 10px;
-  font-size: 30px;
-  text-align: center;
-  font-weight: bold;
+
+.actualite_page{
+  padding: 0 20%;
+}
+
+.actualite_mirror{
+  width: 100%;
+  float: right;
 }
 
 .article_7{
@@ -23,10 +57,5 @@
 }
 .article_9{
   opacity: 0.3;
-}
-
-hr{
-  color: #FFFFFF;
-  background-color: #FFFFFF;
 }
 

@@ -1,11 +1,15 @@
-<div  class="actualiter">
+<div  class="actualite" [ngClass]="[router.url === '/mirror' ? 'actualite_mirror' : 'actualite_page' ]">
 	<div *ngFor="let article of articles; let i = index">
-		<li *ngIf="i < 10" class="article_{{i}}">
-			{{ article.title }}
-			<!--<button (click)="article.isShow = !article.isShow">Show</button>-->
-			<div [hidden]="!article.isShow" (click)="DeleteArticle(i)">
-				{{ article.description }}
-			</div>
+		<li *ngIf="i < 4" class="article article_{{i}}">
+      <div class="article_meta">
+        <span class="date_parution">le {{article.publishedAt | date:'dd/MM à HH:mm'}}</span>
+      </div>
+      <div class="article_titre">{{ article.title }}</div>
+      <button (click)="ShowArticle(i)"></button>
+      <div class="article_description" [hidden]="!article.isShow" (click)="DeleteArticle(i)">
+        <div>{{ article.description }}</div>
+        <img src="{{ article.urlToImage }}" alt="{{ article.title }}" />
+      </div>
 		</li>
 	</div>
 </div>

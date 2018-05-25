@@ -26,13 +26,22 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit() {
     this.socket$.onEvent(Event.GOOGLE_USER).subscribe(() => {
-        this.http.get(`https://www.googleapis.com/calendar/v3/calendars/${ this.user$.user.getEmail() }/events`, {
-          headers   : new HttpHeaders({
-            Authorization: `Bearer ${ sessionStorage.getItem(GoogleAuthService.SESSION_STORAGE_KEY) }`
-          }), params: {
-            "maxResults": '10', "timeMin": this.yesterday.toISOString()
-          }
-        }).subscribe(res => this.events = res['items']);
+      this.loadCalendar()
     });
+
+    this.loadCalendar()
   }
+
+  loadCalendar(){
+    if(this.user$.user) {
+      this.http.get(`https://www.googleapis.com/calendar/v3/calendars/${ this.user$.user.getEmail() }/events`, {
+        headers   : new HttpHeaders({
+          Authorization: `Bearer ${ sessionStorage.getItem(GoogleAuthService.SESSION_STORAGE_KEY) }`
+        }), params: {
+          "maxResults": '10', "timeMin": this.yesterday.toISOString()
+        }
+      }).subscribe(res => this.events = res['items']);
+    }
+  }
+
 }

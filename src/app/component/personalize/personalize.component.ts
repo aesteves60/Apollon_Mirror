@@ -7,6 +7,8 @@ import {ModalComponent}      from '../modal/modal.component';
 import { GoogleAuthService } from "../../auth/authGoogle.service";
 import { ModuleService }     from "../../service/module.service";
 import { UserService }       from "../../service/user.service";
+import { SocketService }     from "../../service/socket.service";
+import { Event }             from "../../model/event";
 
 
 @Component({
@@ -25,25 +27,18 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirror_BottomCenterRight = [{name: 'Vide', image: '', views_position: 'bottom_center_right'}];
   public ItemMirror_BottomRight = [{name: 'Vide', image: '', views_position: 'bottom_right'}];
   public modules = {};
-  public user: any;
 
   constructor(private http: HttpClient,
               private alert$: AlertService,
               private module$: ModuleService,
               public dialog: MatDialog,
-              private googleAuthService: GoogleAuthService,
-              private user$: UserService) { }
+              private user$: UserService,
+              private socketService: SocketService) { }
 
   ngOnInit() {
     this.get_Modules();
     this.get_Views();
-  }
-
-  signIn(): void {
-    this.googleAuthService.signIn()
-        .then(() => this.alert$.success("Connexion reussi"))
-        .catch((e) => this.alert$.error("Une erreur est survenu",e));
-    this.user$.getUser().subscribe(user => this.user = user)
+    this.socketService.initSocket();
   }
 
   openDialog(module): void {
@@ -72,12 +67,12 @@ export class PersonalizeComponent implements OnInit {
 
   public onElementDrop(e) {
     const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.id || e.nativeEvent.target.parentElement.parentElement.id);
-    console.log(_itemMirror);
     this.module$.ChangePosition(_itemMirror[0].views_position, e.dragData.id).subscribe((res) => {
         e.dragData.views_position = res;  //egal à _itemMirror[0].views_position
         this.ChangeValue(_itemMirror, e.dragData);
         return this.alert$.success('Modification réussie.');
     });
+    this.socketService.onEvent(Event.MIRROR_CHANGE);
   }
 
   public remoteElement(e) {
@@ -86,6 +81,7 @@ export class PersonalizeComponent implements OnInit {
         this.ChangeValue(_itemMirror, null);
         this.alert$.success('Modification réussie.');
     });
+    this.socketService.onEvent(Event.MIRROR_CHANGE);
   }
 
   private ChangeValue(_itemMirror, value) {

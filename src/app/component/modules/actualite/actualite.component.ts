@@ -29,7 +29,7 @@ export class ActualiteComponent implements OnInit {
   }
 
   ShowArticle(index : number){
-    this.articles[index].isShow = true;
+    this.articles[index].isShow = !this.articles[index].isShow;
   }
 
 }

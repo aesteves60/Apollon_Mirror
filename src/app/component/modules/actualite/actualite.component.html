@@ -8,9 +8,9 @@
 			<div class="article_titre">{{ article.title }}</div>
 			<!--<button (click)="ShowArticle(i)"></button>-->
 			<div class="article_description" [hidden]="!article.isShow" (click)="DeleteArticle(i)">
-				<img src="{{ article.urlToImage }}" alt="{{ article.title }}" />
 				{{ article.description }}
-			</div>
+        <img src="{{ article.urlToImage }}" alt="{{ article.title }}" />
+      </div>
 		</li>
 	</div>
 </div>

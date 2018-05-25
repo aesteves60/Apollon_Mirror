@@ -1,9 +1,4 @@
 <div class="container">
-  <div id="authorize-button" (click)="signOut()" class="google_buttonDec" *ngIf="isLogged">
-    <span>Se déconnecté de Google</span>
-    <img class="google_img" src="../../../assets/img/google-logo.png">
-  </div>
-
   <div class="element">
     <i class="icons material-icons">account_circle</i><br/>
   </div>
@@ -32,11 +27,16 @@
     </button>
   </div>
 
-  <div id="authorize-button" (click)="signIn()" class="google_button" *ngIf="!user" >
+  <div id="authorize-signin" (click)="signIn()" class="google_button" *ngIf="!user" >
         <span>Se connecter avec Google</span>
         <img class="google_img" src="../../../assets/img/google-logo.png">
-      </div>
+  </div>
 
-      
+  <div id="authorize-signout" (click)="signOut()" class="google_buttonDec" *ngIf="!!user">
+    <span>Se déconnecté de Google</span>
+    <img class="google_img" src="../../../assets/img/google-logo.png">
+  </div>
+
+
 </div>
 

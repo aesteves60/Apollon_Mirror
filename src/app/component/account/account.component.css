@@ -51,6 +51,7 @@ button{
   text-align: center;
   border: 2px solid #f4363c;
   border-radius: 4px;
+  cursor: pointer;
 }
 .google_buttonDec span{
   line-height: 45px;

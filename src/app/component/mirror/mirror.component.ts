@@ -21,6 +21,8 @@ import { TraficComponent }    from '../modules/trafic/trafic.component';
 import { RadioComponent }     from "../modules/radio/radio.component";
 import { CalendarComponent }  from "../modules/calendar/calendar.component";
 import { GmailComponent }     from "../modules/gmail/gmail.component";
+import { SocketService }      from "../../service/socket.service";
+import { Event }              from "../../model/event";
 
 @Component({
   selector       : 'app-mirror',
@@ -42,11 +44,15 @@ export class MirrorComponent implements AfterContentInit, OnInit {
   private list_modules   = [];
   private list_directive = [];
 
-  constructor(private module$: ModuleService, private mirror$: MirrorService) { }
+  constructor(private module$: ModuleService,
+              private mirror$: MirrorService,
+              private socketService: SocketService) { }
 
   ngOnInit() {
     this.list_directive = [this.topLeftDirective, this.topRightDirective, this.leftDirective, this.rightDirective,
       this.bottomLeftDirective, this.bottomCenterLeftDirective, this.bottomCenterRightDirective, this.bottomRightDirective];
+
+    this.socketService.onEvent(Event.MIRROR_CHANGE).subscribe(() => this.loadView());
   }
 
   ngAfterContentInit() {

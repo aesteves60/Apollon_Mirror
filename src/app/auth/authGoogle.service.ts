@@ -25,38 +25,28 @@ export class GoogleAuthService {
     return Observable.of(this.GoogleAuth);
   }
 
-  public signIn(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.getAuth().subscribe((auth) => {
-        auth.signIn().then(res => {
-          this.signInSuccessHandler(res);
-        }, e => {
-          console.warn(e);
-          reject(e);
-        });
-      });
+  public async signIn(): Promise<void> {
+    await this.getAuth().subscribe((auth) => {
+      auth.signIn().then(res => this.signInSuccessHandler(res)
+        , e => { throw e });
     });
   }
 
   private signInSuccessHandler(res: GoogleUser) {
     this.ngZone.run(() => {
       this.user$.setUser(res.getBasicProfile());
-      console.log(res.getAuthResponse());
-      this.user$.isLogged = true;
+      this.user$.setAccesToken(res.getAuthResponse().access_token, 'Calendrier');
       sessionStorage.setItem(GoogleAuthService.SESSION_STORAGE_KEY, res.getAuthResponse().access_token);
     });
   }
 
-  public signOut(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.getAuth().subscribe((auth) => {
+  public async signOut(): Promise<void> {
+      await this.getAuth().subscribe((auth) => {
         try {
           auth.signOut();
           sessionStorage.removeItem(GoogleAuthService.SESSION_STORAGE_KEY);
-          this.user$.setUser(null);
-        } catch(e) { reject(e) }
-        resolve();
-      });
+          this.user$.setUser(undefined);
+        } catch(e) { throw e }
     });
   }
 
@@ -67,7 +57,7 @@ export class GoogleAuthService {
           client_id: "657052571660-fjqao7sajokl30rrfavj7s32k24bn7pq.apps.googleusercontent.com",
           scope    : ["https://www.googleapis.com/auth/calendar", "https://www.googleapis.com/auth/calendar.readonly",
                       "https://www.googleapis.com/auth/gmail.readonly"].join(" "),
-          response_type: 'id_token permission'
+          response_type: 'id_token permission refresh_token'
         }).then((auth) => {
           console.log(auth);
           this.GoogleAuth = auth;

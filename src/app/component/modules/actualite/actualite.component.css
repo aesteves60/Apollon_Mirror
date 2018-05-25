@@ -9,27 +9,6 @@
   vertical-align: middle;
 }
 
-.article_left{
-  float: left;
-  width: 25%;
-}
-
-.article_left img{
-  display: block;
-  max-width: 80%;
-  margin : 0 5%;
-}
-
-.article_right{
-  float: right;
-  width: 75%;
-  margin: auto;
-}
-
-.article_meta{
-
-}
-
 .article_titre{
   padding: 10px;
   font-weight: 500;
@@ -73,8 +52,4 @@
   opacity: 0.3;
 }
 
-hr{
-  color: #FFFFFF;
-  background-color: #FFFFFF;
-}
 

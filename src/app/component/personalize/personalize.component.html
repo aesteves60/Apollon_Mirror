@@ -3,10 +3,16 @@
     <mat-sidenav mode="side" opened="true">
       <mat-list>
         <h3 mat-subheader>Modules disponibles</h3>
-        <mat-list-item draggable [dragData]="module" *ngFor="let module of modules.result_object"  class="module">
-          <img matListAvatar [src]='"../../assets/img/"+module.image' class="item_icon" />
+        <mat-list-item draggable [dragData]="module"
+                       class="module"
+                       *ngFor="let module of modules.result_object">
+          <img matListAvatar [src]='"../../assets/img/"+module.image'
+               class="item_icon" />
           <h4 mat-line>{{ module.name }}</h4>
-          <mat-icon *ngIf="module.canConfigure === '1'" class="icons_edit" (click)="openDialog(module)">mode_edit</mat-icon>
+          <mat-icon *ngIf="module.canConfigure === '1'"
+                    class="icons_edit"
+                    (click)="openDialog(module)">
+            mode_edit</mat-icon>
         </mat-list-item>
       </mat-list>
     </mat-sidenav>
@@ -17,7 +23,7 @@
         <h3>Votre mirroir</h3>
 
         <div class="float_left">
-        
+
           <!--mirror-->
           <table class="table_edit_mirror" style="margin-top: 10px">
              <tr>

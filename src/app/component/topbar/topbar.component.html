@@ -23,7 +23,7 @@
         <mat-icon>add</mat-icon>
       </div>
     </div>
-      <div class="deploy" *ngIf="show" (mouseleave)="show = false">
+      <div class="deploy" [hidden]="!show" (mouseleave)="show = false">
         <li><a routerLink="/apropos" (click)="show = false" mat-button>A propos</a></li>
         <li><a routerLink="/contacter" (click)="show = false" mat-button>Nous contacter</a></li>
         <li><a (click)="logout(); show = false" mat-button><mat-icon>exit_to_app</mat-icon> Déconnexion</a></li>

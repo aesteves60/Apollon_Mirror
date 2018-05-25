@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService }    from "../../../service/article.service";
 import { SocketService }     from "../../../service/socket.service";
+import { Router }            from "@angular/router";
 
 @Component({
   selector: 'app-lequipe',
@@ -12,7 +13,9 @@ export class LequipeComponent implements OnInit {
   public articles;
 
 
-  constructor(private article$: ArticleService, private socket$ : SocketService) {
+  constructor(private article$: ArticleService,
+              private router: Router,
+              private socket$ : SocketService) {
 
   }
 
@@ -28,7 +31,7 @@ export class LequipeComponent implements OnInit {
   }
 
   ShowArticle(index : number){
-    this.articles[index].isShow = true;
+    this.articles[index].isShow = !this.articles[index].isShow;
   }
 
 
