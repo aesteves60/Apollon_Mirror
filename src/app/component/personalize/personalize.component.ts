@@ -4,9 +4,7 @@ import {AlertService}        from '../../service/alert/alert.service';
 import 'rxjs/add/operator/map';
 import {MatDialog}           from '@angular/material';
 import {ModalComponent}      from '../modal/modal.component';
-import { GoogleAuthService } from "../../auth/authGoogle.service";
 import { ModuleService }     from "../../service/module.service";
-import { UserService }       from "../../service/user.service";
 import { SocketService }     from "../../service/socket.service";
 import { Event }             from "../../model/event";
 
@@ -32,7 +30,6 @@ export class PersonalizeComponent implements OnInit {
               private alert$: AlertService,
               private module$: ModuleService,
               public dialog: MatDialog,
-              private user$: UserService,
               private socketService: SocketService) { }
 
   ngOnInit() {

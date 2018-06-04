@@ -32,20 +32,20 @@ export class GoogleAuthService {
     });
   }
 
-  private signInSuccessHandler(res: GoogleUser) {
+  private signInSuccessHandler(googleRes: GoogleUser) {
     this.ngZone.run(() => {
-      this.user$.setUser(res.getBasicProfile());
-      this.user$.setAccesToken(res.getAuthResponse().access_token, 'Calendrier');
-      sessionStorage.setItem(GoogleAuthService.SESSION_STORAGE_KEY, res.getAuthResponse().access_token);
+      this.user$.setUser(googleRes.getBasicProfile());
+      this.user$.setAccesToken(googleRes.getAuthResponse().access_token, 'Calendrier');
+      sessionStorage.setItem(GoogleAuthService.SESSION_STORAGE_KEY, googleRes.getAuthResponse().access_token);
     });
   }
 
   public async signOut(): Promise<void> {
       await this.getAuth().subscribe((auth) => {
         try {
+          this.user$.setUser(undefined);
           auth.signOut();
           sessionStorage.removeItem(GoogleAuthService.SESSION_STORAGE_KEY);
-          this.user$.setUser(undefined);
         } catch(e) { throw e }
     });
   }

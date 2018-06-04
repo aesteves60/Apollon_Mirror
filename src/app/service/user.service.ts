@@ -5,7 +5,7 @@ import { Subject }       from "rxjs/Subject";
 import { SocketService } from "./socket.service";
 import { Event }         from '../model/event';
 import { Config }        from "../../assets/config";
-import BasicProfile = gapi.auth2.BasicProfile;
+import { User }          from "../model/user";
 
 
 @Injectable()
@@ -14,23 +14,50 @@ export class UserService {
   private subject = new Subject<any>();
 
   constructor(private http: HttpClient,
-              private socket$: SocketService) {}
+              private socket$: SocketService) { this.user }
 
-  private static _user: BasicProfile = undefined;
+  private static _user: User = new User();
 
-  public get user(): BasicProfile {
-    console.log(UserService._user);
-    return UserService._user;
+  public get user(): User {
+    if(UserService._user.email === null || UserService._user.email === '') {
+      this.getSaveUser().then(res => {
+        console.log(res[0]);
+        if(res[0]['email']) {
+          UserService._user.email     = res[0]['email'];
+          UserService._user.fullname  = res[0]['firstname'] + ' ' + res[0]['name'];
+          UserService._user.name      = res[0]['name'];
+          UserService._user.firstname = res[0]['firstname'];
+          UserService._user.image     = res[0]['imageURL'];
+          this.subject.next(UserService._user);
+        }
+        return UserService._user;
+      });
+    } else {
+      return UserService._user;
+    }
   }
 
-  public setUser(_user: BasicProfile): void {
-    UserService._user = _user;
-    this.setSaveUser(_user);
+  public setUser(_user: any): void {
+    if(_user) {
+      UserService._user.email     = _user.getEmail();
+      UserService._user.fullname  = _user.getName();
+      UserService._user.name      = _user.getFamilyName();
+      UserService._user.firstname = _user.getGivenName();
+      UserService._user.image     = _user.getImageUrl();
+    } else {
+      UserService._user.email     = null;
+      UserService._user.fullname  = null;
+      UserService._user.name      = null;
+      UserService._user.firstname = null;
+      UserService._user.image     = null;
+    }
+
+    this.setSaveUser(UserService._user);
     this.socket$.doEmit(Event.GOOGLE_USER, _user);
-    this.subject.next(_user);
+    this.subject.next(UserService._user);
   }
 
-  public getUser(): Observable<any> {
+  public getUser(): Observable<User> {
     return this.subject.asObservable();
   }
 
@@ -45,36 +72,27 @@ export class UserService {
     this.http.get('/API/add_google_token', options).subscribe(res => res);
   }
 
-  private getSaveUser(): void {
+  private getSaveUser(): Promise<any> {
     const options = {
       params: {
         serial_number: Config.SERIAL_NUMBER
       }
-    }
-    this.http.get('/get_user', options).subscribe(res => {
-      UserService._user = res
-    })
+    };
+    return this.http.get('/API/get_user', options).toPromise()
   }
 
-  private setSaveUser(_user: BasicProfile): void {
-    let options: Object;
-    if(_user) {
-      options = {
-        params: {
-          serial_number: Config.SERIAL_NUMBER,
-          nom          : _user.getName(),
-          email        : _user.getEmail()
-        }
-      };
-    } else {
-      options = {
-        params: {
-          serial_number: Config.SERIAL_NUMBER,
-          nom          : '',
-          email        : ''
-        }
-      };
-    }
-    this.http.get('/API/update_user', options).subscribe(res => res);
+  private setSaveUser(_user: User): void {
+    const options = {
+      params: {
+        serial_number: Config.SERIAL_NUMBER,
+        name         : _user.name,
+        firstname    : _user.firstname,
+        email        : _user.email,
+        imageURL     : _user.imageUrl
+      }
+    };
+    this.http.get('/API/update_user', options)
+        .subscribe(res => res,
+                  error => console.log(error) );
   }
 }

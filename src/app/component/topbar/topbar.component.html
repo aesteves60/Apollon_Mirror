@@ -11,10 +11,10 @@
       <a routerLink="/account" mat-button >Mon compte</a>
     </div>
     <div class="spacer"></div>
-    <div *ngIf="user" class="user">
-      <img [src]="user.getImageUrl()" style="max-height: 50px; max-width: 50px; border-radius: 25px;">
+    <div *ngIf="user?.email !== null && user?.email !== 'null'" class="user">
+      <img [src]="user.imageUrl" style="max-height: 50px; max-width: 50px; border-radius: 25px;">
       <div>
-          {{user.getName()}}
+          {{ user.fullname}}
       </div>
     </div>
     <div class="button-row mg-left-20">

@@ -34,7 +34,7 @@ export class CalendarComponent implements OnInit {
 
   loadCalendar(){
     if(this.user$.user) {
-      this.http.get(`https://www.googleapis.com/calendar/v3/calendars/${ this.user$.user.getEmail() }/events`, {
+      this.http.get(`https://www.googleapis.com/calendar/v3/calendars/${ this.user$.user.email }/events`, {
         headers   : new HttpHeaders({
           Authorization: `Bearer ${ sessionStorage.getItem(GoogleAuthService.SESSION_STORAGE_KEY) }`
         }), params: {

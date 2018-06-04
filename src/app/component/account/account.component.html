@@ -14,7 +14,7 @@
       <div>
         <label for="email">Votre Email : </label>
         <input type="text" id="email"
-             [(ngModel)]="email" required>
+             [(ngModel)]="mail" required>
       </div>
 
       <div>
@@ -25,7 +25,7 @@
              maxlength="4"
              email>
       </div>
-      
+
       <div>
         <label for="verifmdp">Vérifier le mot de passe : </label>
         <input type="password" id="verifmdp"
@@ -46,15 +46,16 @@
       Vos comptes connectés
     </mat-card-title>
 
-  <div id="authorize-signin" (click)="signIn()" class="google_button" *ngIf="!user" >
-        <span>Se connecter avec Google</span>
-        <img class="google_img" src="../../../assets/img/google-logo.png">
-  </div>
+    <div id="authorize-signin" (click)="signIn()" class="google_button" *ngIf="user?.email === 'null'" >
+          <span>Se connecter avec Google</span>
+          <img class="google_img" src="../../../assets/img/google-logo.png">
+    </div>
 
-  <div id="authorize-signout" (click)="signOut()" class="google_buttonDec" *ngIf="!!user">
-    <span>Se déconnecté de Google</span>
-    <img class="google_img" src="../../../assets/img/google-logo.png">
-  </div>
+    <div id="authorize-signout" (click)="signOut()" class="google_buttonDec" *ngIf="user?.email !== null && user?.email !== 'null'">
+      <span>Se déconnecté de Google</span>
+      <img class="google_img" src="../../../assets/img/google-logo.png">
+    </div>
+  </mat-card>
 
 
 </div>

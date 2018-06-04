@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 import { LoginService }      from "../../service/login.service";
-import { GoogleAuthService } from "../../auth/authGoogle.service";
-import BasicProfile = gapi.auth2.BasicProfile;
 import { UserService }       from "../../service/user.service";
+import { User }              from "../../model/user";
 
 @Component({
   selector: 'app-topbar',
@@ -12,7 +11,7 @@ import { UserService }       from "../../service/user.service";
 })
 export class TopbarComponent implements OnInit {
 
-  user :BasicProfile;
+  user : User;
   show : boolean = false;
 
   constructor(private router: Router,
@@ -21,9 +20,7 @@ export class TopbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user$.getUser().subscribe(user => {
-      this.user = user
-    });
+    this.user$.getUser().subscribe(user => this.user = user);
   }
 
 

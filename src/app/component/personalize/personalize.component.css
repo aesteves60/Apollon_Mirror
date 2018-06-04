@@ -109,10 +109,3 @@ h3{
 .card_fonctionnement{
   max-width: 300px;
 }
-
-@media screen and (max-width: 1000px) {
-  mat-list-item {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
