@@ -26,7 +26,7 @@ export class TopbarComponent implements OnInit {
   constructor(private router: Router,
               private loginS: LoginService,
               private user$: UserService,
-              changeDetectorRef: ChangeDetectorRef, 
+              changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher) {
 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -41,6 +41,11 @@ export class TopbarComponent implements OnInit {
 
   logout(){
     this.loginS.logout();
+  }
+
+  open(sidenav: any) {
+    console.log(sidenav);
+    sidenav.open();
   }
 
 

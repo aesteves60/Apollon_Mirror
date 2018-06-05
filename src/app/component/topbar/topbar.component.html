@@ -1,7 +1,7 @@
 <mat-sidenav-container class="" >
-	<div *ngIf="router.url !== '/mirror' && router.url !== '/login'" class="shadow">
+	<!--<div *ngIf="router.url !== '/mirror' && router.url !== '/login'" class="shadow">-->
 
-		<mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'"
+		<mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'"
 	                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" disableClose opened="true">
 
 			<div class="sidenav-header">
@@ -26,7 +26,7 @@
 			</mat-nav-list>
 
 		</mat-sidenav>
-	</div>
+
 
 	<mat-sidenav-content>
 		<div *ngIf="router.url !== '/mirror' && router.url !== '/login'" class="shadow">
