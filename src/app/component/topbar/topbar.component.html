@@ -1,0 +1,61 @@
+<mat-sidenav-container class="" >
+	<div *ngIf="router.url !== '/mirror' && router.url !== '/login'" class="shadow">
+
+		<mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'"
+	                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" disableClose opened="true">
+
+			<div class="sidenav-header">
+				<a routerLink="/"><h5>Mon compte</h5></a>
+			</div>
+
+			<mat-nav-list>
+				<a routerLink="/mirror" mat-list-item [class.active]="select" >
+					<img src="../assets/img/Logo.png" style="height: 40px; width: 40px">
+					&nbsp;&nbsp;&nbsp;Mirroir
+				</a>
+				<a routerLink="/personalize" mat-list-item >Personnaliser</a>
+				<a routerLink="/calendar" mat-list-item >Calendar</a>
+				<a routerLink="/account" mat-list-item >Mon compte</a>
+				<mat-divider></mat-divider>
+
+				<a routerLink="/apropos" mat-list-item >A propos</a>
+				<a routerLink="/contacter" mat-list-item >Nous contacter</a>
+				<mat-divider></mat-divider>
+
+				<a (click)="logout(); show = false" mat-button ><mat-icon>exit_to_app</mat-icon> Déconnexion</a>
+			</mat-nav-list>
+
+		</mat-sidenav>
+	</div>
+
+	<mat-sidenav-content>
+		<div *ngIf="router.url !== '/mirror' && router.url !== '/login'" class="shadow">
+			<mat-toolbar color="primary">
+
+				<div  class="button-row mg-left-20">
+					<button type="button" md-button (click)="sidenav.toggle()">
+			          Open Sidenav
+					</button>
+					<a routerLink="/mirror" mat-button [class.active]="select" >
+						<img src="../assets/img/Logo.png" style="height: 40px; width: 40px">
+						Mirroir
+					</a>
+					<a routerLink="/personalize" mat-button >Personnaliser</a>
+					<a routerLink="/calendar" mat-button >Calendar</a>
+					<a routerLink="/account" mat-button >Mon compte</a>
+				</div>
+				<div class="spacer"></div>
+				<div *ngIf="user?.email !== null && user?.email !== 'null'" class="user">
+					<img [src]="user.imageUrl" style="max-height: 50px; max-width: 50px; border-radius: 25px;">
+					<div>
+						{{ user.fullname}}
+					</div>
+				</div>
+			</mat-toolbar>
+		</div>
+
+		<!--The content below is only a placeholder and can be replaced.-->
+		<router-outlet></router-outlet>
+
+	</mat-sidenav-content>
+</mat-sidenav-container>
