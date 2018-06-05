@@ -30,3 +30,7 @@ node_modules
 \.idea/codeStyles/
 
 \.idea/
+
+apollon\.sublime-project
+
+apollon\.sublime-workspace
