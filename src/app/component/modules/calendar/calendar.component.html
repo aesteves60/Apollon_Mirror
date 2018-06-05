@@ -1,4 +1,4 @@
-<div *ngIf="user !== undefined;then log else notLog"></div>
+<div *ngIf="user?.email !== 'null';then log else notLog"></div>
 <ng-template #log>
   <div class="bg_black h100 w100 c_write">
     <div *ngFor="let event of events">

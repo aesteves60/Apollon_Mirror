@@ -21,7 +21,6 @@ export class UserService {
   public get user(): User {
     if(UserService._user.email === null || UserService._user.email === '') {
       this.getSaveUser().then(res => {
-        console.log(res[0]);
         if(res[0]['email']) {
           UserService._user.email     = res[0]['email'];
           UserService._user.fullname  = res[0]['firstname'] + ' ' + res[0]['name'];
