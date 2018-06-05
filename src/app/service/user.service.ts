@@ -44,11 +44,11 @@ export class UserService {
       UserService._user.firstname = _user.getGivenName();
       UserService._user.image     = _user.getImageUrl();
     } else {
-      UserService._user.email     = null;
-      UserService._user.fullname  = null;
-      UserService._user.name      = null;
-      UserService._user.firstname = null;
-      UserService._user.image     = null;
+      UserService._user.email     = 'null';
+      UserService._user.fullname  = 'null';
+      UserService._user.name      = 'null';
+      UserService._user.firstname = 'null';
+      UserService._user.image     = 'null';
     }
 
     this.setSaveUser(UserService._user);

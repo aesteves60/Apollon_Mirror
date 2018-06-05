@@ -34,6 +34,11 @@ export class CalendarComponent implements OnInit {
       this.user = user;
       this.loadCalendar();
     });
+
+    this.user = this.user$.user;
+
+    this.loadCalendar();
+
   }
 
   loadCalendar(){
