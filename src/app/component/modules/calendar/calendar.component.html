@@ -4,8 +4,8 @@
     <div *ngFor="let event of events" class="event">
       <div class="article_meta">
         <span class="author">{{ event.creator.displayName }}</span>
-        <span class="date_parution">Fin le {{ event.end.date || event.end.dateTime | date:'yyyy/MM/dd à hh:mm' }} |</span>
-        <span class="date_parution">Début le {{ event.start.date || event.start.dateTime | date:'yyyy/MM/dd à hh:mm' }}</span>
+        <span class="date_parution">Fin le {{ event.end.date || event.end.dateTime | date:'yyyy/MM/dd à hh:mm' }}</span>
+        <span class="date_parution">Début le {{ event.start.date || event.start.dateTime | date:'yyyy/MM/dd à hh:mm' }} |</span>
       </div>
       <div class="event_description">
         {{ event.summary }}

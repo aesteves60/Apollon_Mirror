@@ -5,6 +5,7 @@ import { MatSidenav } from '@angular/material';
 @Injectable()
 export class SidenavService {
 
+  private _isOpen: boolean = false;
   private sidenav: MatSidenav;
 
   public setSidenav(_sidenav: MatSidenav): void {
@@ -21,5 +22,14 @@ export class SidenavService {
 
   public toggle(): void {
     this.sidenav.toggle();
+    this._isOpen = !this._isOpen;
+  }
+
+  get isOpen(): boolean {
+    return this._isOpen;
+  }
+
+  set isOpen(value: boolean) {
+    this._isOpen = !this._isOpen;
   }
 }

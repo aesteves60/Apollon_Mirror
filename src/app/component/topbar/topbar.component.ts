@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Router }                           from '@angular/router';
+import { Component, OnInit }       from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { LoginService }   from "../../service/login.service";
 import { UserService }    from "../../service/user.service";
@@ -12,14 +12,12 @@ import { SidenavService } from "../../service/sidenav.service";
   templateUrl: './topbar.component.html',
   styleUrls  : ['./topbar.component.css']
 })
-export class TopbarComponent implements OnInit, AfterViewInit {
+export class TopbarComponent implements OnInit {
 
   user: User;
   location: string = '';
 
-  constructor(private router: Router,
-              private loginS: LoginService,
-              private user$: UserService,
+  constructor(private user$: UserService,
               private sidenavService: SidenavService) {
 
   }
@@ -28,20 +26,8 @@ export class TopbarComponent implements OnInit, AfterViewInit {
     this.user$.getUser().subscribe(user => this.user = user);
   }
 
-  ngAfterViewInit() {
-    this.location = this.router.url;
-    console.log(this.location);
-  }
-
-  logout() {
-    this.loginS.logout();
-  }
-
   openSideNav() {
     this.sidenavService.toggle();
-
-    this.location = this.router.url;
-    console.log(this.location);
   }
 
 }

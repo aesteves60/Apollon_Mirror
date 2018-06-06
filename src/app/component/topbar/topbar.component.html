@@ -1,9 +1,11 @@
-<div *ngIf="location !== '/mirror' && location !== '/login'" class="shadow">
+<div class="shadow">
   <mat-toolbar color="primary">
 
     <div  class="button-row mg-left-10">
       <button type="button" mat-button (click)="openSideNav()">
-        <mat-icon>view_headline</mat-icon> Menu
+        <mat-icon *ngIf="sidenavService.isOpen">view_headline</mat-icon>
+        <mat-icon *ngIf="!sidenavService.isOpen">keyboard_backspace</mat-icon>
+        Menu
       </button>
     </div>
     <div class="spacer"></div>
