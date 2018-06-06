@@ -29,7 +29,7 @@ import {Modal_Radio}         from './component/modal/modal-radio.component';
 import {RadioComponent}      from './component/modules/radio/radio.component';
 import { CalendarComponent } from './component/modules/calendar/calendar.component';
 import { TopbarComponent } from './component/topbar/topbar.component';
-
+import { SidenavComponent } from "./component/sidenav/sidenav.component";
 import { GmailComponent } from './component/modules/gmail/gmail.component';
 
 //service
@@ -45,6 +45,7 @@ import {MeteoService}       from './service/meteo.service';
 import {ModuleService}   from "./service/module.service";
 import {UserService}   from "./service/user.service";
 import { ArticleService } from "./service/article.service";
+import { SidenavService } from "./service/sidenav.service";
 
 
 //directive
@@ -108,7 +109,8 @@ declare var gapi : any;
     GmailComponent,
     ModalComponent,
     Modal_Meteo,
-    Modal_Radio
+    Modal_Radio,
+    SidenavComponent
   ],
   imports: [
     Ng2DragDropModule.forRoot(),
@@ -167,6 +169,7 @@ declare var gapi : any;
     GoogleAuthService,
     UserService,
     ArticleService,
+    SidenavService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpAPIInterceptor,

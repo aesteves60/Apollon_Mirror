@@ -32,6 +32,8 @@ export class AccountComponent implements OnInit {
       this.mail    = res['email'];
     });
     this.user$.getUser().subscribe(user => this.user = user);
+
+    this.user = this.user$.user;
   }
 
   signIn(): void {

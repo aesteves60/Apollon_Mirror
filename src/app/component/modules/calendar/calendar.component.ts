@@ -42,7 +42,6 @@ export class CalendarComponent implements OnInit {
   }
 
   loadCalendar(){
-    console.log(this.user);
     if(this.user && this.user.email !== 'null') {
       this.http.get(`https://www.googleapis.com/calendar/v3/calendars/${ this.user.email }/events`, {
         headers   : new HttpHeaders({

@@ -1,0 +1,24 @@
+.event{
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  vertical-align: middle;
+}
+
+.date_parution{
+  float: right;
+  font-size: 0.8em;
+  padding: 5px;
+}
+
+.author{
+  font-size: 0.8em;
+}
+
+.event_description{
+  text-align: center;
+  padding: 15px 0;
+  font-weight: 500;
+}
+
+.event_page{
+  padding: 0 20%;
+}

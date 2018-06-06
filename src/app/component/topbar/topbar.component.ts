@@ -1,37 +1,26 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Router }            from '@angular/router';
-import { MediaMatcher }     from '@angular/cdk/layout';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router }                           from '@angular/router';
 
-import { LoginService }      from "../../service/login.service";
-import { UserService }       from "../../service/user.service";
-import { User }              from "../../model/user";
-
-import { MatSidenavModule } from '@angular/material';
+import { LoginService }   from "../../service/login.service";
+import { UserService }    from "../../service/user.service";
+import { User }           from "../../model/user";
+import { SidenavService } from "../../service/sidenav.service";
 
 
 @Component({
-  selector: 'app-topbar',
+  selector   : 'app-topbar',
   templateUrl: './topbar.component.html',
-  styleUrls: ['./topbar.component.css']
+  styleUrls  : ['./topbar.component.css']
 })
-export class TopbarComponent implements OnInit {
+export class TopbarComponent implements OnInit, AfterViewInit {
 
-  user : User;
-  show : boolean = false;
-  events: string[] = [];
-  opened: boolean;
-  mobileQuery: MediaQueryList;
-  private _mobileQueryListener: () => void;
+  user: User;
+  location: string = '';
 
   constructor(private router: Router,
               private loginS: LoginService,
               private user$: UserService,
-              changeDetectorRef: ChangeDetectorRef,
-              media: MediaMatcher) {
-
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+              private sidenavService: SidenavService) {
 
   }
 
@@ -39,14 +28,20 @@ export class TopbarComponent implements OnInit {
     this.user$.getUser().subscribe(user => this.user = user);
   }
 
-  logout(){
+  ngAfterViewInit() {
+    this.location = this.router.url;
+    console.log(this.location);
+  }
+
+  logout() {
     this.loginS.logout();
   }
 
-  open(sidenav: any) {
-    console.log(sidenav);
-    sidenav.open();
-  }
+  openSideNav() {
+    this.sidenavService.toggle();
 
+    this.location = this.router.url;
+    console.log(this.location);
+  }
 
 }
