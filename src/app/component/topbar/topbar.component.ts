@@ -18,9 +18,7 @@ export class TopbarComponent implements OnInit {
   location: string = '';
 
   constructor(private user$: UserService,
-              private sidenavService: SidenavService) {
-
-  }
+              private sidenavService: SidenavService) {  }
 
   ngOnInit() {
     this.user$.getUser().subscribe(user => this.user = user);

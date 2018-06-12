@@ -13,10 +13,12 @@ export class SidenavService {
   }
 
   public open() {
+    this.isOpen = true;
     return this.sidenav.open();
   }
 
   public close() {
+    this.isOpen = false;
     return this.sidenav.close();
   }
 

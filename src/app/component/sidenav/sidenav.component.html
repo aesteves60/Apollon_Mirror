@@ -1,24 +1,24 @@
-<mat-sidenav-container>
+<mat-sidenav-container class="h100 w100">
 
     <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" disableClose opened="false">
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" disableClose opened="false"
+                  class="sidenav">
 
       <mat-nav-list>
-        <a routerLink="/"><h5>Mon compte</h5></a>
         <a routerLink="/mirror" mat-list-item [class.active]="select" >
           <img src="../assets/img/Logo.png" style="height: 40px; width: 40px">
           &nbsp;&nbsp;&nbsp;Mirroir
         </a>
-        <a routerLink="/personalize" mat-list-item >Personnaliser</a>
+        <a routerLink="/personalize" mat-list-item ><mat-icon>dashboard</mat-icon>Personnaliser</a>
         <a routerLink="/calendar" mat-list-item >Calendar</a>
-        <a routerLink="/account" mat-list-item >Mon compte</a>
+        <a routerLink="/account" mat-list-item ><mat-icon>account_box</mat-icon>Mon compte</a>
         <mat-divider></mat-divider>
 
-        <a routerLink="/apropos" mat-list-item >A propos</a>
-        <a routerLink="/contacter" mat-list-item >Nous contacter</a>
+        <a routerLink="/apropos" mat-list-item><mat-icon>info</mat-icon>A propos</a>
+        <a routerLink="/contacter" mat-list-item ><mat-icon>contact_mail</mat-icon>Nous contacter</a>
         <mat-divider></mat-divider>
 
-        <a (click)="logout(); show = false" mat-button ><mat-icon>exit_to_app</mat-icon> Déconnexion</a>
+        <a (click)="logout(); show = false" mat-list-item><mat-icon>exit_to_app</mat-icon> Déconnexion</a>
       </mat-nav-list>
 
     </mat-sidenav>

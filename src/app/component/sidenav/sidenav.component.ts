@@ -31,15 +31,13 @@ export class SidenavComponent implements OnInit {
     this.location = this.router.url;
 
     this.router.events.subscribe((path) => {
-      if( path instanceof NavigationEnd){
-        this.location = path.url;
-        console.log(this.location)
-      }
+      if( path instanceof NavigationEnd ) this.location = path.url
     })
   }
 
   logout() {
     this.loginS.logout();
+    this.sidenavService.close();
   }
 
   ngOnInit() {

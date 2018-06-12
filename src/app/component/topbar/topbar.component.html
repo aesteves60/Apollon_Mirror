@@ -3,8 +3,8 @@
 
     <div  class="button-row mg-left-10">
       <button type="button" mat-button (click)="openSideNav()">
-        <mat-icon *ngIf="sidenavService.isOpen">view_headline</mat-icon>
-        <mat-icon *ngIf="!sidenavService.isOpen">keyboard_backspace</mat-icon>
+        <mat-icon *ngIf="!sidenavService.isOpen">view_headline</mat-icon>
+        <mat-icon *ngIf="sidenavService.isOpen">keyboard_backspace</mat-icon>
         Menu
       </button>
     </div>

@@ -1,0 +1,12 @@
+mat-sidenav-content{
+  overflow: hidden;
+}
+
+.sidenav{
+  margin-top: 20px;
+}
+
+a mat-icon {
+  padding-right: 5px;
+  color: #6d6d6d;
+}

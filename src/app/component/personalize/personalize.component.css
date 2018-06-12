@@ -2,7 +2,7 @@ table.table_edit_mirror
 {
   float: left;
   max-width: 650px;
-  border-collapse: collapse; /* Les bordures du tableau seront collées */
+  border-collapse: collapse;
   color: white;
   background: rgba(0, 0, 0, 0.69);
   opacity: 0.8;
@@ -76,6 +76,7 @@ mat-sidenav {
 
 mat-sidenav-content {
   margin-left: 0 !important;
+  margin-right: 20% !important;
 }
 
 .mat-drawer-container{
