@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient }        from '@angular/common/http';
-import {Config}       from '../../../../assets/config';
+import {TraficService} from "../../../service/trafic.service";
 
 
 declare let google : any;
@@ -11,28 +10,30 @@ declare let google : any;
 })
 export class TraficComponent implements OnInit {
 
-  public lat: Number = 50.633333;
-  public lng: Number =  3.066667;
-  public zoom: Number = 17;
-  public travelMode = ['DRIVING', 'WALKING', 'BICYCLING', 'TRASMIT'];
-  public travelModeSelect = 0;
+  private lat: Number = 50.633333;
+  private lng: Number =  3.066667;
+  private zoom: Number = 17;
+  private travelMode = ['DRIVING', 'WALKING', 'BICYCLING', 'TRASMIT'];
+  public travelModeSelect: string = 'DRIVING';
 
   trafic = undefined;
   distance = '';
   duration = '';
 
-  constructor( private http : HttpClient) { }
+  constructor( private traficService: TraficService) { }
 
   ngOnInit() {
-    this.getTrafic();
+    this.traficService.getConfig().subscribe((res) => {
+      let response = JSON.parse(res.toString());
+      this.zoom = response['zoom'];
+      this.travelModeSelect = response['travel_mode'];
+
+      this.getTrafic();
+    })
   }
 
   getTrafic() {
-    const options = { params: {
-        'serial_number': Config.SERIAL_NUMBER
-      }
-    };
-    this.http.get('/API/trafic',options)
+    this.traficService.getTrafic()
       .subscribe(res => {
         this.trafic = res;
         this.distance = this.trafic.routes[0].legs[0].distance.text;
@@ -45,7 +46,7 @@ export class TraficComponent implements OnInit {
     let directionsService = new google.maps.DirectionsService;
     let directionsDisplay = new google.maps.DirectionsRenderer;
     let map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 7,
+      zoom: this.zoom,
       center: {lat: this.lat, lng: this.lng},
       styles: [
         {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -134,7 +135,7 @@ export class TraficComponent implements OnInit {
       origin: { lat: start.lat, lng: start.lng},
       destination: { lat: end.lat, lng: end.lng},
       optimizeWaypoints: true,
-      travelMode: 'DRIVING',
+      travelMode: this.travelModeSelect,
       drivingOptions: {
         departureTime: new Date(Date.now()),  // for the time N milliseconds from now.
         trafficModel: 'optimistic'

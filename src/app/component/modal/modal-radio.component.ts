@@ -6,7 +6,7 @@ import {RadioService, Radio}                     from '../../service/radio.servi
   selector: 'modal-radio',
   template: `
     <div><h4>Selectionner une Radio : </h4>
-      <select id="radios" (change)="onChange($event.target.value)" [ngModel]="selectedRadio.name">
+      <select id="radios" class="form-control"  (change)="onChange($event.target.value)" [ngModel]="selectedRadio.name">
         <option *ngFor="let radio of radios">
           {{radio.name}}
         </option>

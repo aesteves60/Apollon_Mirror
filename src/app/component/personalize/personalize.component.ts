@@ -1,12 +1,12 @@
-import {Component, OnInit}   from '@angular/core';
-import {HttpClient}          from '@angular/common/http';
-import {AlertService}        from '../../service/alert/alert.service';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {AlertService} from '../../service/alert/alert.service';
 import 'rxjs/add/operator/map';
-import {MatDialog}           from '@angular/material';
-import {ModalComponent}      from '../modal/modal.component';
-import { ModuleService }     from "../../service/module.service";
-import { SocketService }     from "../../service/socket.service";
-import { Event }             from "../../model/event";
+import {MatDialog} from '@angular/material';
+import {ModalComponent} from '../modal/modal.component';
+import {ModuleService} from "../../service/module.service";
+import {SocketService} from "../../service/socket.service";
+import {Event} from "../../model/event";
 
 
 @Component({
@@ -30,7 +30,8 @@ export class PersonalizeComponent implements OnInit {
               private alert$: AlertService,
               private module$: ModuleService,
               public dialog: MatDialog,
-              private socketService: SocketService) { }
+              private socketService: SocketService) {
+  }
 
   ngOnInit() {
     this.get_Modules();
@@ -50,33 +51,33 @@ export class PersonalizeComponent implements OnInit {
   }
 
   public get_Views() {
-    this.module$.getViews().subscribe((res)=>{
-        this.ChangeValue(this.ItemMirror_TopLeft, res[0]);
-        this.ChangeValue(this.ItemMirror_TopRight, res[1]);
-        this.ChangeValue(this.ItemMirror_Left, res[2]);
-        this.ChangeValue(this.ItemMirror_Right, res[3]);
-        this.ChangeValue(this.ItemMirror_BottomLeft, res[4]);
-        this.ChangeValue(this.ItemMirror_BottomRight, res[5]);
-        this.ChangeValue(this.ItemMirror_BottomCenterLeft, res[6]);
-        this.ChangeValue(this.ItemMirror_BottomCenterRight, res[7]);
+    this.module$.getViews().subscribe((res) => {
+      this.ChangeValue(this.ItemMirror_TopLeft, res[0]);
+      this.ChangeValue(this.ItemMirror_TopRight, res[1]);
+      this.ChangeValue(this.ItemMirror_Left, res[2]);
+      this.ChangeValue(this.ItemMirror_Right, res[3]);
+      this.ChangeValue(this.ItemMirror_BottomLeft, res[4]);
+      this.ChangeValue(this.ItemMirror_BottomRight, res[5]);
+      this.ChangeValue(this.ItemMirror_BottomCenterLeft, res[6]);
+      this.ChangeValue(this.ItemMirror_BottomCenterRight, res[7]);
     });
   }
 
   public onElementDrop(e) {
     const _itemMirror = this.FindZoneMirror(e.nativeEvent.target.id || e.nativeEvent.target.parentElement.parentElement.id);
     this.module$.ChangePosition(_itemMirror[0].views_position, e.dragData.id).subscribe((res) => {
-        e.dragData.views_position = res;  //egal à _itemMirror[0].views_position
-        this.ChangeValue(_itemMirror, e.dragData);
-        return this.alert$.success('Modification réussie.');
+      e.dragData.views_position = res;  //egal à _itemMirror[0].views_position
+      this.ChangeValue(_itemMirror, e.dragData);
+      return this.alert$.success('Modification réussie.');
     });
     this.socketService.onEvent(Event.MIRROR_CHANGE);
   }
 
   public remoteElement(e) {
     const _itemMirror = this.FindZoneMirror(e.target.parentElement.parentElement.parentElement.id);
-    this.module$.RemoteElement( _itemMirror[0].views_position).subscribe((res) => {
-        this.ChangeValue(_itemMirror, null);
-        this.alert$.success('Modification réussie.');
+    this.module$.RemoteElement(_itemMirror[0].views_position).subscribe((res) => {
+      this.ChangeValue(_itemMirror, null);
+      this.alert$.success('Modification réussie.');
     });
     this.socketService.onEvent(Event.MIRROR_CHANGE);
   }

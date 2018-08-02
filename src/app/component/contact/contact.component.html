@@ -1,29 +1,21 @@
 <div class="container">
-  <form action="/action_page.php">
+  <form>
     <label for="fname">Nom</label>
-    <input type="text" id="fname" name="firstname" placeholder=""
+    <input type="text" id="fname" name="firstname" class="form-control"
            [(ngModel)]="firstname">
 
     <label for="lname">Prénom</label>
-    <input type="text" id="lname" name="lastname" placeholder=""
+    <input type="text" id="lname" name="lastname" class="form-control"
            [(ngModel)]="lastname">
 
     <label for="mail">Adresse email</label>
-    <input type="text" id="mail" name="email" placeholder=""
+    <input type="text" id="mail" name="email" class="form-control"
            [(ngModel)]="email">
 
-    <!--<label for="country">Country</label>
-    <select id="country" name="country">
-      <option *ngFor="let contry of contries"
-              [value]="contry.name">
-        {{contry.name}}
-      </option>
-    </select>-->
-
     <label for="subject">Message</label>
-    <textarea id="subject" name="subject" placeholder="Votre message..." style="height:200px"
+    <textarea id="subject" name="subject" placeholder="Votre message..." style="height:200px" class="form-control"
               [(ngModel)]="subject"></textarea>
 
-    <input type="submit" value="Submit" (click)="Send">
+    <button mat-raised-button (click)="Send" class="w100">Envoyer</button>
   </form>
 </div>

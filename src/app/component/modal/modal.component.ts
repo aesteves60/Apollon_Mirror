@@ -2,17 +2,19 @@ import {
   AfterContentInit, Component, ComponentFactoryResolver, ComponentRef, Inject, OnDestroy, Type, ViewChild
 } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {HttpClient}                   from '@angular/common/http';
-import {Config}                       from '../../../assets/config';
-import {Modal_Radio}                  from './modal-radio.component';
-import {Modal_Meteo}                  from './modal-meteo.component';
-import { contentModal }               from "./modal.directive";
+import {HttpClient} from '@angular/common/http';
+import {Config} from '../../../assets/config';
+import {Modal_Radio} from './modal-radio.component';
+import {Modal_Meteo} from './modal-meteo.component';
+import {contentModal} from "./modal.directive";
+import {Modal_Trafic} from "./modal-trafic.component";
+import {AlertService} from "../../service/alert/alert.service";
 
 
 @Component({
   selector: 'app-modal',
   templateUrl: 'modal.component.html',
-  entryComponents: [Modal_Meteo, Modal_Radio]
+  entryComponents: [Modal_Meteo, Modal_Radio, Modal_Trafic]
 })
 export class ModalComponent implements AfterContentInit, OnDestroy {
 
@@ -24,8 +26,10 @@ export class ModalComponent implements AfterContentInit, OnDestroy {
   constructor(public dialogRef: MatDialogRef<ModalComponent>,
               @Inject(MAT_DIALOG_DATA) public d: Object,
               private componentFactoryResolver: ComponentFactoryResolver,
-              private http: HttpClient)
-  { this.data = d }
+              private http: HttpClient,
+              private alert: AlertService) {
+    this.data = d
+  }
 
   ngAfterContentInit(): void {
     let content = this.getModalContent().find(c => this.data['name'] === c.name);
@@ -47,11 +51,9 @@ export class ModalComponent implements AfterContentInit, OnDestroy {
     };
     this.http.get('/API/update_conf_module', option).subscribe(res => {
       this.dialogRef.close();
-      /*if (res['errors'] !== undefined) this.alert.error('Ville inconnu');
-      else {
-        this.dialogRef.close();
-        this.alert.success('Modification effectuée');
-      }*/
+      this.alert.success('Modification effectuée');
+    },error => {
+      this.alert.error(error.error);
     });
   }
 
@@ -66,12 +68,14 @@ export class ModalComponent implements AfterContentInit, OnDestroy {
   private getModalContent(): Array<any> {
     return [
       new Modal_Content(Modal_Radio, 'Radio'),
-      new Modal_Content(Modal_Meteo, 'Météo')
+      new Modal_Content(Modal_Meteo, 'Météo'),
+      new Modal_Content(Modal_Trafic, 'Trafic routier')
     ]
 
   }
 }
 
 export class Modal_Content {
-  constructor(public component: Type<any>, public name:string) {}
+  constructor(public component: Type<any>, public name: string) {
+  }
 }

@@ -6,7 +6,7 @@ import {Config} from '../../../assets/config';
   selector: 'modal-meteo',
   template: `
     <div><h4>Selectionner une ville : </h4>
-      <input [(ngModel)]="selectedVille" (keyup)="findVille($event)">
+      <input [(ngModel)]="selectedVille" (keyup)="findVille($event)" class="form-control">
     </div>
   `
 })

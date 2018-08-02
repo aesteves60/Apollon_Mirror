@@ -13,13 +13,13 @@
     <div class="element_left">
       <div>
         <label for="email">Votre Email : </label>
-        <input type="text" id="email"
+        <input type="text" id="email" class="form-control"
              [(ngModel)]="mail" required>
       </div>
 
       <div>
         <label for="mdp">Nouveau mot de passe : </label>
-        <input type="password" id="mdp"
+        <input type="password" id="mdp" class="form-control"
              placeholder="Votre mot de passe"
              [(ngModel)]="mdp"
              maxlength="4"
@@ -28,14 +28,14 @@
 
       <div>
         <label for="verifmdp">Vérifier le mot de passe : </label>
-        <input type="password" id="verifmdp"
+        <input type="password" id="verifmdp" class="form-control"
              placeholder="Votre mot de passe"
              [(ngModel)]="verifmdp"
              maxlength="4">
       </div>
     </div>
     <div class="element">
-      <button (click)="updateMirror()">
+      <button class="btn_success" (click)="updateMirror()">
         Valider les modifications
       </button>
     </div>
