@@ -52,10 +52,7 @@ export class MirrorComponent implements AfterContentInit, OnInit {
     this.list_directive = [this.topLeftDirective, this.topRightDirective, this.leftDirective, this.rightDirective,
       this.bottomLeftDirective, this.bottomRightDirective, this.bottomCenterLeftDirective, this.bottomCenterRightDirective];
 
-    this.socketService.onEvent(Event.MIRROR_CHANGE).subscribe(() => {
-      console.log(Event.MIRROR_CHANGE);
-      this.loadView()
-    });
+    this.socketService.onEvent(Event.MIRROR_CHANGE).subscribe(() => this.loadView());
   }
 
   ngAfterContentInit() {
