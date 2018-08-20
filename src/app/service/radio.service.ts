@@ -54,11 +54,14 @@ export class RadioService {
   }
 
   setVolume(value: number) {
-    if((value > 0) || (value < 1)) {
+    if((value >= 0) && (value <= 1)) {
       this.audio.volume = value.toFixed(2);
     }
   }
 
+  getMute(){
+    return this.audio.muted
+  }
 
   setMuted(value: boolean) {
     this.audio.muted = value;

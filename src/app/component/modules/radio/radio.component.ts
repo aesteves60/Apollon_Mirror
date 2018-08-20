@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {RadioService}                 from '../../../service/radio.service';
+import {SocketService} from "../../../service/socket.service";
 
 @Component({
   selector: 'app-radio',
@@ -10,11 +11,24 @@ export class RadioComponent implements OnInit, OnDestroy {
 
   icons : string = 'volume_up';
 
-  constructor( private radioService : RadioService) { }
+  constructor( private socket$: SocketService,
+               private radioService : RadioService) { }
 
   ngOnInit() {
     this.radioService.StartPlay();
-    //setTimeout(()=> this.radioService.setMuted(true), 5000)
+
+    this.socket$.onUpOrDownVolume().subscribe((res) => {
+      let volume = this.radioService.getVolume();
+      switch (res['value']) {
+        case 'up'   : this.radioService.setVolume(volume + 0.2); break;
+        case 'down' : this.radioService.setVolume(volume - 0.2); break;
+        case 'mute' : this.radioService.setMuted(true); break;
+        case 'play' : this.radioService.setMuted(false); break;
+      }
+      !this.radioService.getMute() ? this.setIcons(this.radioService.getVolume()) : this.icons = 'volume_off';
+    });
+
+    this.socket$.onSetVolume().subscribe((res) => this.radioService.setVolume(res['volume']));
   }
 
   ngOnDestroy(){
@@ -22,18 +36,16 @@ export class RadioComponent implements OnInit, OnDestroy {
   }
 
   Mute(){
-    this.icons = 'volume_off';
-    this.radioService.setMuted(true);
+    this.radioService.getMute() ? this.setIcons(this.radioService.getVolume()) : this.icons = 'volume_off';
+    this.radioService.setMuted(!this.radioService.getMute());
   }
 
   UpVolume(){
-    console.log(this.radioService.getVolume());
     this.radioService.setVolume(this.radioService.getVolume() + 0.1);
     this.setIcons(this.radioService.getVolume());
   }
 
   DownVolume(){
-    console.log(this.radioService.getVolume());
     this.radioService.setVolume(this.radioService.getVolume() - 0.1);
     this.setIcons(this.radioService.getVolume());
   }

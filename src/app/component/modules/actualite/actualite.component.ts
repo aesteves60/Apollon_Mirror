@@ -21,7 +21,7 @@ export class ActualiteComponent implements OnInit {
     this.article$.getArticleActu().subscribe(res => this.articles = res);
     this.socket$.initSocket();
 
-    let ioConnection = this.socket$.OnShowActu().subscribe((index) => this.ShowArticle(index));
+    let ioConnection = this.socket$.onShowActu().subscribe((index) => this.ShowArticle(index));
   }
 
   DeleteArticle(index : number){

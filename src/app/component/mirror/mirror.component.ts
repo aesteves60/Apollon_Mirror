@@ -50,9 +50,12 @@ export class MirrorComponent implements AfterContentInit, OnInit {
 
   ngOnInit() {
     this.list_directive = [this.topLeftDirective, this.topRightDirective, this.leftDirective, this.rightDirective,
-      this.bottomLeftDirective, this.bottomCenterLeftDirective, this.bottomCenterRightDirective, this.bottomRightDirective];
+      this.bottomLeftDirective, this.bottomRightDirective, this.bottomCenterLeftDirective, this.bottomCenterRightDirective];
 
-    this.socketService.onEvent(Event.MIRROR_CHANGE).subscribe(() => this.loadView());
+    this.socketService.onEvent(Event.MIRROR_CHANGE).subscribe(() => {
+      console.log(Event.MIRROR_CHANGE);
+      this.loadView()
+    });
   }
 
   ngAfterContentInit() {
@@ -61,12 +64,14 @@ export class MirrorComponent implements AfterContentInit, OnInit {
 
   loadView(): void {
     this.module$.getViews().subscribe(res => {
+      this.list_modules = [];
       for (let i = 0; i < res['length']; i++) {
         if( res[i] ){
           this.list_modules.push(this.mirror$.getMirorItem().find(item => res[i]['name'] === item.name));
           this.mirror$.loadComponent(this.list_directive[i].viewContainerRef, this.list_modules[i]);
         } else {
           this.list_modules.push(null);
+          this.mirror$.loadComponent(this.list_directive[i].viewContainerRef, this.list_modules[i]);
         }
       }
     });

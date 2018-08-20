@@ -20,9 +20,24 @@ export class SocketService {
     this.socket = io(Config.SERVER_SOCKETIO);
   }
 
-  public OnShowActu(): Observable<number> {
+  public onShowActu(): Observable<number> {
     return new Observable<number>((observable) => {
       this.socket.on(Event.SHOW_ARTICLE, (index) => observable.next(index))
+    })
+  }
+
+  public onUpOrDownVolume(): Observable<string> {
+    return new Observable<string>((observable) => {
+      this.socket.on(Event.UPORDOWN_VOLUME, (value) => {
+        console.log(value)
+        observable.next(value)
+      })
+    })
+  }
+
+  public onSetVolume(): Observable<number> {
+    return new Observable<number>((observable) => {
+      this.socket.on(Event.CHANGE_VOLUME, (volume) => observable.next(volume))
     })
   }
 

@@ -19,10 +19,13 @@ export class MirrorService {
               private http : HttpClient) {}
 
   loadComponent(viewContainerRef: ViewContainerRef, mirrorItem: MirrorItem): Object {
+    console.log(mirrorItem, viewContainerRef);
     if( mirrorItem ) {
       let componentFactory = this.componentFactoryResolver.resolveComponentFactory(mirrorItem.component);
       viewContainerRef.clear();
       return viewContainerRef.createComponent(componentFactory);
+    } else {
+      viewContainerRef.clear();
     }
   }
 

@@ -8,6 +8,8 @@ import {ModuleService} from "../../service/module.service";
 import {SocketService} from "../../service/socket.service";
 import {Event} from "../../model/event";
 
+import {Config} from "../../../assets/config"
+
 
 @Component({
   selector: 'app-personalize',
@@ -52,14 +54,14 @@ export class PersonalizeComponent implements OnInit {
 
   public get_Views() {
     this.module$.getViews().subscribe((res) => {
-      this.ChangeValue(this.ItemMirror_TopLeft, res[0]);
-      this.ChangeValue(this.ItemMirror_TopRight, res[1]);
-      this.ChangeValue(this.ItemMirror_Left, res[2]);
-      this.ChangeValue(this.ItemMirror_Right, res[3]);
-      this.ChangeValue(this.ItemMirror_BottomLeft, res[4]);
-      this.ChangeValue(this.ItemMirror_BottomRight, res[5]);
-      this.ChangeValue(this.ItemMirror_BottomCenterLeft, res[6]);
-      this.ChangeValue(this.ItemMirror_BottomCenterRight, res[7]);
+      this.ChangeValue(this.ItemMirror_TopLeft, res[0], 1);
+      this.ChangeValue(this.ItemMirror_TopRight, res[1], 1);
+      this.ChangeValue(this.ItemMirror_Left, res[2], 1);
+      this.ChangeValue(this.ItemMirror_Right, res[3], 1);
+      this.ChangeValue(this.ItemMirror_BottomLeft, res[4], 1);
+      this.ChangeValue(this.ItemMirror_BottomRight, res[5], 1);
+      this.ChangeValue(this.ItemMirror_BottomCenterLeft, res[6], 1);
+      this.ChangeValue(this.ItemMirror_BottomCenterRight, res[7], 1);
     });
   }
 
@@ -70,7 +72,6 @@ export class PersonalizeComponent implements OnInit {
       this.ChangeValue(_itemMirror, e.dragData);
       return this.alert$.success('Modification réussie.');
     });
-    this.socketService.onEvent(Event.MIRROR_CHANGE);
   }
 
   public remoteElement(e) {
@@ -79,15 +80,16 @@ export class PersonalizeComponent implements OnInit {
       this.ChangeValue(_itemMirror, null);
       this.alert$.success('Modification réussie.');
     });
-    this.socketService.onEvent(Event.MIRROR_CHANGE);
   }
 
-  private ChangeValue(_itemMirror, value) {
+  private ChangeValue(_itemMirror, value, init = 0) {
     if (value === null) {
       value = {name: 'Vide', image: '', views_position: _itemMirror[0].views_position};
     }
     _itemMirror.pop();
     _itemMirror.push(value);
+
+    init === 0 ? this.http.get(Config.HTTP_MIDDLRWARE +'/'+ Event.MIRROR_CHANGE).subscribe(res => res) : ''
   }
 
   private FindZoneMirror(mirrorPosition) {
