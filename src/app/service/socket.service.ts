@@ -28,10 +28,7 @@ export class SocketService {
 
   public onUpOrDownVolume(): Observable<string> {
     return new Observable<string>((observable) => {
-      this.socket.on(Event.UPORDOWN_VOLUME, (value) => {
-        console.log(value)
-        observable.next(value)
-      })
+      this.socket.on(Event.UPORDOWN_VOLUME, (value) => observable.next(value))
     })
   }
 
