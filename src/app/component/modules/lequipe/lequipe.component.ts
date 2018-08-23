@@ -23,7 +23,7 @@ export class LequipeComponent implements OnInit {
     this.article$.getArticleEquipe().subscribe(res => this.articles = res);
     this.socket$.initSocket();
 
-    let ioConnection = this.socket$.onShowActu().subscribe((index) => this.ShowArticle(index));
+    this.socket$.onShowActuEquipe().subscribe((index) => this.ShowArticle(index['actuId'] - 1));
   }
 
   DeleteArticle(index : number){

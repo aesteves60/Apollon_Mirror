@@ -22,6 +22,8 @@ export class TopbarComponent implements OnInit {
 
   ngOnInit() {
     this.user$.getUser().subscribe(user => this.user = user);
+
+    this.user = this.user$.user;
   }
 
   openSideNav() {

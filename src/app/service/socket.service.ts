@@ -3,7 +3,6 @@ import * as io         from 'socket.io-client';
 import { Observable }  from "rxjs/Observable";
 import { Event }       from '../model/event';
 import { Config }      from "../../assets/config";
-import { EventRouter } from "../model/eventRouter";
 import { Router }      from "@angular/router";
 
 
@@ -23,6 +22,12 @@ export class SocketService {
   public onShowActu(): Observable<number> {
     return new Observable<number>((observable) => {
       this.socket.on(Event.SHOW_ARTICLE, (index) => observable.next(index))
+    })
+  }
+
+  public onShowActuEquipe(): Observable<number> {
+    return new Observable<number>((observable) => {
+      this.socket.on(Event.SHOW_ARTICLE_EQUIPE, (index) => observable.next(index))
     })
   }
 
@@ -49,14 +54,7 @@ export class SocketService {
   }
 
   public onEventRouter(): void {
-    this.socket.on(EventRouter.ACTU, () => this.router.navigateByUrl(EventRouter.ACTU));
-    this.socket.on(EventRouter.EQUIPE, () => this.router.navigateByUrl(EventRouter.EQUIPE));
-    this.socket.on(EventRouter.CALENDAR, () => this.router.navigateByUrl(EventRouter.CALENDAR));
-    this.socket.on(EventRouter.GMAIL, () => this.router.navigateByUrl(EventRouter.GMAIL));
-    this.socket.on(EventRouter.METEO, () => this.router.navigateByUrl(EventRouter.METEO));
-    this.socket.on(EventRouter.RADIO, () => this.router.navigateByUrl(EventRouter.RADIO));
-    this.socket.on(EventRouter.TRAFIC, () => this.router.navigateByUrl(EventRouter.TRAFIC));
-    this.socket.on(EventRouter.MIRROR, () => this.router.navigateByUrl(EventRouter.MIRROR));
+    this.socket.on(Event.CHANGE_MODULE, (res) => this.router.navigateByUrl(res['module']));
   }
 
 

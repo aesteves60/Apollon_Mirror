@@ -31,7 +31,7 @@ export class RadioService {
                     .map(res => res);
   }
 
-  getRadios(): Observable<Radio[]>{
+  getRadios(): Observable<Radio[]> {
     return this.http.get<Radio[]>('/API/get_radios')
                     .map((res) => res);
   }
