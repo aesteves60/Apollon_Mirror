@@ -36,14 +36,14 @@ export class RadioService {
                     .map((res) => res);
   }
 
-  StartPlay(): void {
+  startPlay(): void {
     if (this.audio.paused) {
       this.audio.load();
       this.audio.play();
     }
   }
 
-  StopPlay(): void {
+  stopPlay(): void {
     if (this.audio.played) {
       this.audio.pause();
     }

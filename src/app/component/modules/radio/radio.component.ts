@@ -13,6 +13,8 @@ export class RadioComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.radioService.startPlay();
+    this.mute();
 
     this.socket$.onUpOrDownVolume ().subscribe ((res) => {
       const volume = this.radioService.getVolume ();
@@ -37,20 +39,20 @@ export class RadioComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.radioService.StopPlay ();
+    this.radioService.stopPlay ();
   }
 
-  Mute() {
+  mute() {
     this.radioService.getMute () ? this.setIcons (this.radioService.getVolume ()) : this.icons = 'volume_off';
     this.radioService.setMuted (!this.radioService.getMute ());
   }
 
-  UpVolume() {
+  upVolume() {
     this.radioService.setVolume (this.radioService.getVolume () + 0.1);
     this.setIcons (this.radioService.getVolume ());
   }
 
-  DownVolume() {
+  downVolume() {
     this.radioService.setVolume (this.radioService.getVolume () - 0.1);
     this.setIcons (this.radioService.getVolume ());
   }
