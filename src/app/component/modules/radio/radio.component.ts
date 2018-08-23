@@ -43,8 +43,8 @@ export class RadioComponent implements OnInit, OnDestroy {
   }
 
   mute() {
-    this.radioService.getMute () ? this.setIcons (this.radioService.getVolume ()) : this.icons = 'volume_off';
-    this.radioService.setMuted (!this.radioService.getMute ());
+    this.radioService.getMute() ? this.setIcons (this.radioService.getVolume ()) : this.icons = 'volume_off';
+    this.radioService.setMuted (!this.radioService.getMute());
   }
 
   upVolume() {

@@ -54,6 +54,7 @@ export class ModalComponent implements AfterContentInit, OnDestroy {
     this.http.get('/API/update_conf_module', option).subscribe(res => {
       this.dialogRef.close();
       this.alert.success('Modification effectuée');
+
     },error => {
       this.alert.error(error.error);
     });

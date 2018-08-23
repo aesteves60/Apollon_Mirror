@@ -85,7 +85,8 @@ html, body{
   width: 75px;
   height: 75px;
   margin: -75px 0 0 -75px;
-  border: 16px solid #f3f3f3;
+  border: 16px solid #000000;
+  background-color: black;
   border-radius: 50%;
   border-top: 16px solid #3498db;
   width: 120px;
