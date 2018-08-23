@@ -9,6 +9,8 @@ import {Modal_Meteo} from './modal-meteo.component';
 import {contentModal} from "./modal.directive";
 import {Modal_Trafic} from "./modal-trafic.component";
 import {AlertService} from "../../service/alert/alert.service";
+import { SocketService } from '../../service/socket.service';
+import { Event } from '../../model/event';
 
 
 @Component({

@@ -16,7 +16,7 @@ export class SocketService {
   }
 
   public initSocket(): void {
-    this.socket = io('http://' + document.location.hostname + ':' +Config.PORT_SOCKETIO);
+    this.socket = io(Config.SERVER_SOCKETIO);
   }
 
   public onShowActu(): Observable<number> {
