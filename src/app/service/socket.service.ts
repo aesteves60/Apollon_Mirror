@@ -54,7 +54,10 @@ export class SocketService {
   }
 
   public onEventRouter(): void {
-    this.socket.on(Event.CHANGE_MODULE, (res) => this.router.navigateByUrl(res['module']));
+    this.socket.on(Event.CHANGE_MODULE, (res) => {
+      this.router.navigateByUrl(res['moduleId']);
+      setTimeout(()=> this.router.navigateByUrl('mirror'), 300000)
+    });
   }
 
 

@@ -15,7 +15,6 @@ import { SidenavService } from "../../service/sidenav.service";
 export class TopbarComponent implements OnInit {
 
   user: User;
-  location: string = '';
 
   constructor(private user$: UserService,
               private sidenavService: SidenavService) {  }

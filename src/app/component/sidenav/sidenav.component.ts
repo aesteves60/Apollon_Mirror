@@ -31,7 +31,9 @@ export class SidenavComponent implements OnInit {
     this.location = this.router.url;
 
     this.router.events.subscribe((path) => {
-      if( path instanceof NavigationEnd ) this.location = path.url
+      if( path instanceof NavigationEnd ) {
+        this.location = path.url
+      }
     })
   }
 

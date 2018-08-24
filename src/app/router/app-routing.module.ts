@@ -20,7 +20,6 @@ const routes: Routes = [
   /*
    * ROUTE AUTHENT
    */
-  {path: '*', redirectTo: ''},
   {path: '', redirectTo: 'personalize', pathMatch: 'full'},
   {path: 'personalize', canActivate: [AuthGuard], component: PersonalizeComponent},
   {path: 'account', canActivate: [AuthGuard], component: AccountComponent},
