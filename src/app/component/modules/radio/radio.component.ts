@@ -13,8 +13,9 @@ export class RadioComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+  console.log('Init')
     this.radioService.startPlay();
-    this.mute();
+    this.radioService.setMuted(true);
 
     this.socket$.onUpOrDownVolume ().subscribe ((res) => {
       const volume = this.radioService.getVolume ();
