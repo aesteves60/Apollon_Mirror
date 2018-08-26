@@ -12,6 +12,7 @@ import {
 }                            from './mirror.directive';
 import { MirrorService }     from '../../service/mirror.service';
 import { ModuleService }     from "../../service/module.service";
+import localAccess from 'local-access'
 
 //component
 import { MeteoComponent }     from '../modules/meteo/meteo.component';
@@ -43,6 +44,7 @@ export class MirrorComponent implements AfterContentInit, OnInit {
 
   private list_modules   = [];
   private list_directive = [];
+  private ipLocale;
 
   constructor(private module$: ModuleService,
               private mirror$: MirrorService,
@@ -53,6 +55,8 @@ export class MirrorComponent implements AfterContentInit, OnInit {
       this.bottomLeftDirective, this.bottomRightDirective, this.bottomCenterLeftDirective, this.bottomCenterRightDirective];
 
     this.socketService.onEvent(Event.MIRROR_CHANGE).subscribe(() => this.loadView());
+
+    this.getIpLocale();
   }
 
   ngAfterContentInit() {
@@ -72,6 +76,25 @@ export class MirrorComponent implements AfterContentInit, OnInit {
         }
       }
     });
+  }
+
+  getIpLocale() {
+    //window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;//compatibility for Firefox and chrome
+    let pc = new RTCPeerConnection({iceServers:[]}), noop = function(){};
+    // @ts-ignore
+    pc.createDataChannel('');//create a bogus data channel
+    pc.createOffer(pc.setLocalDescription.bind(pc), noop);// create offer and set local description
+    const self = this;
+    pc.onicecandidate = function(ice)
+    {
+      if (ice && ice.candidate && ice.candidate.candidate)
+      {
+        let myIP = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(ice.candidate.candidate)[1];
+        console.log('my IP: ', myIP);
+        self.ipLocale = myIP;
+        pc.onicecandidate = noop;
+      }
+    };
   }
 
 }

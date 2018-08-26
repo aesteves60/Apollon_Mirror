@@ -1,6 +1,6 @@
 <div *ngIf="user?.email !== 'null';then log else notLog"></div>
 <ng-template #log>
-  <div class="bg_black h100 c_write event_page">
+  <div class="bg_black h100 c_white event_page">
     <div *ngFor="let event of events" class="event">
       <div class="article_meta">
         <span class="author">{{ event.creator.displayName }}</span>
@@ -14,5 +14,5 @@
   </div>
 </ng-template>
 <ng-template #notLog>
-  <div class="bg_black h100 w100 c_write">Veuillez vous connecté avec Google pour avoir accée à cette affichage</div>
+  <div class="bg_black h100 w100 c_white">Veuillez vous connecté avec Google pour avoir accée à cette affichage</div>
 </ng-template>
