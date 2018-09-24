@@ -1,6 +1,6 @@
 import {Injectable}   from '@angular/core';
 import {HttpClient}   from '@angular/common/http';
-import { Config }     from '../../assets/config';
+import { Config }     from '../../environments/config';
 import { jourMeteo }  from "../component/modules/meteo/jourMeteo";
 import { Observable } from "rxjs/Observable";
 
@@ -20,8 +20,8 @@ export class MeteoService {
         'serial_number': Config.SERIAL_NUMBER
       }
     };
-    return this.http.get('/API/meteo', options)
-                    .map(res => this.traiteData(res));
+    return this.http.get('/apipollon/meteo', options)
+                    .map(res => this.traiteData(res))
   }
 
   private traiteData(res): jourMeteo[] {

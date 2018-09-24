@@ -16,15 +16,6 @@ img{
   margin-right: auto;
 }
 
-
-.left{
-  float: left;
-}
-
-.right{
-  float: right;
-}
-
 .element{
   display: block;
   width: 24vw;

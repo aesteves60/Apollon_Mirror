@@ -28,7 +28,7 @@ export class Modal_Radio implements OnInit {
     this.radioService.getRadios().subscribe((result) => {
       this.radios = <Radio[]>result;
       this.radioService.getRadioConfig().subscribe(res => {
-        this.selectedRadio = this.radios.find(r => res === r.src);
+        this.selectedRadio = this.radios.find(r => res[0].value1 === r.src);
         this.output.next(this.selectedRadio.src);
       });
     });

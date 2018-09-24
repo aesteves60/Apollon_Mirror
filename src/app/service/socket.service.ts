@@ -2,7 +2,7 @@ import { Injectable }  from '@angular/core';
 import * as io         from 'socket.io-client';
 import { Observable }  from "rxjs/Observable";
 import { Event }       from '../model/event';
-import { Config }      from "../../assets/config";
+import { Config }      from "../../environments/config";
 import { Router }      from "@angular/router";
 
 

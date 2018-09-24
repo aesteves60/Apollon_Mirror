@@ -14,7 +14,7 @@ export class RadioComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.radioService.startPlay();
-    this.radioService.setMuted(true); 
+    this.radioService.setMuted(false);
 
     this.socket$.onUpOrDownVolume ().subscribe ((res) => {
       const volume = this.radioService.getVolume ();
@@ -58,10 +58,10 @@ export class RadioComponent implements OnInit, OnDestroy {
   }
 
   setIcons(_volume) {
-    if (_volume < 0.5) {
-      this.icons = 'volume_down';
-    } else {
-      this.icons = 'volume_up';
+    switch (_volume ) {
+      case (_volume < 0.5) : this.icons = 'volume_down'; break;
+      case (_volume > 0.5) : this.icons = 'volume_up'; break;
+      case (_volume = 0) : this.icons = 'volume_mute'; break;
     }
   }
 

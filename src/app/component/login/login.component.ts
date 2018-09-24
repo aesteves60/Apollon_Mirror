@@ -3,7 +3,7 @@ import { Router }            from '@angular/router';
 import { HttpClient }        from "@angular/common/http";
 import { LoginService }      from "../../service/login.service";
 import { AlertService }      from "../../service/alert/alert.service";
-import { Config }     from "../../../assets/config";
+import { Config }     from "../../../environments/config";
 
 @Component({
   selector: 'app-login',
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   ForgetPassword(){
-    this.http.get('/forgetpsw', {params :{serial_number : Config.SERIAL_NUMBER}}).subscribe( ok => {
+    this.http.get('/apipollon/forgetpsw', {params :{serial_number : Config.SERIAL_NUMBER}}).subscribe( ok => {
       this.alertService.error('Un email avec votre nouveau mot de passe vous a été envoyé');
     }
   )};
@@ -63,13 +63,12 @@ export class LoginComponent implements OnInit {
   }
 
   CheckPassword( c : string){
-    this.loginS.login(c, 'token').subscribe(result => {
-      if (result === true) {
-        this.alertService.success('Connexion réussie')
-      } else {
-        this.WrongPassword();
-      }
-    });
+    this.loginS.login(c, 'token').subscribe(
+      result => {
+        if( result === true ) this.alertService.success ('Connexion réussie')
+        else this.WrongPassword();
+      },
+      error => this.WrongPassword());
   }
 
   WrongPassword() {

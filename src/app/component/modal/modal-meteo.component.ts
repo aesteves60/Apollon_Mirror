@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Config} from '../../../assets/config';
+import {Config} from '../../../environments/config';
 
 @Component({
   selector: 'modal-meteo',
@@ -18,16 +18,10 @@ export class Modal_Meteo implements OnInit {
   }
 
   ngOnInit() {
-    const options = {
-      params: {
-        serial_number: Config.SERIAL_NUMBER,
-        module : 'Météo'
-      }
-    };
-    this.http.get('/API/get_config', options)
+    this.http.get(`/apipollon/modules/${Config.SERIAL_NUMBER}/Météo`)
       .subscribe((res) => {
         this.output.next(res);
-        this.selectedVille = res;
+        this.selectedVille = res[0].value1;
       });
   }
 

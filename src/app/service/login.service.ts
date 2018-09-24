@@ -1,8 +1,8 @@
 import { Injectable }    from '@angular/core';
 import { Router }        from '@angular/router';
 import * as shajs        from 'sha.js';
-import {HttpClient}      from "@angular/common/http";
-import { Config } from '../../assets/config';
+import { HttpClient }    from "@angular/common/http";
+import { Config }        from '../../environments/config';
 import { Observable }    from "rxjs/Observable";
 
 @Injectable()
@@ -39,7 +39,7 @@ export class LoginService {
       }
     };
 
-    return this.http.get('/API/login', options);
+    return this.http.get('/apipollon/login', options);
   }
 
   logout(): void {

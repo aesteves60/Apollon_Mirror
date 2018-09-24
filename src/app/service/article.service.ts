@@ -1,17 +1,16 @@
-import {Injectable}   from '@angular/core';
-import {HttpClient}   from '@angular/common/http';
-import { Observable } from "rxjs/Observable";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
-@Injectable()
+@Injectable ()
 export class ArticleService {
 
-  public articles;
-
-  constructor(private http : HttpClient){ }
+  constructor(private http: HttpClient) {
+  }
 
   getArticleActu(): Observable<any> {
-    return this.http.get('/API/actualite').map(res => {
-      return res['articles'].map(obj => {
+    return this.http.get ('/apipollon/actu').map (res => {
+      return res['articles'].map (obj => {
         obj.isShow = false;
         return obj;
       });
@@ -19,13 +18,13 @@ export class ArticleService {
   }
 
   getArticleEquipe(): Observable<any> {
-    return this.http.get('/API/lequipe')
-        .map(res => {
-          return res['articles'].map(obj => {
-            obj.isShow = false;
-            return obj;
-          })
+    return this.http.get ('/apipollon/equipe')
+      .map (res => {
+        return res['articles'].map (obj => {
+          obj.isShow = false;
+          return obj;
         });
+      });
   }
 
 }

@@ -1,4 +1,4 @@
 <div *ngIf="alerts"  class="{{alerts.type}}">
     {{alerts.message}}
-    <i *ngIf="alerts.message !== ''" class="material-icons" style="float: right" (click)="close()">close</i>
+    <i *ngIf="alerts.message !== ''" class="material-icons" style="cursor: pointer; float: right" (click)="close()">close</i>
 </div>

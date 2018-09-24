@@ -4,7 +4,7 @@ import { Observable }    from "rxjs/Observable";
 import { Subject }       from "rxjs/Subject";
 import { SocketService } from "./socket.service";
 import { Event }         from '../model/event';
-import { Config }        from "../../assets/config";
+import { Config }        from "../../environments/config";
 import { User }          from "../model/user";
 
 
@@ -68,29 +68,23 @@ export class UserService {
         module       : _module
       }
     };
-    this.http.get('/API/add_google_token', options).subscribe(res => res);
+    this.http.get('/apipollon/add_google_token', options).subscribe(res => res);
   }
 
   private getSaveUser(): Promise<any> {
-    const options = {
-      params: {
-        serial_number: Config.SERIAL_NUMBER
-      }
-    };
-    return this.http.get('/API/get_user', options).toPromise()
+    return this.http.get(`/apipollon/users/${Config.SERIAL_NUMBER}`).toPromise()
   }
 
   private setSaveUser(_user: User): void {
     const options = {
       params: {
-        serial_number: Config.SERIAL_NUMBER,
         name         : _user.name,
         firstname    : _user.firstname,
         email        : _user.email,
         imageURL     : _user.imageUrl
       }
     };
-    this.http.get('/API/update_user', options)
+    this.http.put(`/apipollon/users/${Config.SERIAL_NUMBER}`, options)
         .subscribe(res => res,
                   error => console.log(error) );
   }

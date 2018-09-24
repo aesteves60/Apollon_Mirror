@@ -7,6 +7,9 @@ hr{
   background-color: #FFFFFF;
 }
 
+.meteo {
+  margin: auto;
+}
 
 .day_meteo_0{
 	width: 100%;

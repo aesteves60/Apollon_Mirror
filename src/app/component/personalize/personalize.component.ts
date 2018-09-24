@@ -22,7 +22,7 @@ export class PersonalizeComponent implements OnInit {
   public ItemMirror_BottomCenterLeft = [{ name: 'Vide', image: '', views_position: 'bottom_center_left' }];
   public ItemMirror_BottomCenterRight = [{ name: 'Vide', image: '', views_position: 'bottom_center_right' }];
   public ItemMirror_BottomRight = [{ name: 'Vide', image: '', views_position: 'bottom_right' }];
-  public modules = {};
+  modules = {};
   private HTTP_MIDDLRWARE = 'http://' + document.location.hostname + ':8082';
 
   constructor(private http: HttpClient, private alert$: AlertService, private module$: ModuleService, public dialog: MatDialog, private socketService: SocketService) {
@@ -31,7 +31,7 @@ export class PersonalizeComponent implements OnInit {
   ngOnInit() {
     this.get_Modules ();
     this.get_Views ();
-    this.socketService.initSocket ();
+    //this.socketService.initSocket ();
   }
 
   openDialog(module): void {

@@ -1,7 +1,8 @@
 <div  class="actualite h100" [ngClass]="[router.url === '/mirror' ? 'actualite_mirror' : 'actualite_page' ]">
 	<div *ngFor="let article of articles; let i = index">
-		<li *ngIf="i < 4" class="article article_{{i}}">
+		<li *ngIf="i < 10" class="article article_{{i}}">
       <div class="article_meta">
+        <span *ngIf="article.author" class="author">{{ article.author }}</span>
         <span class="date_parution">le {{article.publishedAt | date:'dd/MM à HH:mm'}}</span>
       </div>
       <div class="article_titre">{{ article.title }}</div>

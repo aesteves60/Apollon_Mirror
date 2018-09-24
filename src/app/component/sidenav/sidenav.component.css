@@ -3,10 +3,18 @@ mat-sidenav-content{
 }
 
 .sidenav{
-  margin-top: 20px;
+  box-shadow: 5px 0 11px rgba(0,0,0,.24);
 }
 
-a mat-icon {
-  padding-right: 5px;
-  color: #6d6d6d;
+.is-mobile .toolbar {
+  position: fixed;
+  z-index: 100;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.is-mobile .sidenav-container {
+  flex: 1 0 auto;
 }

@@ -56,7 +56,7 @@ export class MirrorComponent implements AfterContentInit, OnInit {
 
     this.socketService.onEvent(Event.MIRROR_CHANGE).subscribe(() => this.loadView());
 
-    this.getIpLocale();
+    //this.getIpLocale();
   }
 
   ngAfterContentInit() {
@@ -82,7 +82,7 @@ export class MirrorComponent implements AfterContentInit, OnInit {
     //window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;//compatibility for Firefox and chrome
     let pc = new RTCPeerConnection({iceServers:[]}), noop = function(){};
     // @ts-ignore
-    pc.createDataChannel('');//create a bogus data channel
+    // pc.createDataChannel('');//create a bogus data channel
     pc.createOffer(pc.setLocalDescription.bind(pc), noop);// create offer and set local description
     const self = this;
     pc.onicecandidate = function(ice)

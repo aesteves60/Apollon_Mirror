@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {HttpClient} from '@angular/common/http';
-import {Config} from '../../../assets/config';
+import {Config} from '../../../environments/config';
 import {Modal_Radio} from './modal-radio.component';
 import {Modal_Meteo} from './modal-meteo.component';
 import {contentModal} from "./modal.directive";
@@ -45,13 +45,9 @@ export class ModalComponent implements AfterContentInit, OnDestroy {
 
   onValid(): void {
     const option = {
-      params: {
-        'serial_number': Config.SERIAL_NUMBER,
-        'module': this.data['name'],
-        'value': this.childData
-      }
+      params: { 'value': this.childData }
     };
-    this.http.get('/API/update_conf_module', option).subscribe(res => {
+    this.http.put(`/apipollon/modules/${Config.SERIAL_NUMBER}/${this.data['name']}`, option).subscribe(res => {
       this.dialogRef.close();
       this.alert.success('Modification effectuée');
 

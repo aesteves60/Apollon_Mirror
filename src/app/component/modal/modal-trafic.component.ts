@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Config} from "../../../assets/config";
+import {Config} from "../../../environments/config";
 
 @Component({
   selector: 'modal-trafic',
@@ -64,15 +64,9 @@ export class Modal_Trafic implements OnInit {
   }
 
   loadConfig() {
-    const options = {
-      params: {
-        serial_number: Config.SERIAL_NUMBER,
-        module : 'Trafic routier'
-      }
-    };
-    this.http.get('/API/get_config', options)
+    this.http.get(`/apipollon/modules/${Config.SERIAL_NUMBER}/Trafic routier`)
       .subscribe((res) => {
-        let data = JSON.parse(res.toString());
+        let data = JSON.parse(res[0].value1.toString());
         this.selectedTravelMode = data.travelMode;
         this.origin = data.origin;
         this.destination = data.destination;

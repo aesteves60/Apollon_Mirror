@@ -4,7 +4,7 @@ import { AlertService }      from "../../service/alert/alert.service";
 import { GoogleAuthService } from "../../auth/authGoogle.service";
 import { MirrorService }     from "../../service/mirror.service";
 import { UserService }       from "../../service/user.service";
-import { Config }            from '../../../assets/config';
+import { Config }            from '../../../environments/config';
 import { User }              from "../../model/user";
 
 @Component({
@@ -20,6 +20,7 @@ export class AccountComponent implements OnInit {
   mail: string    = '';
   oldemail: string = '';
   user: User;
+  // TODO trop de requete HTTP identique ici
 
   constructor(private mirrorService: MirrorService,
               private alertService: AlertService,

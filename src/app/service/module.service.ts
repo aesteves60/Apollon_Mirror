@@ -1,6 +1,6 @@
 import {Injectable}    from '@angular/core';
 import {HttpClient}    from '@angular/common/http';
-import { Config } from '../../assets/config';
+import { Config } from '../../environments/config';
 import { Observable }  from "rxjs/Observable";
 
 
@@ -17,36 +17,24 @@ export class ModuleService {
   constructor(private http: HttpClient){}
 
   getModules(): Observable<Modules[]> {
-    return this.http.get<Modules[]>('/API/get_modules').map((res) => res);
+    return this.http.get<Modules[]>('/apipollon/modules').map((res) => res);
   }
 
   getViews(): Observable<any> {
-    const options = {
-      params: {
-        'serial_number': Config.SERIAL_NUMBER
-      }
-    };
-    return this.http.get('/API/get_views_mirror', options).map(res => res)
+    return this.http.get(`/apipollon/mirror/views/${Config.SERIAL_NUMBER}`).map(res => res)
   }
 
   ChangePosition(_views_position, _moduleId): Observable<string>{
     const options = {
-      params: {
-        'views_position': _views_position,
-        'serial_number': Config.SERIAL_NUMBER,
-        'module_id': _moduleId
-      }
+      params: { 'views_position': _views_position }
     };
-    return this.http.get('/API/change_position', options).map(() => _views_position);
+    return this.http.put(`/apipollon/positions/${Config.SERIAL_NUMBER}/${_moduleId}`, options).map(() => _views_position);
   }
 
   RemoteElement(_views_position): Observable<any>{
     const options = {
-      params: {
-        'views_position': _views_position,
-        'serial_number': Config.SERIAL_NUMBER
-      }
+      params: { 'views_position': _views_position }
     };
-    return this.http.delete('/API/remove_position', options).map((res) => res );
+    return this.http.delete(`/apipollon/positions/${Config.SERIAL_NUMBER}`, options).map((res) => res );
   }
 }

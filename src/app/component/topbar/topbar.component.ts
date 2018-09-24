@@ -14,16 +14,10 @@ import { SidenavService } from "../../service/sidenav.service";
 })
 export class TopbarComponent implements OnInit {
 
-  user: User;
 
-  constructor(private user$: UserService,
-              private sidenavService: SidenavService) {  }
+  constructor(public sidenavService: SidenavService) {  }
 
-  ngOnInit() {
-    this.user$.getUser().subscribe(user => this.user = user);
-
-    this.user = this.user$.user;
-  }
+  ngOnInit() { }
 
   openSideNav() {
     this.sidenavService.toggle();

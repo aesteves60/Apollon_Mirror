@@ -1,6 +1,6 @@
 import {Injectable}   from '@angular/core';
 import {HttpClient}   from '@angular/common/http';
-import {Config}       from '../../assets/config';
+import {Config}       from '../../environments/config';
 import { Observable } from "rxjs/Observable";
 
 
@@ -17,22 +17,16 @@ export class RadioService {
 
   constructor(private http: HttpClient) {
     this.audio = new Audio();
-    this.getRadioConfig().subscribe(res => this.audio.src = res);
+    this.getRadioConfig().subscribe(res => this.audio.src = res[0].value1);
   }
 
   getRadioConfig(): Observable<any> {
-  const options = {
-      params: {
-        serial_number: Config.SERIAL_NUMBER,
-        module: 'Radio'
-      }
-    };
-    return this.http.get<string>('/API/get_config', options)
+    return this.http.get<string>(`/apipollon/modules/${Config.SERIAL_NUMBER}/Radio`)
                     .map(res => res);
   }
 
   getRadios(): Observable<Radio[]> {
-    return this.http.get<Radio[]>('/API/get_radios')
+    return this.http.get<Radio[]>('/apipollon/radios')
                     .map((res) => res);
   }
 

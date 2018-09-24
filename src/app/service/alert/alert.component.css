@@ -6,11 +6,10 @@
   width: 20%;
   max-width: 300px;
   z-index: 1100;
-  top: 80px;
-  right: 20px;
+  bottom: 20px;
+  left: 20px;
   transition: all .5s ease;
   padding: 15px;
-  margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -25,4 +24,9 @@
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
+}
+
+.icons_close {
+  float: right;
+  cursor: pointer;
 }

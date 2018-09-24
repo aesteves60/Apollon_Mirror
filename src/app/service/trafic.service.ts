@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Config} from "../../assets/config";
+import {Config} from "../../environments/config";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()
@@ -13,16 +13,10 @@ export class TraficService {
         'serial_number': Config.SERIAL_NUMBER
       }
     };
-    return this.http.get('/API/trafic', options)
+    return this.http.get('/apipollon/trafic', options)
   }
 
   getConfig() {
-    const options = {
-      params: {
-        'serial_number': Config.SERIAL_NUMBER,
-        'module': 'Trafic routier'
-      }
-    };
-    return this.http.get('/API/get_config', options)
+    return this.http.get(`/apipollon/modules/${Config.SERIAL_NUMBER}/Trafic routier`)
   }
 }

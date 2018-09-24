@@ -29,7 +29,7 @@ export class ContactComponent implements OnInit {
         subject   : this.subject
       }
     };
-    this.http.get('/contact', options).subscribe( () => {
+    this.http.get('/apipollon/contact', options).subscribe( () => {
       this.firstname = '';
       this.lastname  = '';
       this.email     = '';

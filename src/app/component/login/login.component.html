@@ -42,7 +42,7 @@
     </tr>
     <tr>
       <td (click)="RemoveCmpt()">
-        <mat-icon class="icons">keyboard_backspace</mat-icon>
+        <mat-icon class="icons" style="cursor:pointer;">keyboard_backspace</mat-icon>
       </td>
       <td (click)="AddCmpt($event)">
         <button class="nombre" mat-raised-button color="primary">0</button>
@@ -51,5 +51,5 @@
       </td>
     </tr>
   </table>
-  <a (click)="ForgetPassword" href="#" style="padding: 10px">Mot de passe oublié</a>
+  <a (click)="ForgetPassword()" href="#" style="padding: 10px">Mot de passe oublié</a>
 </div>

@@ -1,25 +1,24 @@
 .spacer {
   flex-grow: 1;
 }
-mat-toolbar{
+
+button {
+  padding: 0;
+}
+
+.menu{
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
-.more{
-  cursor: pointer;
+
+.menu span{
+  margin: .8em;
 }
 
 .shadow{
   box-shadow: 0 5px 11px rgba(0, 0, 0, .3);
   z-index: 2;
-}
-
-.user{
-  display: flex;
-  margin: auto;
-}
-
-.user div{
-  margin: auto;
 }
 
 .select{
@@ -28,20 +27,13 @@ mat-toolbar{
   color: #FFFFFF;
 }
 
-.deploy {
-  background-color: #3f51b5;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, .3);
-  position: absolute;
-  overflow-y: auto;
-  z-index: 5;
-  top: 64px;
-  right: 0;
-}
+@media screen and (max-width: 560px) {
+  mat-toolbar {
+    padding: 0;
+  }
 
-.deploy li a {
-  width: 100%;
-}
+  .mg-left-10{
+    margin: 0;
+  }
 
-li{
-  list-style-type: none;
 }
