@@ -1,7 +1,7 @@
+
+import {of as observableOf,  Observable ,  Observer } from 'rxjs';
 import { Injectable, NgZone } from "@angular/core";
-import { Observable }         from "rxjs/Observable";
-import { Observer }           from "rxjs/Observer";
-import 'rxjs/add/observable/of';
+
 import GoogleUser = gapi.auth2.GoogleUser;
 import GoogleAuth = gapi.auth2.GoogleAuth;
 import AuthorizeConfig = gapi.auth2.AuthorizeConfig;
@@ -22,7 +22,7 @@ export class GoogleAuthService {
     if(!this.GoogleAuth) {
       return this.loadGapiAuth();
     }
-    return Observable.of(this.GoogleAuth);
+    return observableOf(this.GoogleAuth);
   }
 
   public async signIn(): Promise<void> {

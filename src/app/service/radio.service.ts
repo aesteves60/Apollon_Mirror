@@ -1,7 +1,9 @@
+
+import {map} from 'rxjs/operators';
 import {Injectable}   from '@angular/core';
 import {HttpClient}   from '@angular/common/http';
 import {Config}       from '../../environments/config';
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 
 
 export interface Radio {
@@ -21,13 +23,13 @@ export class RadioService {
   }
 
   getRadioConfig(): Observable<any> {
-    return this.http.get<string>(`/apipollon/modules/${Config.SERIAL_NUMBER}/Radio`)
-                    .map(res => res);
+    return this.http.get<string>(`/apipollon/modules/${Config.SERIAL_NUMBER}/Radio`).pipe(
+                    map(res => res));
   }
 
   getRadios(): Observable<Radio[]> {
-    return this.http.get<Radio[]>('/apipollon/radios')
-                    .map((res) => res);
+    return this.http.get<Radio[]>('/apipollon/radios').pipe(
+                    map((res) => res));
   }
 
   startPlay(): void {

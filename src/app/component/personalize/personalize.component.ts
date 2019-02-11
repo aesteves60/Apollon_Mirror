@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertService } from '../../service/alert/alert.service';
-import 'rxjs/add/operator/map';
+
 import { MatDialog } from '@angular/material';
 import { ModalComponent } from '../modal/modal.component';
 import { ModuleService } from '../../service/module.service';

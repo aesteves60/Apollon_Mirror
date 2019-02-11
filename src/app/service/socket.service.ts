@@ -1,6 +1,6 @@
 import { Injectable }  from '@angular/core';
 import * as io         from 'socket.io-client';
-import { Observable }  from "rxjs/Observable";
+import { Observable }  from "rxjs";
 import { Event }       from '../model/event';
 import { Config }      from "../../environments/config";
 import { Router }      from "@angular/router";

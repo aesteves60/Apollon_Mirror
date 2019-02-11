@@ -1,9 +1,11 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable }    from '@angular/core';
 import { Router }        from '@angular/router';
 import * as shajs        from 'sha.js';
 import { HttpClient }    from "@angular/common/http";
 import { Config }        from '../../environments/config';
-import { Observable }    from "rxjs/Observable";
+import { Observable }    from "rxjs";
 
 @Injectable()
 export class LoginService {
@@ -15,7 +17,7 @@ export class LoginService {
   }
 
   login(password: string, token: string): Observable<boolean> {
-    return this.getAuthentification(password).map(res => {
+    return this.getAuthentification(password).pipe(map(res => {
       if (token && res === true) {
         // set token property
         this.token = token;
@@ -27,7 +29,7 @@ export class LoginService {
       } else {
         return false;
       }
-    });
+    }));
   }
 
   getAuthentification(password: string): Observable<any> {
