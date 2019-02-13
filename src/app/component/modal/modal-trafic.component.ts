@@ -1,10 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Config} from "../../../environments/config";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'modal-trafic',
-  template: `
+    selector: 'app-modal-trafic',
+    template: `
     <div><h4>Selectionner les paramètre du trafic routier : </h4>
       <div class="w100">
         <mat-icon id="DRIVING"
@@ -42,50 +42,47 @@ import {Config} from "../../../environments/config";
     </div>
   `
 })
-export class Modal_Trafic implements OnInit {
+export class ModalTraficComponent implements OnInit {
 
-  @Output() output = new EventEmitter();
-  private selectedTravelMode: string;
-  private origin: string = '';
-  private destination: string = '';
-  private zoom: number = 0;
-  private array =  Array.from(Array(21).keys());
+    @Output() output = new EventEmitter();
+    private selectedTravelMode: string;
+    private origin = '';
+    private destination = '';
+    private zoom = 0;
+    private array = Array.from(Array(21).keys());
 
-  constructor(private http: HttpClient) {
-   // this.selectedTrafic = {id: 1, name: 'Skyrock', src: 'http://www.skyrock.fm/stream.php/tunein16_128mp3.mp3'}
-  }
+    constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-    this.loadConfig()
-  }
-
-  onSelectedTravelMode(e) {
-    this.selectedTravelMode = e.target.id;
-  }
-
-  loadConfig() {
-    this.http.get(`/apipollon/modules/${Config.SERIAL_NUMBER}/Trafic routier`)
-      .subscribe((res) => {
-        let data = JSON.parse(res[0].value1.toString());
-        this.selectedTravelMode = data.travelMode;
-        this.origin = data.origin;
-        this.destination = data.destination;
-        this.zoom = data.zoom;
-        this.output.next(res);
-
-      });
-  }
-
-  keyUpVille() {
-    if(this.origin !== '' && this.destination !== '') {
-      const value =  {
-        origin : this.origin,
-        destination: this.destination,
-        travel_mode: this.selectedTravelMode,
-        zoom: 17
-      };
-      this.output.next(JSON.stringify(value));
+    ngOnInit() {
+        this.loadConfig();
     }
-  }
+
+    onSelectedTravelMode(e) {
+        this.selectedTravelMode = e.target.id;
+    }
+
+    loadConfig() {
+        this.http.get(`/modules/${environment.serialNumber}/Trafic routier`)
+            .subscribe((res) => {
+                const data = JSON.parse(res[0].value1.toString());
+                this.selectedTravelMode = data.travelMode;
+                this.origin = data.origin;
+                this.destination = data.destination;
+                this.zoom = data.zoom;
+                this.output.next(res);
+            });
+    }
+
+    keyUpVille() {
+        if (this.origin !== '' && this.destination !== '') {
+            const value = {
+                origin: this.origin,
+                destination: this.destination,
+                travel_mode: this.selectedTravelMode,
+                zoom: 17
+            };
+            this.output.next(JSON.stringify(value));
+        }
+    }
 
 }

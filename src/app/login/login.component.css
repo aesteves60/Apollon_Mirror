@@ -1,0 +1,61 @@
+
+/* Add padding to containers */
+.container_login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../../assets/img/Magnifique_fond_ecran_HD_-_Hiver.jpg");
+  background-repeat:no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.element
+{
+  padding: 10px;
+}
+
+td{
+  padding: 5px;
+}
+
+.nombre {
+  white-space:nowrap;
+  border-radius: 50px;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transition:0.1s all ease;
+  font-size : 20px;
+}
+
+.cercle{
+  background-color: #FFFFFF;
+  border: 2px solid #3f51b5;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.cercle_rempli{
+  background-color: #3f51b5;
+  border: solid #3f51b5;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.icons {
+  color: #3f51b5;
+  font-size: 36px;
+  margin: auto;
+}
+
+.icons:hover {
+  color: #3f51b5;
+}

@@ -1,0 +1,62 @@
+<mat-sidenav-container class="h100 w100 sidenav-container">
+
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+        role="navigation" fixedTopGap="0" disableClose opened="false" class="sidenav">
+
+        <mat-toolbar color="primary">
+            <mat-icon *ngIf="mobileQuery.matches" style="padding-right: 5px" (click)="closeSidenav()">keyboard_backspace
+            </mat-icon>
+            Menu
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <div *ngIf="user?.email !== null && user?.email !== 'null'">
+                <mat-list-item>
+                    <img [src]="user.imageUrl" matListAvatar>
+                    <span> {{ user.fullname}} </span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </div>
+
+
+            <mat-list-item routerLink="/mirror" (click)="closeSidenav()">
+                <img src="../assets/img/Logo.png" style="height: 40px; width: 40px">
+                &nbsp;&nbsp;&nbsp;Mirroir
+            </mat-list-item>
+            <mat-list-item routerLink="/personalize" (click)="closeSidenav()">
+                <mat-icon>dashboard</mat-icon>
+                Personnaliser
+            </mat-list-item>
+            <mat-list-item routerLink="/account" (click)="closeSidenav()">
+                <mat-icon>account_box</mat-icon>
+                Mon compte
+            </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item routerLink="/apropos" (click)="closeSidenav()">
+                <mat-icon>info</mat-icon>
+                A propos
+            </mat-list-item>
+            <mat-list-item routerLink="/contacter" (click)="closeSidenav()">
+                <mat-icon>contact_mail</mat-icon>
+                Nous contacter
+            </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item (click)="logout(); show = false" (click)="closeSidenav()">
+                <mat-icon>exit_to_app</mat-icon>
+                Déconnexion
+            </mat-list-item>
+        </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+        <div class="toolbar"
+            *ngIf="location === '/personalize' || location === '/account' || location === '/apropos' || location === '/contacter'">
+            <app-topbar></app-topbar>
+        </div>
+        <!--The content below is only a placeholder and can be replaced.-->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
